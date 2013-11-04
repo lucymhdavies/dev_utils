@@ -4,3 +4,5 @@ alias vi=vim
 
 alias vibash="vi ~/.bashrc"
 alias vialiases="vi ~/.bash_aliases"
+
+export EDITOR=vim
