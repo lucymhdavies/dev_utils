@@ -1,5 +1,3 @@
 dev_utils
 =========
-coming soon...
-
-Probably.
+environment setup, useful aliases and functions
