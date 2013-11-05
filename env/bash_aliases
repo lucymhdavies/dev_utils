@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo Sourcing $BASH_SOURCE
+
 alias realias="source ~/.bash_aliases"
 
 alias vi=vim
