@@ -2,17 +2,112 @@
 
 echo Sourcing $BASH_SOURCE
 
+# bash stuff
 alias realias="source ~/.bash_aliases"
+function analyse_bashrc {
+	grep --color=yes -n $1 ~/.bash* | grep -v ".bash_history"
+}
 
+# vim stuff
 alias vi=vim
-
+export EDITOR=vim
 alias vibash="vi ~/.bashrc"
 alias vialiases="vi ~/.bash_aliases"
-
-export EDITOR=vim
-
+# because when you use vim a lot, you expect :q to be quit
+alias :q="exit"
+alias :Q="exit"
+alias :wq="exit"
 
 # git aliases
 alias gdiff="git diff"
 alias gpush="git push"
 alias gpull="git pull"
+
+alias hgrep="history | grep"
+
+alias grin="grep -rin --color=auto"
+function g { 
+	rin "$@" .
+}
+
+
+# disk usage
+alias dush="du -sh"
+alias dusort="du -h | sort -h"
+alias duh="du --max-depth=1 -h"
+
+
+# archive/unarchive
+function archivedir {
+	=`echo $1 | sed -e 's#/$##'`
+
+	ar -zcvf $d.tar.gz $d
+	u -sh $d
+	u -sh $d.tar.gz
+
+	cho "Delete $d?" ; read
+	cho "Deleting"
+	m -rf $d
+}
+alias ad="archivedir"
+
+function unarchivedir {
+	ar -zxvf $1
+
+	cho "Delete $1?" ; read
+	cho "Deleting"
+	m $1
+}
+alias uad="unarchivedir"
+
+
+alias quota="quota -s"
+alias grep="grep --color=auto"
+
+
+
+# toggle variable between 0 and 1
+var_toggle()
+{
+    eval "_VAR_TOGGLE=\$$1"
+    [ ${_VAR_TOGGLE:-0} = ${3:-0} ] &&
+                 _VAR_TOGGLE=${2:-1} ||
+              _VAR_TOGGLE=${3:-0}
+    eval "$1=\$_VAR_TOGGLE"
+}
+
+
+# be case insensitive when you tab complete
+bind "set completion-ignore-case on"
+ignore_case=1
+function toggle_ignore_case()
+{
+	var_toggle ignore_case
+
+	if [ "$ignore_case" == "0" ]; then
+		echo "Turning off ignore case"
+		bind "set completion-ignore-case off"
+	else
+		echo "Turning on ignore case"
+	bind "set completion-ignore-case on"
+	fi
+}
+
+
+alias mkdir="mkdir -p"
+function mkcd {
+    mkdir -p $1
+    cd $1
+}
+
+
+alias untar_tar.bz2="tar -xjf"
+alias untar_tgz="tar -xf"
+alias unjar="jar xf"
+
+
+alias myip="curl -s icanhazip.com"
+
+
+alias apt-get="sudo apt-get"
+alias agi="sudo apt-get install"
