@@ -12,17 +12,18 @@ function analyse_bashrc {
 alias vi=vim
 export EDITOR=vim
 alias vibash="vi ~/.bashrc"
-alias vialiases="vi ~/.bash_aliases"
+alias vialiases="vi ~/.bash_aliases; realias"
 # because when you use vim a lot, you expect :q to be quit
 alias :q="exit"
 alias :Q="exit"
 alias :wq="exit"
 
 # git aliases
-alias gdiff="git diff"
+alias gdiff="git diff --color"
 alias gpush="git push"
 alias gpull="git pull"
 alias gcom="git commit"
+alias gadd="git add"
 
 alias hgrep="history | grep"
 
