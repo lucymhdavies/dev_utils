@@ -22,3 +22,7 @@ nnoremap <F10> gt
 hi TabLineFill ctermfg=Blue  ctermbg=White
 hi TabLineSel  ctermfg=White ctermbg=Red
 hi TabLine     ctermfg=White ctermbg=Blue
+
+" Tabs are 4 spaces
+set tabstop=4
+set shiftwidth=4

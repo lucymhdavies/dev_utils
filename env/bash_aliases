@@ -73,6 +73,7 @@ alias quota="quota -s"
 alias grep="grep --color=auto"
 
 
+alias ls="ls --color=auto"
 alias ll="ls -lh"
 
 
