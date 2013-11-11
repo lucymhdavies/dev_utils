@@ -72,7 +72,7 @@ alias quota="quota -s"
 alias grep="grep --color=auto"
 
 
-alias ll="ls -l"
+alias ll="ls -lh"
 
 
 # toggle variable between 0 and 1
