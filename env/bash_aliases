@@ -27,6 +27,7 @@ alias gpush="git push"
 alias gpull="git pull"
 alias gcom="git commit"
 alias gadd="git add"
+alias gstatus="git status"
 
 alias hgrep="history | grep"
 alias c="clear"
