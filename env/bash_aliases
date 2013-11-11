@@ -9,7 +9,7 @@ function analyse_bashrc {
 }
 
 # vim stuff
-alias vi=vim
+alias vi="vim -p"
 export EDITOR=vim
 alias vibash="vi ~/.bashrc"
 alias vialiases="vi ~/.bash_aliases; realias"
@@ -26,6 +26,7 @@ alias gcom="git commit"
 alias gadd="git add"
 
 alias hgrep="history | grep"
+alias c="clear"
 
 alias grin="grep -rin --color=auto"
 function g { 

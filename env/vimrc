@@ -10,3 +10,15 @@ set mouse=a
 
 " Display line numbers on the left
 set number
+
+" Show tab-bar always
+set showtabline=2
+
+" Tab navigation
+nnoremap <F9>  gT
+nnoremap <F10> gt
+
+" Tab colors
+hi TabLineFill ctermfg=Blue  ctermbg=White
+hi TabLineSel  ctermfg=White ctermbg=Red
+hi TabLine     ctermfg=White ctermbg=Blue
