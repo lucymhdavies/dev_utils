@@ -2,6 +2,9 @@
 
 echo Sourcing $BASH_SOURCE
 
+# git init
+alias ssh_init="eval \`ssh-agent -s\` ; ssh-add ~/.ssh/lucy.lucymhdavies.com"
+
 # bash stuff
 alias realias="source ~/.bash_aliases"
 function analyse_bashrc {
