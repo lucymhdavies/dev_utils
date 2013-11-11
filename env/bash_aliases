@@ -31,6 +31,7 @@ alias gstatus="git status"
 
 alias hgrep="history | grep"
 alias c="clear"
+alias df="df -h"
 
 alias grin="grep -rin --color=auto"
 function g { 
