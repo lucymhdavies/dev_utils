@@ -43,7 +43,7 @@ function g {
 alias dush="du -sh"
 alias dusort="du -h | sort -h"
 alias duh="du --max-depth=1 -h"
-alias fileshere="find"
+alias fileshere="find | wc -l"
 
 
 # archive/unarchive
