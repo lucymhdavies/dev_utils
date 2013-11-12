@@ -35,7 +35,7 @@ alias df="df -h"
 
 alias grin="grep -rin --color=auto"
 function g { 
-	rin "$@" .
+	grin "$@" .
 }
 
 
@@ -89,7 +89,7 @@ var_toggle()
 
 
 # be case insensitive when you tab complete
-bind "set completion-ignore-case on"
+#bind "set completion-ignore-case on"
 ignore_case=1
 function toggle_ignore_case()
 {
