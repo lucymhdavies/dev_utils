@@ -2,13 +2,21 @@
 bindkey -k F1 prev
 bindkey -k F2 next
 
+bindkey "^[[1;5D" focus up
+bindkey "^[[1;5A" focus up
+bindkey "^[[1;5C" focus down
+bindkey "^[[1;5B" focus down
+
+
 # Startup message is annoying
 startup_message off
 
 # Misc h4x to make scrollback work
 terminfo * te@:ti@
 termcapinfo xterm|xterms|xs|rxvt ti=\E7\E[?47l
-defscrollback 1024
+
+# turn off scrollback to save memory
+defscrollback 0
 
 # Bells are annoying
 bell_msg ''
