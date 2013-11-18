@@ -123,3 +123,11 @@ alias myip="curl -s icanhazip.com"
 
 alias apt-get="sudo apt-get"
 alias agi="sudo apt-get install"
+
+
+# GNU Screen Stuff
+alias screenlist="screen -list"
+alias lsc="screenlist"
+alias rescreen="screen -x"
+alias resc="rescreen"
+
