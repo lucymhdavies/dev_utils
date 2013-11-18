@@ -26,3 +26,22 @@ hi TabLine     ctermfg=White ctermbg=Blue
 " Tabs are 4 spaces
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
+
+" display hidden chars
+set list listchars=tab:.\ ,trail:$
+
+
+"test highlighting with a long line
+"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+"highlight cols past 80
+if exists('+colorcolumn')
+	execute "set colorcolumn=" . join(range(81,335), ',')
+	highlight ColorColumn ctermbg=0
+else
+	highlight OverLength ctermbg=0
+	match OverLength /\%81v.*/
+endif
+
+
