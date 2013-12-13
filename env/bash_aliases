@@ -13,6 +13,7 @@ function analyse_bashrc {
 
 # vim stuff
 alias vi="vim -p"
+alias view="vi -R"
 export EDITOR=vim
 alias vibash="vi ~/.bashrc"
 alias vialiases="vi ~/.bash_aliases; realias"
@@ -29,9 +30,11 @@ alias gcom="git commit"
 alias gadd="git add"
 alias gstatus="git status"
 
+alias copy="rsync -r -v -h --progress"
 alias hgrep="history | grep"
 alias c="clear"
 alias df="df -h"
+alias color_less="less -r"
 
 alias grin="grep -rin --color=auto"
 function g { 
@@ -44,6 +47,7 @@ alias dush="du -sh"
 alias dusort="du -h | sort -h"
 alias duh="du --max-depth=1 -h"
 alias fileshere="find | wc -l"
+alias how_many_files="find | wc -l"
 
 
 # archive/unarchive
