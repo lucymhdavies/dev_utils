@@ -30,7 +30,7 @@ alias gcom="git commit"
 alias gadd="git add"
 alias gstatus="git status"
 
-alias copy="rsync -r -v -h --progress"
+alias copy="rsync -z -r -v -h --progress"
 alias hgrep="history | grep"
 alias c="clear"
 alias df="df -h"
