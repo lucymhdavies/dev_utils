@@ -136,4 +136,6 @@ alias screenlist="screen -list"
 alias lsc="screenlist"
 alias rescreen="screen -x"
 alias resc="rescreen"
-
+function kill_screen {
+	screen -S $1 -p 0 -X quit
+}
