@@ -16,7 +16,7 @@ terminfo * te@:ti@
 termcapinfo xterm|xterms|xs|rxvt ti=\E7\E[?47l
 
 # turn off scrollback to save memory
-defscrollback 0
+# defscrollback 0
 
 # Bells are annoying
 bell_msg ''

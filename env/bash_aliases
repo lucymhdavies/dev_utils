@@ -139,3 +139,10 @@ alias resc="rescreen"
 function kill_screen {
 	screen -S $1 -p 0 -X quit
 }
+
+
+alias add_tab_start="sed 's/^/\t/g'"
+
+
+alias edot="echo -n ."
+alias eline40="echo =============================="
