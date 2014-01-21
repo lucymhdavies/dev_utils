@@ -36,7 +36,7 @@ alias c="clear"
 alias df="df -h"
 alias color_less="less -r"
 
-alias grin="grep -rin --color=auto"
+alias grin="grep -rin --color=yes"
 function g { 
 	grin "$@" .
 }
