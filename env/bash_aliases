@@ -149,4 +149,4 @@ alias eline40="echo =============================="
 
 
 # preappend timestamp to start of line
-alias timestamp_line="awk '{ print strftime(\"%Y-%m-%d %H:%M:%S\"), $0; fflush(); }'"
+alias timestamp_line="awk '{ print strftime(\"%Y-%m-%d %H:%M:%S\"), \$0; fflush(); }'"
