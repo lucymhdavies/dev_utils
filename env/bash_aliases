@@ -52,24 +52,24 @@ alias how_many_files="find | wc -l"
 
 # archive/unarchive
 function archivedir {
-	=`echo $1 | sed -e 's#/$##'`
+	d=`echo $1 | sed -e 's#/$##'`
 
-	ar -zcvf $d.tar.gz $d
-	u -sh $d
-	u -sh $d.tar.gz
+	tar -zcvf $d.tar.gz $d
+	du -sh $d
+	du -sh $d.tar.gz
 
-	cho "Delete $d?" ; read
-	cho "Deleting"
-	m -rf $d
+	echo "Delete $d?" ; read
+	echo "Deleting"
+	rm -rf $d
 }
 alias ad="archivedir"
 
 function unarchivedir {
-	ar -zxvf $1
+	tar -zxvf $1
 
-	cho "Delete $1?" ; read
-	cho "Deleting"
-	m $1
+	echo "Delete $1?" ; read
+	echo "Deleting"
+	rm $1
 }
 alias uad="unarchivedir"
 
@@ -149,4 +149,5 @@ alias eline40="echo =============================="
 
 
 # preappend timestamp to start of line
-alias timestamp_line="awk '{ print strftime(\"%Y-%m-%d %H:%M:%S\"), \$0; fflush(); }'"
+alias timestamp_line="awk '{ print strftime(\"%Y-%m-%d %H:%M:%S\t\"), \$0; fflush(); }'"
+alias tsl=timestamp_line
