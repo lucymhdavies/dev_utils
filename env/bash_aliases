@@ -40,6 +40,7 @@ alias grin="grep -rin --color=yes"
 function g { 
 	grin "$@" .
 }
+alias gc="g --color=yes"
 
 
 # disk usage
