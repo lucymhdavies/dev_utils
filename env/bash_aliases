@@ -1,5 +1,7 @@
 #!/bin/bash
 
+is_osx=`uname | grep -i darwin | wc -l`
+
 echo Sourcing $BASH_SOURCE
 
 # git init
@@ -79,7 +81,11 @@ alias quota="quota -s"
 alias grep="grep --color=auto"
 
 
-alias ls="ls --color=auto"
+if [ $is_osx -eq 0 ] ; then
+	alias ls="ls --color=auto"
+else
+	alias ls="ls -G"
+fi
 alias ll="ls -lh"
 
 
@@ -128,9 +134,10 @@ alias unjar="jar xf"
 alias myip="curl -s icanhazip.com"
 
 
-alias apt-get="sudo apt-get"
-alias agi="sudo apt-get install"
-
+if [ $is_osx -eq 0 ] ; then
+	alias apt-get="sudo apt-get"
+	alias agi="sudo apt-get install"
+fi
 
 # GNU Screen Stuff
 alias screenlist="screen -list"
