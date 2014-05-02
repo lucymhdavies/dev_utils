@@ -159,3 +159,9 @@ alias eline40="echo =============================="
 # preappend timestamp to start of line
 alias timestamp_line="awk '{ print strftime(\"%Y-%m-%d %H:%M:%S\t\"), \$0; fflush(); }'"
 alias tsl=timestamp_line
+
+
+# push ssh key to server
+function push-key {
+	ssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys"
+}
