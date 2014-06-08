@@ -119,8 +119,8 @@ function toggle_ignore_case()
 
 alias mkdir="mkdir -p"
 function mkcd {
-    mkdir -p $1
-    cd $1
+    mkdir -p "$1"
+    cd "$1"
 }
 
 
