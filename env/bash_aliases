@@ -126,6 +126,7 @@ function mkcd {
 
 alias untar_tar.bz2="tar -xjf"
 alias tar_tar.bz2="tar -cjf"
+alias untar_tar.gz="tar -xf"
 alias untar_tgz="tar -xf"
 alias tar_tgz="tar -cf"
 alias unjar="jar xf"
