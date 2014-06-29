@@ -163,6 +163,11 @@ alias tsl=timestamp_line
 
 
 # push ssh key to server
+# TODO: specify which key to push
 function push-key {
 	ssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys"
 }
+
+if [ $is_osx -eq 1 ] ; then
+	alias app='open -a' # usage: 'app itunes' will open itunes, mac only
+fi
