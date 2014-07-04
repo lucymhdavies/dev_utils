@@ -120,13 +120,14 @@ function toggle_ignore_case()
 
 alias mkdir="mkdir -p"
 function mkcd {
-    mkdir -p $1
-    cd $1
+    mkdir -p "$1"
+    cd "$1"
 }
 
 
 alias untar_tar.bz2="tar -xjf"
 alias tar_tar.bz2="tar -cjf"
+alias untar_tar.gz="tar -xf"
 alias untar_tgz="tar -xf"
 alias tar_tgz="tar -cf"
 alias unjar="jar xf"
@@ -163,6 +164,28 @@ alias tsl=timestamp_line
 
 
 # push ssh key to server
+# TODO: specify which key to push
 function push-key {
 	ssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys"
 }
+
+# Some more OS X specific stuff
+if [ $is_osx -eq 1 ] ; then
+	alias app='open -a' # usage: 'app itunes' will open itunes, mac only
+
+	# QuickLook from the command line
+	# Display files in Quick Look
+	function ql () {
+		(qlmanage -p "$@" > /dev/null 2>&1 &
+		local ql_pid=$!
+		read -sn 1
+		kill ${ql_pid}) > /dev/null 2>&1
+	}
+	# Display any filetype as plain text
+	function qlt () {
+		(qlmanage -p -c public.plain-text "$@" > /dev/null 2>&1 &
+		local ql_pid=$!
+		read -sn 1
+		kill ${ql_pid}) > /dev/null 2>&1
+	}
+fi
