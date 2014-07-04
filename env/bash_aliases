@@ -43,6 +43,7 @@ function g {
 	grin "$@" .
 }
 alias gc="g --color=yes"
+alias gl="g -l"
 
 
 # disk usage
