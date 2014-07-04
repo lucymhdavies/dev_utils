@@ -44,6 +44,9 @@ function g {
 }
 alias gc="g --color=yes"
 alias gl="g -l --color=no"
+function vigl {
+	vi `gl "$@"`
+}
 
 
 # disk usage
