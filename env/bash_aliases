@@ -27,10 +27,11 @@ alias :wq="exit"
 # git aliases
 alias gdiff="git diff --color"
 alias gpush="git push"
-alias gpull="git pull"
+alias gfetch="git fetch --all"
 alias gcom="git commit"
 alias gadd="git add"
 alias gstatus="git status"
+alias gbranch="git branch -avv"
 
 alias copy="rsync -z -r -v -h --progress"
 alias hgrep="history | grep"
