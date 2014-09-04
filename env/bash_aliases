@@ -193,3 +193,7 @@ if [ $is_osx -eq 1 ] ; then
 		kill ${ql_pid}) > /dev/null 2>&1
 	}
 fi
+
+
+
+alias simple_terminal="PS1='\n$ '"
