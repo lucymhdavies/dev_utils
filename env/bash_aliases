@@ -32,6 +32,7 @@ alias gcom="git commit"
 alias gadd="git add"
 alias gstatus="git status"
 alias gbranch="git branch -avv"
+alias gpom="git push origin master"
 
 alias copy="rsync -z -r -v -h --progress"
 alias hgrep="history | grep"
