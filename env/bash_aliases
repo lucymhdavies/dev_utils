@@ -198,3 +198,9 @@ fi
 
 
 alias simple_terminal="PS1='\n$ '"
+
+
+# fun things
+myname=`finger | grep \`whoami\` | cut -d " " -f3`
+alias splash='echo "$myname used Splash! But nothing happened!"'
+alias voodoo-witchcraft='echo "$myname used Voodoo Witchcraft! But nothing happened!"'
