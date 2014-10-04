@@ -32,6 +32,7 @@ alias gcom="git commit"
 alias gadd="git add"
 alias gstatus="git status"
 alias gbranch="git branch -avv"
+alias gpom="git push origin master"
 
 alias copy="rsync -z -r -v -h --progress"
 alias hgrep="history | grep"
@@ -199,3 +200,12 @@ fi
 # because all my environments are set up like this, I can do..
 alias cdgit="cd ~/git_src" # a weird naming habit I picked up from OpenBet
 alias vigit="vi ~/git_src/dev_utils/env/bash_aliases && source ~/git_src/dev_utils/env/bash_aliases"
+
+# Useful for copypasting from the terminal, without all the fluff
+alias simple_terminal="PS1='\n$ '"
+
+
+# fun things
+myname=`finger | grep \`whoami\` | cut -d " " -f3`
+alias splash='echo "$myname used Splash! But nothing happened!"'
+alias voodoo-witchcraft='echo "$myname used Voodoo Witchcraft! But nothing happened!"'
