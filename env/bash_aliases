@@ -193,3 +193,9 @@ if [ $is_osx -eq 1 ] ; then
 		kill ${ql_pid}) > /dev/null 2>&1
 	}
 fi
+
+
+
+# because all my environments are set up like this, I can do..
+alias cdgit="cd ~/git_src" # a weird naming habit I picked up from OpenBet
+alias vigit="vi ~/git_src/dev_utils/env/bash_aliases && source ~/git_src/dev_utils/env/bash_aliases"
