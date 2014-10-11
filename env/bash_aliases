@@ -2,8 +2,6 @@
 
 is_osx=`uname | grep -i darwin | wc -l`
 
-echo Sourcing $BASH_SOURCE
-
 # git init
 alias ssh_init="eval \`ssh-agent -s\` ; ssh-add ~/.ssh/lucy.lucymhdavies.com"
 
