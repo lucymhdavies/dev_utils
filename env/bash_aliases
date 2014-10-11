@@ -205,9 +205,9 @@ alias simple_terminal="PS1='\n$ '"
 
 # fun things
 if [ $is_osx -eq 0 ] ; then
-	myname=`finger | grep \`whoami\` | cut -d " " -f3`
+	myname=`finger | grep \`whoami\` | head -n1 | cut -d " " -f3`
 else
-	myname=`finger | grep \`whoami\` | cut -d " " -f6`
+	myname=`finger | grep \`whoami\` | head -n1 | cut -d " " -f6`
 fi
 alias splash='echo "$myname used Splash! But nothing happened!"'
 alias voodoo-witchcraft='echo "$myname used Voodoo Witchcraft! But nothing happened!"'
