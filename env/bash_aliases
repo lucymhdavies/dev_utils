@@ -212,3 +212,7 @@ else
 fi
 alias splash='echo "$myname used Splash! But nothing happened!"'
 alias voodoo-witchcraft='echo "$myname used Voodoo Witchcraft! But nothing happened!"'
+
+
+# rlwrap is useful
+alias tclsh="rlwrap tclsh"
