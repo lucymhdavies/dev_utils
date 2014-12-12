@@ -216,3 +216,17 @@ alias voodoo-witchcraft='echo "$myname used Voodoo Witchcraft! But nothing happe
 
 # rlwrap is useful
 alias tclsh="rlwrap tclsh"
+
+
+# diff commits from two different branches
+function gbmeld {
+	branch_file=/tmp/gbmeld_branch
+	master_file=/tmp/gbmeld_masterlog
+
+	git log master > $master_file
+	git log $1     > $branch_file
+
+	meld $branch_file $master_file
+
+	rm $branch_file $master_file
+}
