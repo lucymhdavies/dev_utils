@@ -43,5 +43,3 @@ hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %Y-%m-%d %c"
 # Disable some annoying keys that I keep hitting
 bind H # no screenlog
 bind h # no hardcopy
-
-mousetrack
