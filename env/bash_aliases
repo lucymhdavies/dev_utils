@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Dependencies:
+# Homebrew
+#	brew install coreutils
+
+
 is_osx=`uname | grep -i darwin | wc -l`
 
 # git init
@@ -52,8 +57,13 @@ function vigl {
 
 # disk usage
 alias dush="du -sh"
-alias dusort="du --max-depth=1 -h | sort -h"
-alias duh="du --max-depth=1 -h"
+if [ $is_osx -eq 0 ] ; then
+	alias dusort="du --max-depth=1 -h | sort -h"
+	alias duh="du --max-depth=1 -h"
+else
+	alias dusort="du -d 1 -h | gsort -h"
+	alias duh="du -d 1 -h"
+fi
 alias fileshere="find | wc -l"
 alias how_many_files="find | wc -l"
 
