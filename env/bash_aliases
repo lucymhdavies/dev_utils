@@ -37,6 +37,7 @@ alias gadd="git add"
 alias gstatus="git status"
 alias gbranch="git branch -avv"
 alias gpom="git push origin master"
+alias gpushthis="git push origin \`git rev-parse --abbrev-ref HEAD\`"
 alias gdiagram="git log --graph --color --decorate --oneline --all"
 
 alias copy="rsync -z -r -v -h --progress"
