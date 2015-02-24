@@ -243,3 +243,6 @@ function gbmeld {
 
 	rm $branch_file $master_file
 }
+
+
+alias ..="cd .."
