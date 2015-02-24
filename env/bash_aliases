@@ -39,6 +39,7 @@ alias gbranch="git branch -avv"
 alias gpom="git push origin master"
 alias gpushthis="git push origin \`git rev-parse --abbrev-ref HEAD\`"
 alias gdiagram="git log --graph --color --decorate --oneline --all"
+alias gadint="git add --interactive"
 
 alias copy="rsync -z -r -v -h --progress"
 alias hgrep="history | grep"
