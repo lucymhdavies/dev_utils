@@ -247,3 +247,17 @@ function gbmeld {
 
 
 alias ..="cd .."
+
+
+
+function cvs-clean {
+	echo "=============================="
+	echo "CVS Clean"
+	echo "=============================="
+	echo "Files to delete:"
+	find . -name ".#*" | add_tab_start
+
+	echo "Press enter to delete..." ; read
+
+	find . -name ".#*" | xargs rm
+}
