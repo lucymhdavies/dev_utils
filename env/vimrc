@@ -46,3 +46,5 @@ else
 endif
 
 
+" associate *.pom with xml filetype
+au BufRead,BufNewFile *.pom set filetype=xml
