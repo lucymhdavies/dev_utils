@@ -41,6 +41,7 @@ alias gpushthis="git push origin \`git rev-parse --abbrev-ref HEAD\`"
 alias gdiagram="git log --graph --color --decorate --oneline --all"
 
 alias copy="rsync -z -r -v -h --progress"
+alias move="rsync -z -r -v -h --progress --remove-source-files"
 alias hgrep="history | grep"
 alias c="clear"
 alias df="df -h"
@@ -242,3 +243,7 @@ function gbmeld {
 
 	rm $branch_file $master_file
 }
+
+
+# Dependency: git clone https://github.com/sivel/speedtest-cli.git
+alias speedtest="python ~/git_src/speedtest-cli/speedtest_cli.py --share"
