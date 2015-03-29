@@ -24,9 +24,9 @@ s0_exclude_match = type=Desktop
 [winrules]
 s0_skiptaskbar_match = 
 s0_skippager_match = 
-s0_above_match = (class=Ccsm) | (class=Toggl-desktop)  | (class=Zenity)  | class=Procexp.py  | class=Gnome-screenshot  | (class=Wallch) | class=xpad | class=Gnome-control-center | class=Sesame_x64  | (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | class=TogglDesktop
+s0_above_match = (class=Ccsm) | (class=Toggl-desktop)  | (class=Zenity)  | class=Procexp.py  | class=Gnome-screenshot  | (class=Wallch) | class=xpad | class=Gnome-control-center | class=Sesame_x64 | class=TogglDesktop | class=Autokey-qt
 s0_below_match = 
-s0_sticky_match = (class=Ccsm) | class=Toggl-desktop | (class=Zenity & title=Pick a screensaver)  | (class=Wallch) | (class=xpad)  | (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | class=TogglDesktop
+s0_sticky_match = (class=Ccsm) | class=Toggl-desktop | (class=Zenity & title=Pick a screensaver)  | (class=Wallch) | (class=xpad) | class=TogglDesktop
 s0_fullscreen_match = 
 s0_maximize_match = 
 s0_no_argb_match = 
@@ -36,7 +36,7 @@ s0_no_minimize_match =
 s0_no_maximize_match = 
 s0_no_close_match = 
 s0_no_focus_match = 
-s0_size_matches = (class=Pidgin) & role=buddy_list;(class=Pidgin) & role=conversation;(class=Pidgin) & role=conversation;(class=Skype) & !(role=ConversationsWindow)  & title=lucy.davies.openbet - Skype™;(class=Skype) & role=ConversationsWindow;
+s0_size_matches = (class=Pidgin) & role=buddy_list;(class=Pidgin) & role=conversation;(class=Skype) & !(role=ConversationsWindow)  & title=lucy.davies.openbet - Skype™;(class=Skype) & role=ConversationsWindow;
 s0_size_width_values = 280;1310;280;1310;
 s0_size_height_values = 1030;515;1030;515;
 
@@ -218,7 +218,7 @@ s0_inactive_shadow_x_offset = 1
 s0_inactive_shadow_y_offset = 1
 s0_command = /usr/bin/compiz-decorator
 s0_mipmap = false
-s0_decoration_match = (any) & !(class=Pidgin)  & !(class=Toggl-desktop)  & !(class=Firefox)  & !(class=Skype) & !(class=xpad)   & ! (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | !(class=Gnome-terminal) | !(class=TogglDesktop)
+s0_decoration_match = (any) & !(class=Pidgin)  & !(class=Toggl-desktop)  & !(class=Firefox)  & !(class=Skype) & !(class=xpad)   & ! (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | !(class=Gnome-terminal) | !(class=TogglDesktop)(class=Toggl-desktop | (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | class=TogglDesktop) | (title=Work | Trello & class=Google-chrome-stable)
 s0_shadow_match = any
 
 [place]
@@ -741,11 +741,11 @@ s0_fire_mystical = false
 s0_bg_brightness = 50
 
 [snap]
-s0_avoid_snap = 
-s0_snap_type = 
-s0_edges_categories = 
+s0_avoid_snap = 0;
+s0_snap_type = 0;
+s0_edges_categories = 0;1;
 s0_resistance_distance = 30
-s0_attraction_distance = 20
+s0_attraction_distance = 60
 
 [ezoom]
 s0_zoom_in_button = Disabled
@@ -1020,7 +1020,7 @@ s0_command6 = xpad -t
 s0_command7 = /home/ldavies/bin/kanban
 s0_command8 = gnome-terminal -e "ssh -X dev03"
 s0_command9 = /home/ldavies/bin/jenkins_smoke_test
-s0_command10 = 
+s0_command10 = /home/ldavies/bin/backup_xpad
 s0_command11 = 
 s0_command12 = 
 s0_command13 = 
@@ -1041,7 +1041,7 @@ s0_run_command6_key = <Alt><Super>n
 s0_run_command7_key = <Control><Primary><Alt>k
 s0_run_command8_key = <Control><Primary><Alt>d
 s0_run_command9_key = <Control><Primary><Alt>s
-s0_run_command10_key = Disabled
+s0_run_command10_key = <Control><Primary><Alt>x
 s0_run_command11_key = Disabled
 s0_run_command12_key = Disabled
 s0_run_command13_key = Disabled
@@ -1392,7 +1392,7 @@ s0_skewer_rotation = 0
 s0_toggle_key = <Control><Primary><Alt>p
 s0_toggle_button = Disabled
 s0_toggle_edge = 
-s0_match = class=Toggl-desktop | (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | class=TogglDesktop
+s0_match = (class=Toggl-desktop | (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | class=TogglDesktop) | (title=Work | Trello & class=Google-chrome-stable)
 s0_end_on_click = true
 s0_fade_time = 1.000000
 s0_bg_brightness = 50

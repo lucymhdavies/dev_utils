@@ -1,14 +1,14 @@
 [winrules]
-s0_above_match = (class=Ccsm) | (class=Toggl-desktop)  | (class=Zenity)  | class=Procexp.py  | class=Gnome-screenshot  | (class=Wallch) | class=xpad | class=Gnome-control-center | class=Sesame_x64  | (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | class=TogglDesktop
-s0_sticky_match = (class=Ccsm) | class=Toggl-desktop | (class=Zenity & title=Pick a screensaver)  | (class=Wallch) | (class=xpad)  | (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | class=TogglDesktop
+s0_above_match = (class=Ccsm) | (class=Toggl-desktop)  | (class=Zenity)  | class=Procexp.py  | class=Gnome-screenshot  | (class=Wallch) | class=xpad | class=Gnome-control-center | class=Sesame_x64 | class=TogglDesktop | class=Autokey-qt
+s0_sticky_match = (class=Ccsm) | class=Toggl-desktop | (class=Zenity & title=Pick a screensaver)  | (class=Wallch) | (class=xpad) | class=TogglDesktop
 s0_no_move_match = (class=Pidgin & role=buddy_list) | (class=Pidgin & role=conversation) | ((class=Skype) & !(role=ConversationsWindow)  & title=lucy.davies.openbet - Skype™) | ((class=Skype) & (role=ConversationsWindow))
 s0_no_resize_match = (class=Pidgin & role=buddy_list) | (class=Pidgin & role=conversation) | ((class=Skype) & !(role=ConversationsWindow)  & title=lucy.davies.openbet - Skype™) | ((class=Skype) & (role=ConversationsWindow))
-s0_size_matches = (class=Pidgin) & role=buddy_list;(class=Pidgin) & role=conversation;(class=Pidgin) & role=conversation;(class=Skype) & !(role=ConversationsWindow)  & title=lucy.davies.openbet - Skype™;(class=Skype) & role=ConversationsWindow;
+s0_size_matches = (class=Pidgin) & role=buddy_list;(class=Pidgin) & role=conversation;(class=Skype) & !(role=ConversationsWindow)  & title=lucy.davies.openbet - Skype™;(class=Skype) & role=ConversationsWindow;
 s0_size_width_values = 280;1310;280;1310;
 s0_size_height_values = 1030;515;1030;515;
 
 [decor]
-s0_decoration_match = (any) & !(class=Pidgin)  & !(class=Toggl-desktop)  & !(class=Firefox)  & !(class=Skype) & !(class=xpad)   & ! (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | !(class=Gnome-terminal) | !(class=TogglDesktop)
+s0_decoration_match = (any) & !(class=Pidgin)  & !(class=Toggl-desktop)  & !(class=Firefox)  & !(class=Skype) & !(class=xpad)   & ! (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | !(class=Gnome-terminal) | !(class=TogglDesktop)(class=Toggl-desktop | (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | class=TogglDesktop) | (title=Work | Trello & class=Google-chrome-stable)
 
 [place]
 s0_position_matches = (class=Pidgin) & role=buddy_list;(class=Pidgin) & role=conversation;(class=Skype) & !(role=ConversationsWindow)  & title=lucy.davies.openbet - Skype™;(class=Skype) & role=ConversationsWindow;
@@ -23,9 +23,8 @@ s0_slide_duration = 0.500000
 s0_no_slide_match = type=Dock | type=Desktop | name=glmatrix | state=Sticky
 
 [snap]
-s0_avoid_snap = 
-s0_snap_type = 
-s0_edges_categories = 
+s0_edges_categories = 0;1;
+s0_attraction_distance = 60
 
 [grid]
 s0_put_left_key = <Control><Primary><Alt>KP_4
@@ -58,6 +57,7 @@ s0_command6 = xpad -t
 s0_command7 = /home/ldavies/bin/kanban
 s0_command8 = gnome-terminal -e "ssh -X dev03"
 s0_command9 = /home/ldavies/bin/jenkins_smoke_test
+s0_command10 = /home/ldavies/bin/backup_xpad
 s0_run_command0_key = <Control><Primary><Alt>f
 s0_run_command1_key = <Control><Primary><Alt>q
 s0_run_command2_key = <Control><Primary><Alt>w
@@ -68,6 +68,7 @@ s0_run_command6_key = <Alt><Super>n
 s0_run_command7_key = <Control><Primary><Alt>k
 s0_run_command8_key = <Control><Primary><Alt>d
 s0_run_command9_key = <Control><Primary><Alt>s
+s0_run_command10_key = <Control><Primary><Alt>x
 
 [obs]
 s0_opacity_matches = class=Pidgin;class=Skype;class=Wallch;
@@ -86,7 +87,7 @@ s0_launcher_capture_mouse = false
 
 [widget]
 s0_toggle_key = <Control><Primary><Alt>p
-s0_match = class=Toggl-desktop | (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | class=TogglDesktop
+s0_match = (class=Toggl-desktop | (name=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki) | class=TogglDesktop) | (title=Work | Trello & class=Google-chrome-stable)
 s0_fade_time = 1.000000
 s0_bg_saturation = 0
 

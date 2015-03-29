@@ -34,11 +34,13 @@ alias gfetch="git fetch --all"
 alias gpull="git pull"
 alias gcom="git commit"
 alias gadd="git add"
+alias gco="git checkout"
 alias gstatus="git status"
 alias gbranch="git branch -avv"
 alias gpom="git push origin master"
 alias gpushthis="git push origin \`git rev-parse --abbrev-ref HEAD\`"
 alias gdiagram="git log --graph --color --decorate --oneline --all"
+alias gadint="git add --interactive"
 
 alias copy="rsync -z -r -v -h --progress"
 alias move="rsync -z -r -v -h --progress --remove-source-files"
@@ -244,6 +246,22 @@ function gbmeld {
 	rm $branch_file $master_file
 }
 
+
+alias ..="cd .."
+
+
+
+function cvs-clean {
+	echo "=============================="
+	echo "CVS Clean"
+	echo "=============================="
+	echo "Files to delete:"
+	find . -name ".#*" | add_tab_start
+
+	echo "Press enter to delete..." ; read
+
+	find . -name ".#*" | xargs rm
+}
 
 # Dependency: git clone https://github.com/sivel/speedtest-cli.git
 alias speedtest="python ~/git_src/speedtest-cli/speedtest_cli.py --share"

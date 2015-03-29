@@ -17,6 +17,7 @@ set showtabline=2
 " Tab navigation
 nnoremap <F9>  gT
 nnoremap <F10> gt
+set tabpagemax=100
 
 " Tab colors
 hi TabLineFill ctermfg=Blue  ctermbg=White
@@ -45,3 +46,5 @@ else
 endif
 
 
+" associate *.pom with xml filetype
+au BufRead,BufNewFile *.pom set filetype=xml
