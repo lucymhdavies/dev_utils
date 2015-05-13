@@ -38,6 +38,7 @@ alias gco="git checkout"
 alias gstatus="git status"
 alias gbranch="git branch -avv"
 alias gpom="git push origin master"
+alias gpkm="git push heroku master"
 alias gpushthis="git push origin \`git rev-parse --abbrev-ref HEAD\`"
 alias gdiagram="git log --graph --color --decorate --oneline --all"
 alias gadint="git add --interactive"
@@ -208,15 +209,9 @@ if [ $is_osx -eq 1 ] ; then
 		kill ${ql_pid}) > /dev/null 2>&1
 	}
 
-	# if I don't specify a directory, find should default to .
-	alias old_find=$(which find)
-	function find() {
-		if [ -z "$1" ] ; then
-			old_find .
-		else
-			old_find "$@"
-		fi
-	}
+	alias chrome='app "Google Chrome.app"'
+
+	alias finder='app Finder .'
 fi
 
 
