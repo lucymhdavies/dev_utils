@@ -6,7 +6,9 @@ set ignorecase
 set smartcase
 
 " Enable use of the mouse for all modes
-" set mouse=a
+if exists('+mouse')
+	set mouse=a
+endif
 
 " Display line numbers on the left
 set number
@@ -32,6 +34,11 @@ set softtabstop=4
 " display hidden chars
 set list listchars=tab:.\ ,trail:$
 
+" highlight search results
+set hlsearch
+
+" allow deletion of indent, eol and anything which wasn't added in this vim session
+set backspace=2
 
 "test highlighting with a long line
 "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
