@@ -5,11 +5,6 @@ syntax on
 set ignorecase
 set smartcase
 
-" Enable use of the mouse for all modes
-if exists('+mouse')
-	set mouse=a
-endif
-
 " Display line numbers on the left
 set number
 
