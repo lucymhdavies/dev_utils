@@ -38,6 +38,8 @@ alias gco="git checkout"
 alias gstatus="git status"
 alias gbranch="git branch -avv"
 alias gpom="git push origin master"
+alias gphm="git push heroku master"
+alias gpho="gphm; gpom"
 alias gpushthis="git push origin \`git rev-parse --abbrev-ref HEAD\`"
 alias gdiagram="git log --graph --color --decorate --oneline --all"
 alias gadint="git add --interactive"
@@ -217,6 +219,10 @@ if [ $is_osx -eq 1 ] ; then
 		read -sn 1
 		kill ${ql_pid}) > /dev/null 2>&1
 	}
+
+	alias chrome='app "Google Chrome.app"'
+
+	alias finder='app Finder .'
 fi
 
 
