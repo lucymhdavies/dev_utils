@@ -42,6 +42,16 @@ alias gpushthis="git push origin \`git rev-parse --abbrev-ref HEAD\`"
 alias gdiagram="git log --graph --color --decorate --oneline --all"
 alias gadint="git add --interactive"
 
+function git-set-upstream {
+	my_branch=`git rev-parse --abbrev-ref HEAD`
+
+	echo "Set upstream branch of $my_branch to origin/$my_branch?" ; read
+
+	git branch --set-upstream-to=origin/$my_branch $my_branch
+}
+alias gsetup=git-set-upstream
+
+
 alias copy="rsync -z -r -v -h --progress"
 alias move="rsync -z -r -v -h --progress --remove-source-files"
 alias hgrep="history | grep"
@@ -227,6 +237,7 @@ else
 fi
 alias splash='echo "$myname used Splash! But nothing happened!"'
 alias voodoo-witchcraft='echo "$myname used Voodoo Witchcraft! But nothing happened!"'
+alias tableflip='echo "(╯°□°)╯︵ ┻━┻"'
 
 
 # rlwrap is useful
