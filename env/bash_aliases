@@ -282,3 +282,8 @@ function cvs-clean {
 
 # Dependency: git clone https://github.com/sivel/speedtest-cli.git
 alias speedtest="python ~/git_src/speedtest-cli/speedtest_cli.py --share"
+
+
+
+# Scripts from this repo's bin dir
+export PATH=~/git_src/dev_utils/bin:$PATH
