@@ -4,6 +4,8 @@
 # Homebrew
 #	brew install coreutils
 
+export PATH=$PATH:~/bin
+export PATH=$PATH:~/git_src/dev_utils/bin
 
 is_osx=`uname | grep -i darwin | wc -l`
 
