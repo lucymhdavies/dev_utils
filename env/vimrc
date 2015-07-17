@@ -50,3 +50,6 @@ endif
 
 " associate *.pom with xml filetype
 au BufRead,BufNewFile *.pom set filetype=xml
+
+" compiled tcl
+au BufRead,BufNewFile *.tbc set filetype=tcl
