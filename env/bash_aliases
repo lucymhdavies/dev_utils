@@ -161,7 +161,14 @@ function mkcd {
 alias untar_tar.bz2="tar -xjf"
 alias tar_tar.bz2="tar -cjf"
 alias untar_tar.gz="tar -xf"
-alias untar_tgz="tar -xf"
+# if bar exists, use it
+if hash bar 2>/dev/null; then
+	function untar_tgz {
+		bar -n $1 | tar -xzf -
+	}
+else
+	alias untar_tgz="tar -xf"
+fi
 alias tar_tgz="tar -cf"
 alias unjar="jar xf"
 
