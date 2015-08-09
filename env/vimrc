@@ -1,3 +1,15 @@
+
+" Pathogen
+execute pathogen#infect()
+
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+
+" We have colours
+set t_Co=256
+
 " Enable syntax highlighting
 syntax on
 
@@ -41,9 +53,9 @@ set backspace=2
 "highlight cols past 80
 if exists('+colorcolumn')
 	execute "set colorcolumn=" . join(range(81,335), ',')
-	highlight ColorColumn ctermbg=0
+	highlight ColorColumn ctermbg=233
 else
-	highlight OverLength ctermbg=0
+	highlight OverLength ctermbg=233
 	match OverLength /\%81v.*/
 endif
 
@@ -51,5 +63,30 @@ endif
 " associate *.pom with xml filetype
 au BufRead,BufNewFile *.pom set filetype=xml
 
+
 " compiled tcl
 au BufRead,BufNewFile *.tbc set filetype=tcl
+
+
+
+" Don't save a backup of crontabs
+" http://calebthompson.io/crontab-and-vim-sitting-in-a-tree/
+autocmd filetype crontab setlocal nobackup nowritebackup
+
+
+
+
+set showmode  showcmd  cmdheight=1
+set laststatus=2           " always show statusline
+
+highlight StatusLine NONE ctermbg=233 ctermfg=White cterm=NONE
+if has("statusline")
+	set statusline =          " clear
+	set statusline+=%r        " read only flag '[RO]'
+	"set statusline+=%h        " help flag '[Help]'
+	set statusline+=%=        " left/right separation point
+	set statusline+=\ %c      " column number
+	set statusline+=%V        " virtual column '-{n}'
+	set statusline+=:%l/%L    " line/lines
+	set statusline+=\ %p%%    " percent of file
+endif
