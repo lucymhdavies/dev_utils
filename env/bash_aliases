@@ -295,5 +295,13 @@ alias speedtest="python ~/git_src/speedtest-cli/speedtest_cli.py --share"
 
 
 
+
 # Scripts from this repo's bin dir
 export PATH=~/git_src/dev_utils/bin:$PATH
+
+function rename_remove_spaces {
+	for f in * ; do
+		mv "$f" $(echo $f | sed "s/ /_/g")
+	done
+}
+alias rrs=rename_remove_spaces
