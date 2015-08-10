@@ -42,7 +42,7 @@ alias gbranch="git branch -avv"
 alias gpom="git push origin master"
 alias gphm="git push heroku master"
 alias gpho="gphm; gpom"
-alias gpushthis="git push origin \`git rev-parse --abbrev-ref HEAD\`"
+alias gpushthis="git push origin \`git rev-parse --abbrev-ref HEAD\`"; alias gpot=gpushthis
 alias gdiagram="git log --graph --color --decorate --oneline --all"
 alias gadint="git add --interactive"
 
