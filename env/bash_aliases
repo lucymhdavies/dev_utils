@@ -20,10 +20,11 @@ function analyse_bashrc {
 
 # vim stuff
 alias vi="vim -p"
-alias view="vi -R"
+alias vim="vim -p"
+alias view="vim -R"
 export EDITOR=vim
-alias vibash="vi ~/.bashrc"
-alias vialiases="vi ~/.bash_aliases; realias"
+alias vibash="vim ~/.bashrc"
+alias vialiases="vim ~/.bash_aliases; realias"
 # because when you use vim a lot, you expect :q to be quit
 alias :q="exit"
 alias :Q="exit"
@@ -64,13 +65,13 @@ alias df="df -h"
 alias color_less="less -r"
 
 alias grin="grep -rin --color=yes"
-function g { 
+function g {
 	grin "$@" .
 }
 alias gc="g --color=yes"
 alias gl="g -l --color=no"
 function vigl {
-	vi `gl "$@"`
+	vim `gl "$@"`
 }
 
 
@@ -238,7 +239,7 @@ fi
 
 # because all my environments are set up like this, I can do..
 alias cdgit="cd ~/git_src" # a weird naming habit I picked up from OpenBet
-alias vigit="vi ~/git_src/dev_utils/env/bash_aliases && source ~/git_src/dev_utils/env/bash_aliases"
+alias vigit="vim ~/git_src/dev_utils/env/bash_aliases && source ~/git_src/dev_utils/env/bash_aliases"
 
 # Useful for copypasting from the terminal, without all the fluff
 alias simple_terminal="PS1='\n$ '"
@@ -294,5 +295,13 @@ alias speedtest="python ~/git_src/speedtest-cli/speedtest_cli.py --share"
 
 
 
+
 # Scripts from this repo's bin dir
 export PATH=~/git_src/dev_utils/bin:$PATH
+
+function rename_remove_spaces {
+	for f in * ; do
+		mv "$f" $(echo $f | sed "s/ /_/g")
+	done
+}
+alias rrs=rename_remove_spaces
