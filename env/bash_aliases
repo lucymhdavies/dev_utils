@@ -4,6 +4,24 @@
 # Homebrew
 #	brew install coreutils
 
+# Eternal bash history.
+# ---------------------
+if [ ! -f ~/.bash_external_history ]; then
+	echo "Welcome to Unlimited History Mode!"
+	mv ~/.bash_history ~/.bash_external_history
+fi
+# Undocumented feature which sets the size to "unlimited".
+# http://stackoverflow.com/questions/9457233/unlimited-bash-history
+export HISTSIZE=
+export HISTFILESIZE=
+export HISTTIMEFORMAT="[%F %T] "
+# Change the file location because certain bash sessions truncate .bash_history file upon close.
+# http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
+export HISTFILE=~/.bash_eternal_history
+
+
+
+
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/git_src/dev_utils/bin
 
@@ -17,6 +35,7 @@ alias realias="source ~/.bash_aliases"
 function analyse_bashrc {
 	grep --color=yes -n $1 ~/.bash* | grep -v ".bash_history"
 }
+alias rebash="source ~/.bashrc"
 
 # vim stuff
 alias vi="vim -p"
@@ -305,3 +324,45 @@ function rename_remove_spaces {
 	done
 }
 alias rrs=rename_remove_spaces
+
+
+
+# Docker for osx
+if [ $is_osx -eq 0 ] ; then
+	alias docker-terminal="You're not on OS X. You don't need this."
+else
+	alias docker-terminal="bash --login /Applications/Docker/Docker\ Quickstart\ Terminal.app/Contents/Resources/Scripts/start.sh"
+fi
+alias dterm=docker-terminal
+alias dspace="du -d 0 -h ~/.docker"
+
+function docker_cleanup {
+	echo "=============================="
+	echo "Stopping all containers"
+	echo "=============================="
+	docker stop $(docker ps -a -q)
+
+	echo "=============================="
+	echo "Removing all containers"
+	echo "=============================="
+	docker rm $(docker ps -a -q)
+
+	echo "=============================="
+	echo "Removing all images"
+	echo "=============================="
+	docker rmi $(docker images -q)
+}
+
+if [ $is_osx -eq 1 ] ; then
+	function docker_machine_cleanup {
+		echo "=============================="
+		echo "Stoping all images"
+		echo "=============================="
+		docker-machine stop $(docker-machine ls -q)
+
+		echo "=============================="
+		echo "Deleting all images"
+		echo "=============================="
+		docker-machine rm $(docker-machine ls -q)
+	}
+fi
