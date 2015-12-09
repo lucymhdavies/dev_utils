@@ -1,14 +1,14 @@
 
-try
+"try
 	" Pathogen
-	execute pathogen#infect()
+	"execute pathogen#infect()
 
 	" NERDTree
-	autocmd StdinReadPre * let s:std_in=1
-	autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-	map <C-n> :NERDTreeToggle<CR>
-catch
-endtry
+	"autocmd StdinReadPre * let s:std_in=1
+	"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+	"map <C-n> :NERDTreeToggle<CR>
+"catch
+"endtry
 
 " We have colours
 set t_Co=256
@@ -54,13 +54,13 @@ set backspace=2
 "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
 
 "highlight cols past 80
-if exists('+colorcolumn')
-	execute "set colorcolumn=" . join(range(81,335), ',')
-	highlight ColorColumn ctermbg=233
-else
-	highlight OverLength ctermbg=233
-	match OverLength /\%81v.*/
-endif
+"if exists('+colorcolumn')
+"	execute "set colorcolumn=" . join(range(81,335), ',')
+"	highlight ColorColumn ctermbg=233
+"else
+"	highlight OverLength ctermbg=233
+"	match OverLength /\%81v.*/
+"endif
 
 
 " associate *.pom with xml filetype
