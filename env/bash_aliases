@@ -6,9 +6,9 @@
 
 # Eternal bash history.
 # ---------------------
-if [ ! -f ~/.bash_external_history ]; then
+if [ ! -f ~/.bash_eternal_history ]; then
 	echo "Welcome to Unlimited History Mode!"
-	mv ~/.bash_history ~/.bash_external_history
+	mv ~/.bash_history ~/.bash_eternal_history
 fi
 # Undocumented feature which sets the size to "unlimited".
 # http://stackoverflow.com/questions/9457233/unlimited-bash-history
