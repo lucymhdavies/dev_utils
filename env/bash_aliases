@@ -33,7 +33,7 @@ alias ssh_init="eval \`ssh-agent -s\` ; ssh-add ~/.ssh/lucy.lucymhdavies.com"
 # bash stuff
 alias realias="source ~/.bash_aliases"
 function analyse_bashrc {
-	grep --color=yes -n $1 ~/.bash* | grep -v ".bash_history"
+	grep --color=yes -n $1 ~/.bash* | grep -v ".bash_history" | grep -v "/.bash_eternal_history:"
 }
 alias rebash="source ~/.bashrc"
 
