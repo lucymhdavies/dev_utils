@@ -33,7 +33,7 @@ alias ssh_init="eval \`ssh-agent -s\` ; ssh-add ~/.ssh/lucy.lucymhdavies.com"
 # bash stuff
 alias realias="source ~/.bash_aliases"
 function analyse_bashrc {
-	grep --color=yes -n $1 ~/.bash* | grep -v ".bash_history" | grep -v "/.bash_eternal_history:"
+	grep --color=yes -n $1 ~/.bash* | grep -v ".bash*history" | grep -v ".bash_history" | grep -v "/.bash_eternal_history:"
 }
 alias rebash="source ~/.bashrc"
 
@@ -83,7 +83,7 @@ alias c="clear"
 alias df="df -h"
 alias color_less="less -r"
 
-alias grin="grep -rin"
+alias grin="grep -rin --color=auto"
 function g {
 	grin "$@" .
 }
@@ -187,9 +187,9 @@ if hash bar 2>/dev/null; then
 		bar -n $1 | tar -xzf -
 	}
 else
-	alias untar_tgz="tar -xf"
+	alias untar_tgz="tar -xzf"
 fi
-alias tar_tgz="tar -cf"
+alias tar_tgz="tar -czf"
 alias unjar="jar xf"
 
 
@@ -294,6 +294,10 @@ function gbmeld {
 
 
 alias ..="cd .."
+
+
+# want to go straight to a new temp dir?
+alias cdtmpnew="new_temp_dir=\$(mktemp -d) && cd ~/tmp/ >/dev/null && ln -s \$new_temp_dir . && cd ~/tmp/\$(basename \$new_temp_dir)"
 
 
 
