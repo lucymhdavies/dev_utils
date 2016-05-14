@@ -342,6 +342,11 @@ alias dspace="du -d 0 -h ~/.docker"
 
 function docker_cleanup {
 	echo "=============================="
+	echo "Space Before"
+	echo "=============================="
+	df -h
+
+	echo "=============================="
 	echo "Stopping all containers"
 	echo "=============================="
 	docker stop $(docker ps -a -q)
@@ -355,10 +360,20 @@ function docker_cleanup {
 	echo "Removing all images"
 	echo "=============================="
 	docker rmi $(docker images -q)
+
+	echo "=============================="
+	echo "Space After"
+	echo "=============================="
+	df -h
 }
 
 if [ $is_osx -eq 1 ] ; then
 	function docker_machine_cleanup {
+		echo "=============================="
+		echo "Space Before"
+		echo "=============================="
+		df -h
+
 		echo "=============================="
 		echo "Stoping all images"
 		echo "=============================="
@@ -368,5 +383,35 @@ if [ $is_osx -eq 1 ] ; then
 		echo "Deleting all images"
 		echo "=============================="
 		docker-machine rm $(docker-machine ls -q)
+		
+		echo "=============================="
+		echo "Space After"
+		echo "=============================="
+		df -h
+	}
+
+	function docker_native_cleanup {
+		dockers_running=$(ps -ef | grep Docker.app | grep -v grep | wc -l)
+
+		echo "=============================="
+		echo "Space Before"
+		echo "=============================="
+		df -h
+
+		if [[ $dockers_running -ne 0 ]]; then
+			echo "Stop Docker.app first!"
+		else
+			echo "=============================="
+			echo "Deleting Docker VM"
+			echo "=============================="
+			rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
+		fi
+
+		echo "=============================="
+		echo "Space After"
+		echo "=============================="
+		df -h
 	}
 fi
+
+alias please=sudo
