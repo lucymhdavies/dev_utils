@@ -226,7 +226,7 @@ alias tsl=timestamp_line
 # push ssh key to server
 # TODO: specify which key to push
 function push-key {
-	ssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys"
+	ssh $1 "mkdir -p ~/.ssh/ && echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys"
 }
 
 # Some more OS X specific stuff
