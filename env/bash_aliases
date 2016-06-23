@@ -370,3 +370,7 @@ if [ $is_osx -eq 1 ] ; then
 		docker-machine rm $(docker-machine ls -q)
 	}
 fi
+
+
+# Remove color codes
+alias decolor="sed -r \"s:\x1B\[[0-9;]*[mK]::g\""
