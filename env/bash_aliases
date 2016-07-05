@@ -97,6 +97,9 @@ function vigl {
 # disk usage
 alias dush="du -sh"
 if [ $is_osx -eq 0 ] ; then
+	#TODO: Don't use is_osx to decide which sort to use
+	#      Use which sort and which gsort instead
+	#      Alternatively, alias sort as gsort
 	alias dusort="du --max-depth=1 -h | sort -h"
 	alias duh="du --max-depth=1 -h"
 else
