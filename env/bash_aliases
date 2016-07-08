@@ -302,6 +302,8 @@ alias ..="cd .."
 # want to go straight to a new temp dir?
 alias cdtmpnew="new_temp_dir=\$(mktemp -d) && cd ~/tmp/ >/dev/null && ln -s \$new_temp_dir . && cd ~/tmp/\$(basename \$new_temp_dir)"
 
+# or just the ~/tmp directory, where files stick around for 7 days
+alias cdtmp="cd ~/tmp"
 
 
 function cvs-clean {
