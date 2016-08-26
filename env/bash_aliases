@@ -57,14 +57,17 @@ alias gpull="git pull"
 alias gcom="git commit"
 alias gadd="git add"
 alias gco="git checkout"
+alias gb="gco -b"
 alias gstatus="git status"
 alias gbranch="git branch -avv"
 alias gpom="git push origin master"
 alias gphm="git push heroku master"
 alias gpho="gphm; gpom"
-alias gpushthis="git push origin \`git rev-parse --abbrev-ref HEAD\`"; alias gpot=gpushthis
+alias gpot="echo -------------------- ; echo you mean gpoh, right? ; echo --------------------; sleep 10 ; gpoh"
+alias gpoh="git push origin HEAD"
 alias gdiagram="git log --graph --color --decorate --oneline --all"
 alias gadint="git add --interactive"
+alias gmlog="git log -m -M --first-parent -p"
 
 function git-set-upstream {
 	my_branch=`git rev-parse --abbrev-ref HEAD`
@@ -425,3 +428,7 @@ alias decolor="sed -r \"s:\x1B\[[0-9;]*[mK]::g\""
 
 # pls
 alias please=sudo
+
+
+# one-off SSH
+alias sshtmp="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
