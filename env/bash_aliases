@@ -63,7 +63,7 @@ alias gbranch="git branch -avv"
 alias gpom="git push origin master"
 alias gphm="git push heroku master"
 alias gpho="gphm; gpom"
-alias gpot="echo -------------------- ; echo you mean gpoh, right? ; echo --------------------; sleep 10 ; gpoh"
+alias gpot="echo -------------------- ; echo you mean gpoh, right? ; echo --------------------; snark ; gpoh"
 alias gpoh="git push origin HEAD"
 alias gdiagram="git log --graph --color --decorate --oneline --all"
 alias gadint="git add --interactive"
@@ -337,6 +337,13 @@ function rename_remove_spaces {
 }
 alias rrs=rename_remove_spaces
 
+
+# Trollface
+if [ "$TERM_PROGRAM" == "iTerm.app" ] ; then
+	alias snark="imgcat ~/git_src/dev_utils/img/trollface.png"
+else
+	alias snark="TROLOLOLOLOLOLOL!"
+fi
 
 
 # Docker for osx
