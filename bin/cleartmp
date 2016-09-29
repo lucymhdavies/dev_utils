@@ -14,14 +14,14 @@ echo
 echo ========================================
 echo "Files to delete..."
 echo ========================================
-find ~/tmp -mtime 1
+find ~/tmp -mtime +1
 
 
 # Keep the ~/tmp directory around forever
-touch ~/tmp/.tmpkeep
+mkdir ~/tmp
 
 echo
 echo ========================================
 echo "Deleting..."
 echo ========================================
-find ~/tmp -mtime 1 -exec rm -rf {} \;
+find ~/tmp -mtime +1 -exec rm -rf {} \;
