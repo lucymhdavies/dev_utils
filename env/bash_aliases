@@ -51,7 +51,7 @@ alias :wq="exit"
 
 # git aliases
 alias gdiff="git diff --color"
-alias gpush="git push"
+alias gpush="git push -u"
 alias gfetch="git fetch --all"
 alias gpull="git pull"
 alias gcom="git commit"
@@ -64,10 +64,11 @@ alias gpom="git push origin master"
 alias gphm="git push heroku master"
 alias gpho="gphm; gpom"
 alias gpot="echo -------------------- ; echo you mean gpoh, right? ; echo --------------------; snark ; gpoh"
-alias gpoh="git push origin HEAD"
+alias gpoh="git push origin HEAD -u"
 alias gdiagram="git log --graph --color --decorate --oneline --all"
 alias gadint="git add --interactive"
 alias gmlog="git log -m -M --first-parent -p"
+alias gignored="git ls-files . --ignored --exclude-standard --others"
 
 function git-set-upstream {
 	my_branch=`git rev-parse --abbrev-ref HEAD`
@@ -106,7 +107,14 @@ if [ $is_osx -eq 0 ] ; then
 	alias dusort="du --max-depth=1 -h | sort -h"
 	alias duh="du --max-depth=1 -h"
 else
-	alias dusort="du -d 1 -h | gsort -h"
+	# if there is a gsort
+	compgen -c | grep gsort >/dev/null
+	RESULT=$?
+	if [ $RESULT -eq 0 ]; then
+		alias dusort="du -d 1 -h | gsort -h"
+	else
+		alias dusort="du -d 1 -k | sort -n | awk 'function human(x) { s=\"KMGTEPYZ\"; while (x>=1000 && length(s)>1) {x/=1024; s=substr(s,2)} return int(x+0.5) substr(s,1,1) } {gsub(/^[0-9]+/, human(\$1)); print}'"
+	fi
 	alias duh="du -d 1 -h"
 fi
 alias fileshere="find | wc -l"
@@ -439,3 +447,7 @@ alias please=sudo
 
 # one-off SSH
 alias sshtmp="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+
+
+# Clear + add empty lines
+alias superclear="for i in \$(seq \$(tput lines)); do echo ' '; done ; clear"
