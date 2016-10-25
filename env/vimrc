@@ -1,14 +1,22 @@
 
-"try
+try
 	" Pathogen
-	"execute pathogen#infect()
+	execute pathogen#infect()
 
 	" NERDTree
 	"autocmd StdinReadPre * let s:std_in=1
 	"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 	"map <C-n> :NERDTreeToggle<CR>
-"catch
-"endtry
+
+	" Vim-Go
+	" https://github.com/fatih/vim-go
+	" No need to add anything. It's already in ~/.vim/bundle
+	let g:go_highlight_fields    = 1
+	let g:go_highlight_types     = 1
+	let g:go_highlight_functions = 1
+	let g:go_highlight_methods   = 1
+catch
+endtry
 
 " We have colours
 set t_Co=256
@@ -98,11 +106,13 @@ endif
 
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType go               let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
 autocmd FileType conf,fstab,yaml  let b:comment_leader = '# '
 autocmd FileType tex              let b:comment_leader = '% '
 autocmd FileType mail             let b:comment_leader = '> '
 autocmd FileType vim              let b:comment_leader = '" '
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+" TODO: with vim-go enabled, this doesn't work for go yet
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
