@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ -n $1 ] ; then
+	url=http://xkcd.com/$1/info.0.json
+else
+	url=http://xkcd.com/info.0.json
+fi
+
+j=$(curl $url 2>/dev/null)
+
+img=$(echo $j | jq -r .img)
+alt=$(echo $j | jq -r .alt)
+
+td=$(mktemp -t xkcd)
+
+curl $img > $td 2>/dev/null
+
+imgcat $td
+echo $alt
