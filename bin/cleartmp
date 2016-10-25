@@ -24,4 +24,6 @@ find ~/tmp -mtime +1 -exec rm -rf {} \;
 
 
 # Keep the ~/tmp directory around forever
-mkdir ~/tmp
+if [ ! -d ~/tmp ]; then
+	mkdir ~/tmp
+fi
