@@ -4,6 +4,22 @@
 # Homebrew
 #	brew install coreutils
 
+if [[ $(compgen -c | grep ^brew$ | wc -l) -ne 0 ]]; then
+	has_brew=true
+fi
+
+# Install dependencies
+if $has_brew && [[ $(compgen -c | grep ^fzf$ | wc -l) -eq 0 ]]; then
+	brew install fzf
+fi
+if $has_brew && [[ $(brew list | grep ^coreutils$ | wc -l) -eq 0 ]]; then
+	brew install coreutils
+fi
+
+
+
+
+
 # Eternal bash history.
 # ---------------------
 if [ ! -f ~/.bash_eternal_history ]; then
@@ -317,18 +333,6 @@ alias cdtmpnew="new_temp_dir=\$(mktemp -d) && cd ~/tmp/ >/dev/null && ln -s \$ne
 alias cdtmp="cd ~/tmp"
 
 
-function cvs-clean {
-	echo "=============================="
-	echo "CVS Clean"
-	echo "=============================="
-	echo "Files to delete:"
-	find . -name ".#*" | add_tab_start
-
-	echo "Press enter to delete..." ; read
-
-	find . -name ".#*" | xargs rm
-}
-
 # Dependency: git clone https://github.com/sivel/speedtest-cli.git
 alias speedtest="python ~/git_src/speedtest-cli/speedtest_cli.py --share"
 
@@ -377,12 +381,12 @@ function docker_cleanup {
 	echo "=============================="
 	echo "Removing all containers"
 	echo "=============================="
-	docker rm $(docker ps -a -q)
+	docker rm -f $(docker ps -a -q)
 
 	echo "=============================="
 	echo "Removing all images"
 	echo "=============================="
-	docker rmi $(docker images -q)
+	docker rmi -f $(docker images -q)
 
 	echo "=============================="
 	echo "Space After"
@@ -415,20 +419,20 @@ if [ $is_osx -eq 1 ] ; then
 
 	function docker_native_cleanup {
 		dockers_running=$(ps -ef | grep Docker.app | grep -v grep | wc -l)
+		if [[ $dockers_running -ne 0 ]]; then
+			echo "Stop Docker.app first!"
+			return 1
+		fi
 
 		echo "=============================="
 		echo "Space Before"
 		echo "=============================="
 		df -h
 
-		if [[ $dockers_running -ne 0 ]]; then
-			echo "Stop Docker.app first!"
-		else
-			echo "=============================="
-			echo "Deleting Docker VM"
-			echo "=============================="
-			rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
-		fi
+		echo "=============================="
+		echo "Deleting Docker VM"
+		echo "=============================="
+		rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
 
 		echo "=============================="
 		echo "Space After"
@@ -451,3 +455,28 @@ alias sshtmp="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 
 # Clear + add empty lines
 alias superclear="for i in \$(seq \$(tput lines)); do echo ' '; done ; clear"
+
+function frcd() {
+	f=$(find ~/repos/ ~/git_src/ -type d  -or -type l -maxdepth 2 -not -path "*/.git" -not -path "*/.git/*" | fzf -i -q "$@")
+
+	if [ -d "$f" ]; then
+		cd $f
+		return
+	fi
+	if [ -f "$f" ]; then
+		cd $(dirname $f)
+		return
+	fi
+}
+function gocd() {
+	f=$(find ~/go/src -type d -or -type l -not -path "*/.git" -not -path "*/.git/*" | fzf -i -q "$@")
+
+	if [ -d "$f" ]; then
+		cd $f
+		return
+	fi
+	if [ -f "$f" ]; then
+		cd $(dirname $f)
+		return
+	fi
+}
