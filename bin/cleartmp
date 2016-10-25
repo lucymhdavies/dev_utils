@@ -16,12 +16,12 @@ echo "Files to delete..."
 echo ========================================
 find ~/tmp -mtime +1
 
-
-# Keep the ~/tmp directory around forever
-mkdir ~/tmp
-
 echo
 echo ========================================
 echo "Deleting..."
 echo ========================================
 find ~/tmp -mtime +1 -exec rm -rf {} \;
+
+
+# Keep the ~/tmp directory around forever
+mkdir ~/tmp
