@@ -9,12 +9,12 @@ if [[ $(compgen -c | grep ^brew$ | wc -l) -ne 0 ]]; then
 fi
 
 # Install dependencies
-if $has_brew && [[ $(compgen -c | grep ^fzf$ | wc -l) -eq 0 ]]; then
-	brew install fzf
-fi
-if $has_brew && [[ $(brew list | grep ^coreutils$ | wc -l) -eq 0 ]]; then
-	brew install coreutils
-fi
+for c in fzf coreutils jq; do
+	if $has_brew && [[ $(compgen -c | grep ^$c$ | wc -l) -eq 0 ]]; then
+		echo "Installing $c"
+		brew install $c
+	fi
+done
 
 
 
