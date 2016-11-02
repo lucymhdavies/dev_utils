@@ -9,6 +9,7 @@ try
 	"map <C-n> :NERDTreeToggle<CR>
 
 	" Vim-Go
+    " git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
 	" https://github.com/fatih/vim-go
 	" No need to add anything. It's already in ~/.vim/bundle
 	let g:go_highlight_fields    = 1
