@@ -456,7 +456,7 @@ alias sshtmp="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 alias superclear="for i in \$(seq \$(tput lines)); do echo ' '; done ; clear"
 
 function frcd() {
-	f=$(find ~/repos ~/git_src -type d  -or -type l -maxdepth 2 -not -path "*/.git" -not -path "*/.git/*" 2>/dev/null | fzf -i -q "$@")
+	f=$(find ~/repos/ ~/git_src/ -type d  -or -type l -maxdepth 2 -not -path "*/.git" -not -path "*/.git/*" 2>/dev/null | fzf -i -q "$@")
 
 	if [ -d "$f" ]; then
 		cd $f
@@ -468,7 +468,7 @@ function frcd() {
 	fi
 }
 function gocd() {
-	f=$(find $GOPATH/src -type d -or -type l -not -path "*/.git" -not -path "*/.git/*" 2>/dev/null | fzf -i -q "$@")
+	f=$(find $GOPATH/src/ -type d -or -type l -not -path "*/.git" -not -path "*/.git/*" 2>/dev/null | fzf -i -q "$@")
 
 	if [ -d "$f" ]; then
 		cd $f
@@ -479,3 +479,5 @@ function gocd() {
 		return
 	fi
 }
+
+alias fish=asciiquarium
