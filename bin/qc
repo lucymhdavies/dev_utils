@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -n "$1" ] ; then
+	url="http://questionablecontent.net/view.php?comic=$1"
+
+	img=$(curl $url 2>/dev/null | grep "comics" |  awk -F[\"\"] '{print $6}' | sed "s/./http:\/\/questionablecontent.net/")
+else
+	url="http://questionablecontent.net"
+
+	img=$(curl $url 2>/dev/null | grep "comics" |  awk -F[\"\"] '{print $2}')
+fi
+
+td=$(mktemp -t qc)
+
+curl $img > $td 2>/dev/null
+
+imgcat $td
