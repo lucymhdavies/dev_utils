@@ -15,3 +15,5 @@ td=$(mktemp -t qc)
 curl $img > $td 2>/dev/null
 
 imgcat $td
+
+echo $img
