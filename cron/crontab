@@ -1,0 +1,6 @@
+
+# download latest dev_utils
+0 3 * * * cd ~/git_src/dev_utils/ && git pull > ~/git_src/dev_utils/logs/update.log 2> ~/git_src/dev_utils/logs/update.err.log
+
+# Clear temporary files
+0 * * * * ~/git_src/dev_utils/bin/cleartmp > ~/git_src/dev_utils/logs/cleartmp.log 2> ~/git_src/dev_utils/logs/cleartmp.err.log
