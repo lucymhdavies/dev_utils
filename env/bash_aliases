@@ -209,14 +209,17 @@ function mkcd {
 
 alias untar_tar.bz2="tar -xjf"
 alias tar_tar.bz2="tar -cjf"
-alias untar_tar.gz="tar -xf"
 # if bar exists, use it
 if hash bar 2>/dev/null; then
 	function untar_tgz {
-		bar -n $1 | tar -xzf -
+		bar -n "$@" | tar -xzf -
+	}
+	function untar_tar.gz {
+		bar -n "$@" | tar -xf -
 	}
 else
 	alias untar_tgz="tar -xzf"
+	alias untar_tar.gz="tar -xf"
 fi
 alias tar_tgz="tar -czf"
 alias unjar="jar xf"
@@ -245,6 +248,7 @@ alias add_tab_start="sed 's/^/\t/g'"
 
 alias edot="echo -n ."
 alias eline40="echo =============================="
+alias eline80="echo ============================================================"
 
 
 # preappend timestamp to start of line
@@ -255,7 +259,7 @@ alias tsl=timestamp_line
 # push ssh key to server
 # TODO: specify which key to push
 function push-key {
-	ssh $1 "mkdir -p ~/.ssh/ && echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys"
+	ssh -q $1 "mkdir -p ~/.ssh/ && echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys"
 }
 
 # Some more OS X specific stuff
@@ -416,12 +420,14 @@ if [ $is_osx -eq 1 ] ; then
 		df -h
 	}
 
-	function docker_native_cleanup {
+	function docker_native_trim {
 		dockers_running=$(ps -ef | grep Docker.app | grep -v grep | wc -l)
 		if [[ $dockers_running -ne 0 ]]; then
 			echo "Stop Docker.app first!"
 			return 1
 		fi
+
+		DOCKER_VM=~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
 
 		echo "=============================="
 		echo "Space Before"
@@ -429,9 +435,43 @@ if [ $is_osx -eq 1 ] ; then
 		df -h
 
 		echo "=============================="
+		echo "Trimming Docker VM"
+		echo "=============================="
+		du -hs $DOCKER_VM
+		echo
+
+		mv $DOCKER_VM $DOCKER_VM.original
+		qemu-img convert -O qcow2 $DOCKER_VM.original $DOCKER_VM
+		rm $DOCKER_VM.original
+
+		du -hs $DOCKER_VM
+
+		echo "=============================="
+		echo "Space After"
+		echo "=============================="
+		df -h
+	}
+
+	function docker_native_cleanup {
+		dockers_running=$(ps -ef | grep Docker.app | grep -v grep | wc -l)
+		if [[ $dockers_running -ne 0 ]]; then
+			echo "Stop Docker.app first!"
+			return 1
+		fi
+
+		DOCKER_VM=~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
+
+		echo "=============================="
+		echo "Space Before"
+		echo "=============================="
+		df -h
+		echo
+		du -hs $DOCKER_VM
+
+		echo "=============================="
 		echo "Deleting Docker VM"
 		echo "=============================="
-		rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
+		rm $DOCKER_VM
 
 		echo "=============================="
 		echo "Space After"
@@ -456,7 +496,7 @@ alias sshtmp="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 alias superclear="for i in \$(seq \$(tput lines)); do echo ' '; done ; clear"
 
 function frcd() {
-	f=$(find ~/repos/ ~/git_src/ -type d  -or -type l -maxdepth 2 -not -path "*/.git" -not -path "*/.git/*" 2>/dev/null | fzf -i -q "$@")
+	f=$(find ~/repos/ ~/git_src/ -type d  -or -type l -maxdepth 2 2>/dev/null | grep -v "\.git" | fzf --reverse -i -q "$@")
 
 	if [ -d "$f" ]; then
 		cd $f
@@ -468,7 +508,7 @@ function frcd() {
 	fi
 }
 function gocd() {
-	f=$(find $GOPATH/src/ -type d -or -type l -not -path "*/.git" -not -path "*/.git/*" 2>/dev/null | fzf -i -q "$@")
+	f=$(find $GOPATH/src/ -type d -or -type l 2>/dev/null | grep -v "\.git" | fzf --reverse -i -q "$@")
 
 	if [ -d "$f" ]; then
 		cd $f

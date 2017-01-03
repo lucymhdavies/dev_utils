@@ -13,6 +13,8 @@ alt=$(echo $j | jq -r .alt)
 
 td=$(mktemp -t xkcd)
 
+echo $img
+
 curl $img > $td 2>/dev/null
 
 imgcat $td
