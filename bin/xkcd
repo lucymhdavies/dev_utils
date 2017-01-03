@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -n $1 ] ; then
+if [ -n "$1" ] ; then
 	url=http://xkcd.com/$1/info.0.json
 else
 	url=http://xkcd.com/info.0.json
