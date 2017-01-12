@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# frcd
+for d in $(find -L ~/repos ~/git_src -type d -path "*/.git" 2>/dev/null) ; do echo $(dirname $d); done | tee /tmp/frcd
+
+# gocd
+find $GOPATH/src/ -type d -or -type l 2>/dev/null | grep -v "\.git" | tee /tmp/gocd
+

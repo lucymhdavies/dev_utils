@@ -4,3 +4,6 @@
 
 # Clear temporary files
 0 * * * * ~/git_src/dev_utils/bin/cleartmp > ~/git_src/dev_utils/logs/cleartmp.log 2> ~/git_src/dev_utils/logs/cleartmp.err.log
+
+# Update directories for frcd and gocd
+* * * * * /Users/lda32/git_src/dev_utils/bin/frd
