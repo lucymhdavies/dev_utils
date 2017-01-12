@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Cronjob:
+# 0 * * * * ~/git_src/dev_utils/bin/clearberks > ~/git_src/dev_utils/bin/logs/clearberks.log
+
+echo ========================================
+date
+echo ========================================
+echo "All files..."
+echo ========================================
+ls -l ~/.berkshelf/
+
+echo
+echo ========================================
+echo "Files to delete..."
+echo ========================================
+find ~/.berkshelf/ -mtime +1
+
+echo
+echo ========================================
+echo "Deleting..."
+echo ========================================
+find ~/.berkshelf/ -mtime +1 -exec rm -rf {} \;
+
+
+# Keep the ~/tmp directory around forever
+if [ ! -d ~/.berkshelf ]; then
+	mkdir ~/.berkshelf
+fi

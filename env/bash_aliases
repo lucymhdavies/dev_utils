@@ -7,8 +7,9 @@ if [[ $(compgen -c | grep ^brew$ | wc -l) -ne 0 ]]; then
 	has_brew=true
 fi
 
+# TODO: store status of these in ~/.bash_dependencies for example, so we're not relying on compgen
 # Install dependencies
-for c in fzf coreutils jq; do
+for c in fzf coreutils jq gsort; do
 	if $has_brew && ( [[ $(compgen -c | grep ^$c$ | wc -l) -eq 0 ]] && [[ $(brew list | grep ^$c$ | wc -l) -eq 0 ]] ); then
 		echo "Installing $c"
 		brew install $c
@@ -501,7 +502,13 @@ function frcd() {
 	# f=$(find ~/repos/ ~/git_src/ -type d  -or -type l -maxdepth 2 2>/dev/null | grep -v "\.git" | fzf --reverse -i -q "$@")
 
 	# Find all directories which contain a ".git" directory
-	f=$(for d in $(find ~/repos ~/git_src -type d -path "*/.git" 2>/dev/null) ; do echo $(dirname $d) ; done | fzf -i -q "$@")
+	if [[ ! -f "/tmp/frcd" ]]; then
+		echo "loading..."
+		frd
+	fi
+
+	f=$(cat /tmp/frcd | fzf --reverse -i -q "$@")
+	# TODO: allow user to specify no parameter
 
 	if [ -d "$f" ]; then
 		cd $f
@@ -513,7 +520,12 @@ function frcd() {
 	fi
 }
 function gocd() {
-	f=$(find $GOPATH/src/ -type d -or -type l 2>/dev/null | grep -v "\.git" | fzf --reverse -i -q "$@")
+	if [[ ! -f "/tmp/gocd" ]]; then
+		echo "loading..."
+		frd
+	fi
+
+	f=$(cat /tmp/gocd | fzf --reverse -i -q "$@")
 
 	if [ -d "$f" ]; then
 		cd $f
@@ -526,3 +538,12 @@ function gocd() {
 }
 
 alias fish=asciiquarium
+
+function countdown() {
+	secs=$1
+	while [ $secs -gt 0 ]; do
+		echo -ne "\r$secs\033[0K"
+		sleep 1
+		: $((secs--))
+	done
+}
