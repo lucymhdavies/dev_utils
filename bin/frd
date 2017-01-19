@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # frcd
-for d in $(find -L ~/repos ~/git_src -type d -path "*/.git" 2>/dev/null) ; do echo $(dirname $d); done > /tmp/frcd
+for d in $(find -L ~/repos ~/git_src -type d -path "*/.git" 2>/dev/null) ; do echo $(dirname $d); done > /tmp/frcd.new && \
+	mv /tmp/frcd.new /tmp/frcd
 
 # gocd
-find $GOPATH/src/ -type d -or -type l 2>/dev/null | grep -v "\.git" > /tmp/gocd
-
+find ~/go/src/ -type d -or -type l 2>/dev/null | grep -v "\.git" > /tmp/gocd.new && \
+	mv /tmp/gocd.new /tmp/gocd

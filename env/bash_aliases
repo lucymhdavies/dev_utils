@@ -98,7 +98,6 @@ alias gsetup=git-set-upstream
 
 alias copy="rsync -z -r -v -h --progress"
 alias move="rsync -z -r -v -h --progress --remove-source-files"
-alias hgrep="history | grep"
 alias c="clear"
 alias df="df -h"
 alias color_less="less -r"
@@ -495,6 +494,8 @@ alias sshtmp="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 
 # Clear + add empty lines
 alias superclear="for i in \$(seq \$(tput lines)); do echo ' '; done ; clear"
+
+alias hgrep="history | fzf --tac -q"
 
 function frcd() {
 	# Old version(s)
