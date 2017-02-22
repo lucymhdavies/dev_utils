@@ -285,6 +285,8 @@ if [ $is_osx -eq 1 ] ; then
 	alias chrome='app "Google Chrome.app"'
 
 	alias finder='app Finder .'
+
+	alias meld="app Meld --args"
 fi
 
 
