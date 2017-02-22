@@ -363,14 +363,13 @@ else
 fi
 
 
-# Docker for osx
-if [ $is_osx -eq 0 ] ; then
-	alias docker-terminal="You're not on OS X. You don't need this."
-else
-	alias docker-terminal="bash --login /Applications/Docker/Docker\ Quickstart\ Terminal.app/Contents/Resources/Scripts/start.sh"
-fi
-alias dterm=docker-terminal
 alias dspace="du -d 0 -h ~/.docker"
+
+# Quick docker-run something ephemerally
+alias drun="docker run -it --rm"
+
+# Docker for Mac's VM
+alias docker_mac_vm="screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty"
 
 function docker_cleanup {
 	echo "=============================="
