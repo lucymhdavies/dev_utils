@@ -495,6 +495,8 @@ alias sshtmp="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 
 # Clear + add empty lines
 alias superclear="for i in \$(seq \$(tput lines)); do echo ' '; done ; clear"
+# And just wipeout scrollback
+alias clearscrollback="printf '\e]50;ClearScrollback\a'"
 
 alias hgrep="history | fzf --tac -q"
 
