@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Cronjob:
+# 0 * * * * ~/git_src/dev_utils/bin/cleartrash > ~/git_src/dev_utils/bin/logs/cleartrash.log
+
+# Keep the ~/.Trash directory around forever
+if [ ! -d ~/.Trash ]; then
+	mkdir ~/.Trash
+else
+	echo ========================================
+	date
+	echo ========================================
+	echo "All files..."
+	echo ========================================
+	ls -l ~/.Trash
+
+	echo
+	echo ========================================
+	echo "Files to delete..."
+	echo ========================================
+	# TODO: check if there are 0
+	find ~/.Trash -mtime +1
+
+	echo
+	echo ========================================
+	echo "Deleting..."
+	echo ========================================
+	find ~/.Trash -mtime +1 -exec rm -rf {} \;
+
+	mkdir ~/.Trash 2>/dev/null
+fi

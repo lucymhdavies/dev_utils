@@ -5,5 +5,8 @@
 # Clear temporary files
 0 * * * * ~/git_src/dev_utils/bin/cleartmp > ~/git_src/dev_utils/logs/cleartmp.log 2> ~/git_src/dev_utils/logs/cleartmp.err.log
 
+# Clear trash
+0 * * * * ~/git_src/dev_utils/bin/cleartrash > ~/git_src/dev_utils/logs/cleartrash.log 2> ~/git_src/dev_utils/logs/cleartrash.err.log
+
 # Update directories for frcd and gocd
 * * * * * ~/git_src/dev_utils/bin/frd
