@@ -498,7 +498,9 @@ alias superclear="for i in \$(seq \$(tput lines)); do echo ' '; done ; clear"
 # And just wipeout scrollback
 alias clearscrollback="printf '\e]50;ClearScrollback\a'"
 
-alias hgrep="history | fzf --tac -q"
+function hgrep() {
+	history | fzf --reverse -i -q "$*"
+}
 
 function frcd() {
 	# Old version(s)
