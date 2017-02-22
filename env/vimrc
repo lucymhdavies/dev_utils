@@ -287,3 +287,9 @@ endfunction
 " http://vim.wikia.com/wiki/Modeline_magic
 set modeline
 set modelines=5
+
+
+" f to fold/unfold
+nnoremap f za
+" start with everything unfolded
+set foldlevel=99
