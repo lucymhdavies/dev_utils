@@ -542,6 +542,15 @@ function gocd() {
 		return
 	fi
 }
+function gcof() {
+	if [[ -z "$1" ]]; then
+		b=$(git branch --all | sed 's/remotes\/origin\///' | sed 's/\*/ /' | sort -u | fzf --reverse -i -m | awk '{ print $NF }')
+	else
+		b=$(git branch --all | sed 's/remotes\/origin\///' | sed 's/\*/ /' | sort -u | fzf --reverse -i -q "$1" -m | awk '{ print $NF }')
+	fi
+
+	git checkout $b
+}
 
 alias fish=asciiquarium
 
