@@ -562,3 +562,22 @@ function countdown() {
 		: $((secs--))
 	done
 }
+
+function ezclone() {
+	# assumes cloning from a git@ url...
+
+	repo=$1
+	reponame=$(basename $repo .git)
+
+	repodir=~/git_src/$(dirname $(echo $repo | sed 's/.*@//' | sed 's/:/\//'))
+
+	if [ -d $repodir/$reponame ]; then
+		echo "$reponame already exists!"
+	else
+		mkdir -p $repodir
+		cd $repodir
+		git clone $repo
+	fi
+
+	cd $repodir/$reponame
+}
