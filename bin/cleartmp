@@ -28,4 +28,5 @@ else
 	find ~/tmp -mtime +1 -exec rm -rf {} \;
 
 	mkdir ~/tmp 2>/dev/null
+	touch ~/tmp/.keep
 fi
