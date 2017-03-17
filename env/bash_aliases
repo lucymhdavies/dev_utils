@@ -59,7 +59,7 @@ alias vim="vim -p"
 alias view="vim -R"
 export EDITOR=vim
 alias vibash="vim ~/.bashrc"
-alias vialiases="vim ~/.bash_aliases; realias"
+alias vialiases="vim ~/.bash_aliases; realias"; alias vialias=vialiases
 # because when you use vim a lot, you expect :q to be quit
 alias :q="exit"
 alias :Q="exit"
@@ -481,6 +481,8 @@ if [ $is_osx -eq 1 ] ; then
 	}
 fi
 
+alias ctop='docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
+
 
 # Remove color codes
 alias decolor="sed -r \"s:\x1B\[[0-9;]*[mK]::g\""
@@ -581,3 +583,14 @@ function ezclone() {
 
 	cd $repodir/$reponame
 }
+
+# iterm tab colors
+alias tcol_red='echo -en "\033]6;1;bg;*;default\a\033]6;1;bg;red;brightness;255\a"'
+alias tcol_green='echo -en "\033]6;1;bg;*;default\a\033]6;1;bg;green;brightness;255\a"'
+alias tcol_reset='echo -en "\033]6;1;bg;*;default\a"'
+
+# iterm tab title
+function t_title {
+    echo -ne "\033]0;"$*"\007"
+}
+
