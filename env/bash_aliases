@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Bash Aliases is kinda a misnomer, because this file contains a bunch of other stuff too
+
 # Dependencies:
 # Homebrew
 
@@ -30,7 +32,12 @@ fi
 # http://stackoverflow.com/questions/9457233/unlimited-bash-history
 export HISTSIZE=
 export HISTFILESIZE=
+export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT="[%F %T] "
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
 # Change the file location because certain bash sessions truncate .bash_history file upon close.
 # http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
 export HISTFILE=~/.bash_eternal_history
@@ -339,7 +346,23 @@ alias cdtmp="cd ~/tmp"
 
 
 # Dependency: git clone https://github.com/sivel/speedtest-cli.git
-alias speedtest="python ~/git_src/speedtest-cli/speedtest_cli.py --share"
+function speedtest() {
+	git_url="git@github.com:sivel/speedtest-cli.git"
+	scriptdir="$HOME/git_src/github.com/sivel/speedtest-cli"
+	script="$scriptdir/speedtest.py"
+
+	# TODO: if script does not exist, clone repo
+
+	python $script --share | tee /tmp/speedtest.txt
+
+
+	# TODO: only do this bit if in iterm
+	share_img=$(cat /tmp/speedtest.txt | grep "Share results" | sed s/.*http/http/)
+
+	curl $share_img > /tmp/speedtest.png 2>/dev/null
+
+	imgcat /tmp/speedtest.png
+}
 
 
 
