@@ -252,13 +252,13 @@
 	<key>Default Bookmark Guid</key>
 	<string>C29C8EFD-B6C2-4866-92F8-CE951B81E7C7</string>
 	<key>DimBackgroundWindows</key>
-	<false/>
+	<true/>
 	<key>DimInactiveSplitPanes</key>
 	<true/>
 	<key>DimOnlyText</key>
 	<false/>
 	<key>DisableFullscreenTransparency</key>
-	<false/>
+	<true/>
 	<key>EnableRendezvous</key>
 	<true/>
 	<key>FocusFollowsMouse</key>
@@ -274,9 +274,9 @@
 	<key>HideMenuBarInFullscreen</key>
 	<true/>
 	<key>HideScrollbar</key>
-	<false/>
-	<key>HideTab</key>
 	<true/>
+	<key>HideTab</key>
+	<false/>
 	<key>HighlightTabLabels</key>
 	<true/>
 	<key>HotKeyBookmark</key>
@@ -340,11 +340,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 1716 620 392 0 1200 1920 1080 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>272 233 796 473 0 0 1920 1200 </string>
+	<string>272 1407 796 473 0 1200 1920 1080 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 593 592 584 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>566 1576 585 452 0 1200 1920 1080 </string>
+	<string>1920 1210 1915 1047 1920 1200 1920 1057 </string>
 	<key>NeverWarnAboutShortLivedSessions_0503B1C5-D540-4BDA-91BC-9D71BD76D503</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_34A2294D-4E01-4812-BFE3-7708A34F5F01</key>
@@ -4241,7 +4241,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-05-10T09:04:09Z</date>
+	<date>2017-05-13T21:49:50Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
