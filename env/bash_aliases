@@ -93,6 +93,8 @@ alias gadint="git add --interactive"
 alias gmlog="git log -m -M --first-parent -p"
 alias gignored="git ls-files . --ignored --exclude-standard --others"
 
+alias git_clean_branches="git fetch -p && for branch in \$(git branch -vv | grep ': gone]' | awk '{print \$1}'); do git branch -D \$branch; done"
+
 function git-set-upstream {
 	my_branch=`git rev-parse --abbrev-ref HEAD`
 
@@ -569,9 +571,9 @@ function gocd() {
 }
 function gcof() {
 	if [[ -z "$1" ]]; then
-		b=$(git branch --all | sed 's/remotes\/origin\///' | sed 's/\*/ /' | sort -u | fzf --reverse -i -m | awk '{ print $NF }')
+		b=$(git branch --all | sed 's/remotes\/origin\///' | grep -v "\->" | sed 's/\*/ /' | sort -u | fzf --reverse -i -m | awk '{ print $NF }')
 	else
-		b=$(git branch --all | sed 's/remotes\/origin\///' | sed 's/\*/ /' | sort -u | fzf --reverse -i -q "$1" -m | awk '{ print $NF }')
+		b=$(git branch --all | sed 's/remotes\/origin\///' | grep -v "\->" | sed 's/\*/ /' | sort -u | fzf --reverse -i -q "$1" -m | awk '{ print $NF }')
 	fi
 
 	git checkout $b
@@ -617,3 +619,7 @@ function t_title {
     echo -ne "\033]0;"$*"\007"
 }
 
+
+
+# Notify on oncommitted changes to dev_utils
+cd ~/git_src/dev_utils >/dev/null && (git diff --quiet || echo "Uncommitted changes to dev_utils") && cd - >/dev/null
