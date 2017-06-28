@@ -6,12 +6,12 @@ for d in $(find -L ~/repos ~/git_src ~/go/src -type d -path "*/.git" 2>/dev/null
 done > /tmp/frcd.new
 
 if [ -f /tmp/frcd.new ]; then
-	mv /tmp/frcd.new /tmp/frcd
+	mv /tmp/frcd.new /tmp/frcd 2>/dev/null
 fi
 
 # gocd
 find ~/go/src/ -type d -or -type l 2>/dev/null | grep -v "\.git" > /tmp/gocd.new
 
 if [ -f /tmp/gocd.new ]; then
-	mv /tmp/gocd.new /tmp/gocd
+	mv /tmp/gocd.new /tmp/gocd 2>/dev/null
 fi
