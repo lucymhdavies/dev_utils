@@ -342,15 +342,15 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 589 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>445 1638 937 465 0 1200 1920 1080 </string>
+	<string>441 1678 958 433 0 1200 1920 1080 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 593 592 584 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>444 1552 570 475 0 1200 1920 1080 </string>
+	<string>0 0 1920 1200 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2067 1620 570 475 1920 1200 1920 1080 </string>
+	<string>2090 1673 570 475 1920 1200 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>-868 1414 570 473 -1080 360 1080 1920 </string>
+	<string>799 1558 570 475 0 1200 1920 1080 </string>
 	<key>NeverWarnAboutShortLivedSessions_0503B1C5-D540-4BDA-91BC-9D71BD76D503</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_34A2294D-4E01-4812-BFE3-7708A34F5F01</key>
@@ -2715,7 +2715,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-06-22T10:38:13Z</date>
+	<date>2017-07-10T08:31:43Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2757,6 +2757,8 @@
 	<real>1489570176</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
+	<key>Use background pattern indicator</key>
+	<false/>
 	<key>UseBorder</key>
 	<false/>
 	<key>UseCompactLabel</key>
