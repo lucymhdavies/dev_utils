@@ -348,7 +348,7 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1920 1200 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2090 1673 570 475 1920 1200 1920 1080 </string>
+	<string>2176 1574 570 475 1920 1200 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>799 1558 570 475 0 1200 1920 1080 </string>
 	<key>NeverWarnAboutShortLivedSessions_0503B1C5-D540-4BDA-91BC-9D71BD76D503</key>
@@ -2715,7 +2715,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-07-10T08:31:43Z</date>
+	<date>2017-07-24T09:46:02Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2782,6 +2782,8 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
