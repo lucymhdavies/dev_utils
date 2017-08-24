@@ -11,7 +11,7 @@ fi
 
 # TODO: store status of these in ~/.bash_dependencies for example, so we're not relying on compgen
 # Install dependencies
-for c in fzf coreutils jq gsort; do
+for c in fzf coreutils jq gsort thefuck; do
 	if $has_brew && ( [[ $(compgen -c | grep ^$c$ | wc -l) -eq 0 ]] && [[ $(brew list | grep ^$c$ | wc -l) -eq 0 ]] ); then
 		echo "Installing $c"
 		brew install $c
@@ -625,3 +625,7 @@ function t_title {
 
 # Notify on oncommitted changes to dev_utils
 cd ~/git_src/dev_utils >/dev/null && (git diff --quiet || echo "Uncommitted changes to dev_utils") && cd - >/dev/null
+
+
+# FUCK
+eval "$(thefuck --alias)"
