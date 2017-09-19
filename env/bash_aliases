@@ -629,3 +629,19 @@ cd ~/git_src/dev_utils >/dev/null && (git diff --quiet || echo "Uncommitted chan
 
 # FUCK
 eval "$(thefuck --alias)"
+
+
+# WAT
+
+function what {
+  while [ "$1" != "is" ]; do
+    shift
+  done
+  if [ "$1" != "is" ]; then
+    echo "Usage: what [...] is [args]" 1>&2
+    exit -1
+  fi
+  shift
+  man "$@"
+}
+
