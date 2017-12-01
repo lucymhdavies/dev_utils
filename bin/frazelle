@@ -1,0 +1,7 @@
+#!/bin/bash
+# For macOS, starts X and configures it for use with Jessie images
+
+open -a XQuartz
+
+ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+xhost + $ip
