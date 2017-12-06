@@ -1,6 +1,18 @@
 #!/bin/bash
 # For macOS, starts X and configures it for use with Jessie images
 
+if [[ $(compgen -c | grep ^brew$ | wc -l) -ne 0 ]]; then
+	has_brew=true
+else
+	echo "You need https://brew.sh/ installed!"
+	exit 1
+fi
+
+if [[ $(brew cask list | grep ^xquartz$ | wc -l) -eq 0 ]] ; then
+	brew cask install xquartz
+fi
+
+# TODO: check if X is already running
 open -a XQuartz
 
 ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
