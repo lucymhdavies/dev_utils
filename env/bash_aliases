@@ -508,7 +508,7 @@ if [ $is_osx -eq 1 ] ; then
 	}
 fi
 
-alias ctop='docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
+alias ctop='tab_title "ctop" ; docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest ; tab_title'
 
 
 # Remove color codes
@@ -613,13 +613,19 @@ function ezclone() {
 
 # iterm tab colors
 alias tcol_red='echo -en "\033]6;1;bg;*;default\a\033]6;1;bg;red;brightness;255\a"'
+alias tab_col_red=tcol_red
 alias tcol_green='echo -en "\033]6;1;bg;*;default\a\033]6;1;bg;green;brightness;255\a"'
+alias tab_col_green=tcol_green
 alias tcol_reset='echo -en "\033]6;1;bg;*;default\a"'
+alias tab_col_reset=tcol_reset
+# And reset now, e.g. for opening a new window from a color tab
+tab_col_reset
 
 # iterm tab title
 function t_title {
     echo -ne "\033]0;"$*"\007"
 }
+alias tab_title=t_title # because I could never remember t_title
 
 
 
@@ -644,4 +650,3 @@ function what {
   shift
   man "$@"
 }
-
