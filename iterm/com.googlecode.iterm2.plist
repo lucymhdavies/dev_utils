@@ -352,9 +352,9 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1920 1200 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2202 1571 570 475 1920 1200 1920 1057 </string>
+	<string>2189 1585 570 475 1920 1200 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>314 1520 570 475 0 1200 1920 1080 </string>
+	<string>-766 680 570 475 -1080 360 1080 1897 </string>
 	<key>NeverWarnAboutShortLivedSessions_0503B1C5-D540-4BDA-91BC-9D71BD76D503</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_34A2294D-4E01-4812-BFE3-7708A34F5F01</key>
@@ -2723,7 +2723,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-12-15T10:19:51Z</date>
+	<date>2018-01-09T09:07:44Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2740,6 +2740,8 @@
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.39221254602456712</real>
+	<key>SuppressShellIntegrationUpgradeAnnouncementForHost_lda32@SBGML02698</key>
+	<true/>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
