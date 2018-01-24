@@ -81,6 +81,10 @@ alias gpull="git pull"
 alias gcom="git commit"
 alias gadd="git add"
 alias gco="git checkout"
+function gcop {
+	git checkout $@
+	git pull
+}
 alias gb="gco -b"
 alias gstatus="git status"
 alias gbranch="git branch -avv"
@@ -508,7 +512,8 @@ if [ $is_osx -eq 1 ] ; then
 	}
 fi
 
-alias ctop='tab_title "ctop" ; docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest ; tab_title'
+#alias ctop='tab_title "ctop" ; docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest ; tab_title'
+alias ctop='tab_title "ctop" ; lucli ctop ; tab_title'
 
 
 # Remove color codes
@@ -580,6 +585,11 @@ function gcof() {
 
 	git checkout $b
 }
+function gcopf {
+	gcof $@
+	git pull
+}
+alias gcofp=gcopf
 
 alias fish=asciiquarium
 
@@ -595,10 +605,18 @@ function countdown() {
 function ezclone() {
 	# assumes cloning from a git@ url...
 
+	# clone to git_src by default
+	repo_base=~/git_src
+	if [[ "$1" == "golang" ]]; then
+		repo_base=$GOPATH/src
+		shift
+	fi
+
 	repo=$1
 	reponame=$(basename $repo .git)
 
-	repodir=~/git_src/$(dirname $(echo $repo | sed 's/.*@//' | sed 's/:/\//'))
+
+	repodir=$repo_base/$(dirname $(echo $repo | sed 's/.*@//' | sed 's/:/\//'))
 
 	if [ -d $repodir/$reponame ]; then
 		echo "$reponame already exists!"
@@ -630,6 +648,8 @@ alias tab_title=t_title # because I could never remember t_title
 
 
 # Notify on oncommitted changes to dev_utils
+# TODO: do this in a cron, outputting to file: /tmp/lmhd/dev-utils/updates/dev_utils
+# bashrc would cat the content of each of the files in that directory, speeding up time to start a new shell
 cd ~/git_src/dev_utils >/dev/null && (git diff --quiet || echo "Uncommitted changes to dev_utils") && cd - >/dev/null
 
 
@@ -650,3 +670,6 @@ function what {
   shift
   man "$@"
 }
+
+
+alias luclidev="go run ~/go/src/github.com/lmhd/lucli/*.go"
