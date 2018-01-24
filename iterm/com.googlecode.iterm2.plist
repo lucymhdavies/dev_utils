@@ -352,7 +352,7 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1920 1200 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2189 1585 570 475 1920 1200 1920 1057 </string>
+	<string>2381 1616 570 475 1920 1200 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>-766 680 570 475 -1080 360 1080 1897 </string>
 	<key>NeverWarnAboutShortLivedSessions_0503B1C5-D540-4BDA-91BC-9D71BD76D503</key>
@@ -1384,7 +1384,7 @@
 			<key>HotKey Window Animates</key>
 			<true/>
 			<key>HotKey Window AutoHides</key>
-			<true/>
+			<false/>
 			<key>HotKey Window Dock Click Action</key>
 			<integer>0</integer>
 			<key>HotKey Window Floats</key>
@@ -2723,7 +2723,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-09T09:07:44Z</date>
+	<date>2018-01-17T19:56:00Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
