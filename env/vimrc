@@ -16,6 +16,12 @@ try
 	let g:go_highlight_types     = 1
 	let g:go_highlight_functions = 1
 	let g:go_highlight_methods   = 1
+
+	" Vim-Terraform
+	" git clone https://github.com/hashivim/vim-terraform ~/.vim/bundle/vim-terraform
+	let g:terraform_align=1
+	autocmd BufWritePost *.tf :TerraformFmt
+
 catch
 endtry
 
