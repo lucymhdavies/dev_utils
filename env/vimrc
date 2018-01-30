@@ -22,6 +22,11 @@ try
 	let g:terraform_align=1
 	autocmd BufWritePost *.tf :TerraformFmt
 
+	" Airline
+	" git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+	" git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
+	" Theme
+	let g:airline_theme='violet'
 catch
 endtry
 
@@ -47,9 +52,10 @@ nnoremap <F10> gt
 set tabpagemax=100
 
 " Tab colors
-hi TabLineFill ctermfg=Blue  ctermbg=White
-hi TabLineSel  ctermfg=White ctermbg=Red
-hi TabLine     ctermfg=White ctermbg=Blue
+" Colors from https://github.com/vim-airline/vim-airline-themes/blob/master/autoload/airline/themes/violet.vim
+hi TabLineFill ctermfg=239  ctermbg=250
+hi TabLineSel  ctermfg=250 ctermbg=97
+hi TabLine     ctermfg=250 ctermbg=239
 
 " Tabs are 4 spaces
 set tabstop=4
