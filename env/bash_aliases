@@ -1,4 +1,14 @@
 #!/bin/bash
+if [ -f ~/.bash_debug_log ]; then
+	BASH_DEBUG_LOGGING=true
+fi
+function bashdebug() {
+	if [[ $BASH_DEBUG_LOGGING == true ]]; then
+		echo $*
+	fi
+}
+
+bashdebug "LUCYTIME ALIASES 1 $(date)"
 
 # Bash Aliases is kinda a misnomer, because this file contains a bunch of other stuff too
 
@@ -11,13 +21,15 @@ fi
 
 # TODO: store status of these in ~/.bash_dependencies for example, so we're not relying on compgen
 # Install dependencies
-for c in fzf coreutils jq gsort thefuck; do
-	if $has_brew && ( [[ $(compgen -c | grep ^$c$ | wc -l) -eq 0 ]] && [[ $(brew list | grep ^$c$ | wc -l) -eq 0 ]] ); then
-		echo "Installing $c"
-		brew install $c
-	fi
-done
+# TODO: This should be `brew install lucybash`
+# for c in fzf coreutils jq gsort thefuck; do
+# 	if $has_brew && ( [[ $(compgen -c | grep ^$c$ | wc -l) -eq 0 ]] && [[ $(brew list | grep ^$c$ | wc -l) -eq 0 ]] ); then
+# 		echo "Installing $c"
+# 		brew install $c
+# 	fi
+# done
 
+bashdebug "LUCYTIME ALIASES 2 $(date)"
 
 
 
@@ -197,6 +209,7 @@ var_toggle()
     eval "$1=\$_VAR_TOGGLE"
 }
 
+bashdebug "LUCYTIME ALIASES 3 $(date)"
 
 # be case insensitive when you tab complete
 #bind "set completion-ignore-case on"
