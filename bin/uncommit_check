@@ -1,0 +1,11 @@
+#!/bin/bash
+
+mkdir -p /tmp/lmhd/dev-utils/updates/
+if [ -f /tmp/lmhd/dev-utils/updates/dev_utils ]; then
+	rm /tmp/lmhd/dev-utils/updates/dev_utils
+fi
+
+cd ~/git_src/dev_utils >/dev/null
+	git diff --quiet && exit
+	echo "Uncommitted changes to dev_utils" > /tmp/lmhd/dev-utils/updates/dev_utils
+cd - >/dev/null

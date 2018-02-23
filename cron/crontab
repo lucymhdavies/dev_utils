@@ -10,3 +10,6 @@
 
 # Update directories for frcd and gocd
 * * * * * ~/git_src/dev_utils/bin/frd
+
+# Check for uncommitted dev_utils
+0 * * * * ~/git_src/dev_utils/bin/uncommit_check > ~/git_src/dev_utils/logs/uncommit.log 2> ~/git_src/dev_utils/logs/uncommit.err.log

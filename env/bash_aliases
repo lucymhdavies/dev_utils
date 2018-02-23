@@ -660,10 +660,18 @@ alias tab_title=t_title # because I could never remember t_title
 
 
 
-# Notify on oncommitted changes to dev_utils
-# TODO: do this in a cron, outputting to file: /tmp/lmhd/dev-utils/updates/dev_utils
-# bashrc would cat the content of each of the files in that directory, speeding up time to start a new shell
-cd ~/git_src/dev_utils >/dev/null && (git diff --quiet || echo "Uncommitted changes to dev_utils") && cd - >/dev/null
+# Notify on oncommitted changes to dev_utils, and other such updates
+# Updated with cron
+# Kinda like a user-specific motd
+if [ -n "$(ls -A /tmp/lmhd/dev-utils/updates/)" ]; then
+	echo
+	echo ================================================================================
+	echo Updates worthy of your attention
+	echo ================================================================================
+	find "/tmp/lmhd/dev-utils/updates/" -type f -exec cat {} \;
+	echo ================================================================================
+	echo
+fi
 
 
 # FUCK
@@ -686,3 +694,4 @@ function what {
 
 
 alias luclidev="go run ~/go/src/github.com/lmhd/lucli/*.go"
+alias staticlidev="go run ~/go/src/github.com/staticli/staticli/*.go"
