@@ -663,14 +663,16 @@ alias tab_title=t_title # because I could never remember t_title
 # Notify on oncommitted changes to dev_utils, and other such updates
 # Updated with cron
 # Kinda like a user-specific motd
-if [ -n "$(ls -A /tmp/lmhd/dev-utils/updates/)" ]; then
-	echo
-	echo ================================================================================
-	echo Updates worthy of your attention
-	echo ================================================================================
-	find "/tmp/lmhd/dev-utils/updates/" -type f -exec cat {} \;
-	echo ================================================================================
-	echo
+if [ -d /tmp/lmhd/dev-utils/updates/ ]; then
+	if [ -n "$(ls -A /tmp/lmhd/dev-utils/updates/)" ]; then
+		echo
+		echo ================================================================================
+		echo Updates worthy of your attention
+		echo ================================================================================
+		find "/tmp/lmhd/dev-utils/updates/" -type f -exec cat {} \;
+		echo ================================================================================
+		echo
+	fi
 fi
 
 
