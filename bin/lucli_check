@@ -1,0 +1,11 @@
+#!/bin/bash
+
+mkdir -p /tmp/lmhd/dev-utils/updates/
+if [ -f /tmp/lmhd/dev-utils/updates/lucli ]; then
+    rm /tmp/lmhd/dev-utils/updates/lucli
+fi
+
+# Check lucli version
+if [[ $(/Users/lda32/bin/lucli version 2>&1 | grep 'lucli update' | wc -l) -eq 1 ]]; then
+    echo "old lucli detected" > /tmp/lmhd/dev-utils/updates/lucli
+fi

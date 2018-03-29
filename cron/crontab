@@ -13,3 +13,7 @@
 
 # Check for uncommitted dev_utils
 0 * * * * ~/git_src/dev_utils/bin/uncommit_check > ~/git_src/dev_utils/logs/uncommit.log 2> ~/git_src/dev_utils/logs/uncommit.err.log
+
+# Check for new lucli and staticli
+0 * * * * ~/git_src/dev_utils/bin/lucli_check > ~/git_src/dev_utils/logs/lucli_check.log 2> ~/git_src/dev_utils/logs/lucli_check.err.log
+0 * * * * ~/git_src/dev_utils/bin/staticli_check > ~/git_src/dev_utils/logs/staticli_check.log 2> ~/git_src/dev_utils/logs/staticli_check.err.log

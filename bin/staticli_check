@@ -1,0 +1,11 @@
+#!/bin/bash
+
+mkdir -p /tmp/lmhd/dev-utils/updates/
+if [ -f /tmp/lmhd/dev-utils/updates/staticli ]; then
+    rm /tmp/lmhd/dev-utils/updates/staticli
+fi
+
+# Check staticli version
+if [[ $(/Users/lda32/bin/staticli version 2>&1 | grep 'update your version of staticli' | wc -l) -eq 1 ]]; then
+    echo "old staticli detected" > /tmp/lmhd/dev-utils/updates/staticli
+fi
