@@ -17,16 +17,35 @@ try
 	let g:go_highlight_functions = 1
 	let g:go_highlight_methods   = 1
 
+	" gocode:
+	"
+	" go get github.com/nsf/gocode
+	" ~/go/src/github.com/nsf/gocode/vim/symlink.sh
+	"
+	" Should just work with vim-go
+	filetype plugin on
+
 	" Vim-Terraform
+    " for syntax highlighting
 	" git clone https://github.com/hashivim/vim-terraform ~/.vim/bundle/vim-terraform
 	let g:terraform_align=1
-	autocmd BufWritePost *.tf :TerraformFmt
+
+	" Vim-HCLfmt
+	" for auto-formatting
+	" git clone git@github.com:fatih/vim-hclfmt.git ~/.vim/bundle/vim-hclfmt
+    " go get github.com/fatih/hclfmt
+	let g:hcl_fmt_autosave = 1
+	let g:tf_fmt_autosave = 1
+	let g:nomad_fmt_autosave = 0
 
 	" Airline
 	" git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
 	" git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
 	" Theme
 	let g:airline_theme='violet'
+
+	" Jenkinsfile
+	" git clone git@github.com:martinda/Jenkinsfile-vim-syntax.git ~/.vim/bundle/Jenkinsfile-vim-syntax
 catch
 endtry
 
@@ -51,6 +70,10 @@ nnoremap <F9>  gT
 nnoremap <F10> gt
 set tabpagemax=100
 
+" Quick mouse toggle
+map <F6> :set mouse=a<CR>
+map <F7> <C-C>:set mouse=<CR>
+
 " Tab colors
 " Colors from https://github.com/vim-airline/vim-airline-themes/blob/master/autoload/airline/themes/violet.vim
 hi TabLineFill ctermfg=239  ctermbg=250
@@ -71,25 +94,6 @@ set hlsearch
 " allow deletion of indent, eol and anything which wasn't added in this vim session
 set backspace=2
 
-"test highlighting with a long line
-"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-
-"highlight cols past 80
-"if exists('+colorcolumn')
-"	execute "set colorcolumn=" . join(range(81,335), ',')
-"	highlight ColorColumn ctermbg=233
-"else
-"	highlight OverLength ctermbg=233
-"	match OverLength /\%81v.*/
-"endif
-
-
-" associate *.pom with xml filetype
-au BufRead,BufNewFile *.pom set filetype=xml
-
-
-" compiled tcl
-au BufRead,BufNewFile *.tbc set filetype=tcl
 
 
 
@@ -121,7 +125,7 @@ endif
 autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
 autocmd FileType go               let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType conf,fstab,hcl   let b:comment_leader = '# '
 autocmd FileType yaml             let b:comment_leader = '#'
 autocmd FileType tf               let b:comment_leader = '#'
 autocmd FileType Dockerfile       let b:comment_leader = '# '
@@ -307,3 +311,7 @@ set modelines=5
 nnoremap f za
 " start with everything unfolded
 set foldlevel=99
+
+
+" Tab complete my commands!
+set wildmenu
