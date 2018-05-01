@@ -1,4 +1,13 @@
 #!/bin/bash
+
+if [ -f ~/.presentation_mode ]; then
+	PRESENTATION_MODE=true
+	PS1="🐳 :\W lucy $ "
+else
+	PRESENTATION_MODE=false
+fi
+
+
 if [ -f ~/.bash_debug_log ]; then
 	BASH_DEBUG_LOGGING=true
 fi
@@ -663,15 +672,18 @@ alias tab_title=t_title # because I could never remember t_title
 # Notify on oncommitted changes to dev_utils, and other such updates
 # Updated with cron
 # Kinda like a user-specific motd
-if [ -d /tmp/lmhd/dev-utils/updates/ ]; then
-	if [ -n "$(ls -A /tmp/lmhd/dev-utils/updates/)" ]; then
-		echo
-		echo ================================================================================
-		echo Updates worthy of your attention
-		echo ================================================================================
-		find "/tmp/lmhd/dev-utils/updates/" -type f -exec cat {} \;
-		echo ================================================================================
-		echo
+
+if ! $PRESENTATION_MODE; then
+	if [ -d /tmp/lmhd/dev-utils/updates/ ]; then
+		if [ -n "$(ls -A /tmp/lmhd/dev-utils/updates/)" ]; then
+			echo
+			echo ================================================================================
+			echo Updates worthy of your attention
+			echo ================================================================================
+			find "/tmp/lmhd/dev-utils/updates/" -type f -exec cat {} \;
+			echo ================================================================================
+			echo
+		fi
 	fi
 fi
 
@@ -697,3 +709,4 @@ function what {
 
 alias luclidev="go run ~/go/src/github.com/lmhd/lucli/*.go"
 alias staticlidev="go run ~/go/src/github.com/staticli/staticli/*.go"
+
