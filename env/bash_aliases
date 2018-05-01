@@ -41,6 +41,7 @@ fi
 bashdebug "LUCYTIME ALIASES 2 $(date)"
 
 
+alias trains="while : ; do sl; done"
 
 
 # Eternal bash history.
@@ -118,6 +119,10 @@ alias gdiagram="git log --graph --color --decorate --oneline --all"
 alias gadint="git add --interactive"
 alias gmlog="git log -m -M --first-parent -p"
 alias gignored="git ls-files . --ignored --exclude-standard --others"
+
+if [ $is_osx -eq 0 ] ; then
+	alias copy-git-remote-url="git remote get-url origin | pbcopy"
+fi
 
 alias git_clean_branches="git fetch -p && for branch in \$(git branch -vv | grep ': gone]' | awk '{print \$1}'); do git branch -D \$branch; done"
 
