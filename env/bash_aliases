@@ -120,7 +120,7 @@ alias gadint="git add --interactive"
 alias gmlog="git log -m -M --first-parent -p"
 alias gignored="git ls-files . --ignored --exclude-standard --others"
 
-if [ $is_osx -eq 0 ] ; then
+if [ $is_osx -eq 1 ] ; then
 	alias copy-git-remote-url="git remote get-url origin | pbcopy"
 fi
 
