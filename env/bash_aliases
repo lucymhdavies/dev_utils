@@ -1,8 +1,17 @@
 #!/bin/bash
 
+imgcat ~/git_src/dev_utils/img/trans-gopher.png
+
 if [ -f ~/.presentation_mode ]; then
 	PRESENTATION_MODE=true
+
 	PS1="🐳 :\W lucy $ "
+
+
+	#imgcat ~/git_src/dev_utils/img/strawberry.png
+
+	# UGUU ANIME MODE
+	#PS1="(づ｡◕‿‿◕｡)づ 🌈  :\W lucy $ "
 else
 	PRESENTATION_MODE=false
 fi
