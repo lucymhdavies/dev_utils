@@ -342,19 +342,19 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>574 574 400 129 0 0 1920 1200 </string>
+	<string>760 787 400 129 0 0 1920 1177 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>-850 1506 620 392 -1080 360 1080 1920 </string>
+	<string>650 607 620 392 0 0 1920 1200 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>290 505 918 452 0 0 1920 1177 </string>
+	<string>448 1657 918 512 0 1200 1920 1080 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 593 592 584 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1920 1200 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2381 1616 570 475 1920 1200 1920 1057 </string>
+	<string>2370 1656 570 475 1920 1200 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>-766 680 570 475 -1080 360 1080 1897 </string>
+	<string>1263 1585 570 475 0 1200 1920 1080 </string>
 	<key>NeverWarnAboutShortLivedSessions_0503B1C5-D540-4BDA-91BC-9D71BD76D503</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_34A2294D-4E01-4812-BFE3-7708A34F5F01</key>
@@ -937,7 +937,7 @@
 			<key>Screen</key>
 			<integer>0</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Scrollback With Status Bar</key>
 			<false/>
 			<key>Scrollback in Alternate Screen</key>
@@ -2714,6 +2714,8 @@
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
+	<key>SUAutomaticallyUpdate</key>
+	<false/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -2723,7 +2725,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-17T19:56:00Z</date>
+	<date>2018-07-21T17:35:32Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2734,6 +2736,8 @@
 	<false/>
 	<key>ShowFullScreenTabBar</key>
 	<true/>
+	<key>ShowMetalFPSmeter</key>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>
@@ -2764,7 +2768,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1504859904</real>
+	<real>1518600576</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>Use background pattern indicator</key>
@@ -2797,6 +2801,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.5.beta.2</string>
+	<string>3.2.0beta5</string>
 </dict>
 </plist>
