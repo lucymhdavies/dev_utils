@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Check for existing frd
+FILE=/tmp/frd.lock
+if [ -f $FILE ]; then
+  exit 0
+else
+  touch $FILE
+fi
+
 # frcd
 for d in $(find -L ~/repos ~/git_src ~/go/src -type d -path "*/.git" 2>/dev/null) ; do
 	echo $(dirname $d)
@@ -15,3 +23,6 @@ find ~/go/src/ -type d -or -type l 2>/dev/null | grep -v "\.git" > /tmp/gocd.new
 if [ -f /tmp/gocd.new ]; then
 	mv /tmp/gocd.new /tmp/gocd 2>/dev/null
 fi
+
+# Clear lock
+rm -f /tmp/frd.lock
