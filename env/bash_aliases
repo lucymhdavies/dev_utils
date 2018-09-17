@@ -1,6 +1,6 @@
 #!/bin/bash
 
-imgcat ~/git_src/dev_utils/img/trans-gopher.png
+~/git_src/dev_utils/bin/imgcat ~/git_src/dev_utils/img/trans-gopher.png
 
 if [ -f ~/.presentation_mode ]; then
 	PRESENTATION_MODE=true
