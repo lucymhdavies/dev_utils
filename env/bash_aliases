@@ -729,3 +729,8 @@ alias staticlidev="go run ~/go/src/github.com/staticli/staticli/*.go"
 
 # heroku autocomplete setup
 HEROKU_AC_BASH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
+
+
+# cd to bookmarked directory
+alias cdbset="echo \$PWD > ~/tmp/cdb"
+alias cdb="cd \$(cat ~/tmp/cdb)"
