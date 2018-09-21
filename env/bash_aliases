@@ -733,4 +733,4 @@ HEROKU_AC_BASH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/bash_setup &&
 
 # cd to bookmarked directory
 alias cdbset="echo \$PWD > ~/tmp/cdb"
-alias cdb="cd \$(cat ~/tmp/cdb)"
+alias cdb="touch ~/tmp/cdb && cd \$(cat ~/tmp/cdb)"
