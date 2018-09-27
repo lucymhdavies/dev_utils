@@ -4,10 +4,16 @@
 
 # Append new directory to top of bookmark list
 
-# TODO linux version of this
-alias cdsa="gsed -i \"1i\$PWD\" ~/tmp/cdb"
+function cdsa() {
+	# Append current directory to bookmark file
+	# TODO linux version of this
+	gsed -i "1i$PWD" ~/tmp/cdb
 
-# TODO: prune list when appending
+	# Remove dupes
+	cat ~/tmp/cdb | awk '!x[$0]++' > ~/tmp/cdb-dedup
+	mv ~/tmp/cdb-dedup ~/tmp/cdb
+}
+
 
 # CD to Saved directory
 function cds() {
@@ -15,14 +21,17 @@ function cds() {
 	if [[ "$@" == "" ]]; then
 		# Awk command prints unique lines only
 		# https://stackoverflow.com/a/11532197
-		f=$(cat ~/tmp/cdb | awk '!x[$0]++' | fzf --reverse -i)
+		f=$(cat ~/tmp/cdb | fzf --reverse -i)
 	else
-		f=$(cat ~/tmp/cdb | awk '!x[$0]++' | fzf --reverse -i -q "$@")
+		f=$(cat ~/tmp/cdb | fzf --reverse -i -q "$@")
 	fi
 
 	if [ -d "$f" ]; then
 		cd $f
-		# TODO: move most recently visited directory to top of list
+
+		# Move most recently visited directory to top of list
+		cdsa
+
 		return
 	fi
 	if [ -f "$f" ]; then
