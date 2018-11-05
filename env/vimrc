@@ -50,6 +50,9 @@ try
 catch
 endtry
 
+" Use clipboard
+set clipboard=unnamed
+
 " We have colours
 set t_Co=256
 
