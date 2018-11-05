@@ -14,7 +14,10 @@ for d in $(find -L ~/repos ~/git_src ~/go/src -type d -path "*/.git" 2>/dev/null
 done > /tmp/frcd.new
 
 if [ -f /tmp/frcd.new ]; then
-	mv /tmp/frcd.new /tmp/frcd 2>/dev/null
+	# TODO: figure out a more flexible way of handling frcd exclusions
+	# For now, this will do for the two repos I want to exclude
+	cat /tmp/frcd.new | grep -v fssh > /tmp/frcd 2>/dev/null
+	rm /tmp/frcd.new
 fi
 
 # gocd
