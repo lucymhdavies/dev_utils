@@ -5,6 +5,9 @@
 # Append new directory to top of bookmark list
 
 function cdsa() {
+	# Ensure the file exists
+	echo "" > ~/tmp/cdb
+
 	# Append current directory to bookmark file
 	# TODO linux version of this
 	gsed -i "1i$PWD" ~/tmp/cdb
@@ -17,6 +20,10 @@ function cdsa() {
 
 # CD to Saved directory
 function cds() {
+	if [ ! -f ~/tmp/cdb ]; then
+		echo "Directory Bookmarks file does not exist. Add some with cdsa"
+		return
+	fi
 
 	if [[ "$@" == "" ]]; then
 		# Awk command prints unique lines only
