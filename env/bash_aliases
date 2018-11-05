@@ -727,3 +727,9 @@ HEROKU_AC_BASH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/bash_setup &&
 for f in $DEV_UTILS_ENV_DIR/more_bash_aliases/*.bash; do
 	source $f
 done
+
+
+if [ $is_osx -eq 1 ] ; then
+	# Lock screen
+	alias lock='pmset displaysleepnow'
+fi
