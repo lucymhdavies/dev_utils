@@ -733,3 +733,8 @@ if [ $is_osx -eq 1 ] ; then
 	# Lock screen
 	alias lock='pmset displaysleepnow'
 fi
+
+
+# Always Vim. Never emacs. I'm not a pleb.
+EDITOR=vim
+set -o vi
