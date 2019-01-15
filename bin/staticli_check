@@ -6,6 +6,6 @@ if [ -f /tmp/lmhd/dev-utils/updates/staticli ]; then
 fi
 
 # Check staticli version
-if [[ $(/Users/lda32/bin/staticli version 2>&1 | grep 'not running the latest version' | wc -l) -eq 1 ]]; then
+if [[ $(~/bin/staticli version 2>&1 | grep 'not running the latest version' | wc -l) -eq 1 ]]; then
     echo "old staticli detected" > /tmp/lmhd/dev-utils/updates/staticli
 fi
