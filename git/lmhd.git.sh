@@ -2,7 +2,7 @@
 
 echo Setting identity
 
-git config --global user.name  Lucy Davies
+git config --global user.name  Lucy Davinhart
 git config --global user.email lucy@lucymhdavies.com
 
 echo
