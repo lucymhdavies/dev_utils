@@ -158,7 +158,12 @@ Get a newer version
 brew install vim
 ```
 
+Pathogen, and other plugins
+
 ```
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
 
 go get github.com/nsf/gocode
@@ -280,4 +285,5 @@ lucli awscli --shell
 * [X] Franz - keep in dock
 * [X] Macdown - `brew cask install macdown`
 * [X] iStat Menu
+* [ ] Clipboard history tool - https://clipy-app.com/ ?
 * [ ] Photoshop
