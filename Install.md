@@ -275,9 +275,16 @@ lucli awscli --shell
 
 
 
+## [X] Photoshop
+
+Download from https://creativecloud.adobe.com/apps/all/photoshop/installation
+
+
 
 
 ## Install other things
+some of these, use mas-cli?
+
 * [X] LastPass - keep in dock
 * [X] Chrome - keep in dock
 * [X] Magnet
