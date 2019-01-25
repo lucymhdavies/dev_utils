@@ -260,6 +260,14 @@ lucli awscli --shell
 
 
 
+## [ ] Random Go Binaries
+
+```
+go get golang.org/x/tools/cmd/goimports
+```
+
+
+
 
 ## [ ] Automator Workflows?
 
