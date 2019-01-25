@@ -81,6 +81,7 @@ export HISTFILE=~/.bash_eternal_history
 
 export PATH=$PATH:.
 export PATH=$PATH:~/bin
+export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/git_src/dev_utils/bin
 
 is_osx=`uname | grep -i darwin | wc -l`
