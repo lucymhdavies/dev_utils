@@ -263,7 +263,8 @@ lucli awscli --shell
 ## [ ] Random Go Binaries
 
 ```
-go get golang.org/x/tools/cmd/goimports
+go get -u golang.org/x/tools/cmd/goimports
+go get -u github.com/rakyll/gotest
 ```
 
 
