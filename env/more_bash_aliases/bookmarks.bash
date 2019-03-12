@@ -6,7 +6,7 @@
 
 function cdsa() {
 	# Ensure the file exists
-	touch ~/tmp/cdb
+	echo "" >> ~/tmp/cdb
 
 	# Append current directory to bookmark file
 	# TODO linux version of this
