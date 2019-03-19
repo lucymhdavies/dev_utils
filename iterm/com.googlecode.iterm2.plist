@@ -352,9 +352,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 593 592 584 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1920 1200 0 0 1920 1177 </string>
+	<string>449 1649 570 475 0 1200 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2203 1548 570 475 1920 1200 1920 1080 </string>
+	<string>642 1624 570 475 0 1200 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>332 702 570 475 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -3471,7 +3471,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-02-09T18:08:45Z</date>
+	<date>2019-03-16T16:26:30Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
