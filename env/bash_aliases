@@ -396,9 +396,11 @@ function speedtest() {
 	# TODO: only do this bit if in iterm
 	share_img=$(cat /tmp/speedtest.txt | grep "Share results" | sed s/.*http/http/)
 
-	curl $share_img > /tmp/speedtest.png 2>/dev/null
+	curl -s -L $share_img | imgcat
+}
 
-	imgcat /tmp/speedtest.png
+function imgcurl() {
+	curl -s -L $1 | imgcat
 }
 
 
