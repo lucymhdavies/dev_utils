@@ -260,6 +260,12 @@ lucli awscli --shell
 ```
 
 
+## Update XCode
+
+```
+xcode-select --install
+```
+
 
 ## [ ] Random Go Binaries
 
@@ -304,3 +310,4 @@ some of these, use mas-cli?
 * [X] iStat Menu
 * [ ] Clipboard history tool - https://clipy-app.com/ ?
 * [ ] Photoshop
+
