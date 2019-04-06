@@ -739,3 +739,8 @@ fi
 # Always Vim. Never emacs. I'm not a pleb.
 EDITOR=vim
 set -o vi
+
+
+
+# If I'm gonna accidentally type sl sometimes...
+alias sl="sl -a -l; ls"
