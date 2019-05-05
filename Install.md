@@ -262,8 +262,16 @@ lucli awscli --shell
 
 ## Update XCode
 
+Install XCode (app store)
+
 ```
 xcode-select --install
+```
+
+or
+
+```
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/
 ```
 
 
