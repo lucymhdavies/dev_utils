@@ -34,7 +34,8 @@ else
 	cd ~/Twitch
 	java -jar ~/Twitch/ChatGameFontificator.jar &
 	cd -
-	sleep 5
+	echo "Connect to chat, then close config window, and press enter"
+	read
 	# TODO: automatically close the config window, after connecting to chat?
 fi
 # Should start in the right place already, but just in case...
