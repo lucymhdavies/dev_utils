@@ -3,7 +3,8 @@
 # Check for existing frd
 FILE=/tmp/frd.lock
 if [ -f $FILE ]; then
-  exit 0
+  # check for running process, and exit if there is one
+  ps -ef | grep -v grep | grep frd && exit 0
 else
   touch $FILE
 fi
