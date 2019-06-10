@@ -106,6 +106,7 @@ brew install jq
 brew install fzf
 brew install gnu-sed
 brew install wget
+brew upgrade bash
 ```
 
 
