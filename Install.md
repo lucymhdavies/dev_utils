@@ -109,6 +109,10 @@ brew install wget
 brew upgrade bash
 ```
 
+## [ ] Update Bash
+
+See: https://itnext.io/upgrading-bash-on-macos-7138bd1066ba
+
 
 
 ## [X] iTerm
