@@ -8,10 +8,37 @@
 # The real directory that this bash file is stored in
 DEV_UTILS_ENV_DIR=$(dirname $(realpath ~/.bash_aliases))
 
+
+
+#
+# Presentation Mode
+#
+
+function pres(){
+	case $1 in
+		on)
+			touch ~/.presentation_mode
+			;;
+		off)
+			rm ~/.presentation_mode
+			;;
+		*)
+			echo "Usage: pres [on|off]"
+			return
+			;;
+	esac
+	clear
+	source $HOME/.bashrc
+}
+
 if [ -f ~/.presentation_mode ]; then
 	PRESENTATION_MODE=true
 
+	# Docker mode
 	PS1="🐳 :\W lucy $ "
+
+	# Gay Mode
+	PS1="🏳️‍🌈  \W lucy $ "
 
 
 	#imgcat ~/git_src/dev_utils/img/strawberry.png
@@ -31,6 +58,16 @@ function bashdebug() {
 		echo $*
 	fi
 }
+
+
+
+
+#
+# Unsorted Crap Below Here
+#
+
+
+
 
 bashdebug "LUCYTIME ALIASES 1 $(date)"
 
