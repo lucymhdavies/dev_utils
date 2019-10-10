@@ -28,6 +28,9 @@ function pres(){
 			;;
 	esac
 	clear
+
+	# Really, you need a bash session
+	# otherwise Git Prompt overrides PS1
 	source $HOME/.bashrc
 }
 
@@ -35,16 +38,16 @@ if [ -f ~/.presentation_mode ]; then
 	PRESENTATION_MODE=true
 
 	# Docker mode
-	#PS1="🐳  \W lucy $ "
+	#PS1="\n🐳  \W lucy $ "
 
 	# Gay Mode
-	PS1="🏳️‍🌈  \W lucy $ "
+	PS1="\n🏳️‍🌈  \W lucy $ "
 
 
 	#imgcat ~/git_src/dev_utils/img/strawberry.png
 
 	# UGUU ANIME MODE
-	#PS1="(づ｡◕‿‿◕｡)づ 🌈  \W lucy $ "
+	#PS1="\n(づ｡◕‿‿◕｡)づ 🌈  \W lucy $ "
 else
 	PRESENTATION_MODE=false
 fi
@@ -58,6 +61,8 @@ function bashdebug() {
 		echo $*
 	fi
 }
+alias enable_bash_debug="touch ~/.bash_debug_log"
+alias disable_bash_debug="rm ~/.bash_debug_log"
 
 
 
@@ -606,7 +611,8 @@ alias superclear="for i in \$(seq \$(tput lines)); do echo ' '; done ; clear"
 alias clearscrollback="printf '\e]50;ClearScrollback\a'"
 
 function hgrep() {
-	history | fzf --reverse -i -q "$*"
+	# Reverse history (excluding comments)
+	tac ~/.bash_eternal_history | grep -v '^#' | fzf --reverse -i -q "$*"
 }
 
 function frcd() {
