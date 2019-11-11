@@ -593,6 +593,8 @@ fi
 #alias ctop='tab_title "ctop" ; docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest ; tab_title'
 alias ctop='tab_title "ctop" ; lucli ctop ; tab_title'
 
+alias cali-ish='docker run -it --rm -v $PWD:/tmp/workdir -w /tmp/workdir'
+
 
 # Remove color codes
 alias decolor="sed -r \"s:\x1B\[[0-9;]*[mK]::g\""
