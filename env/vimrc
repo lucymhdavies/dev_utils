@@ -30,13 +30,15 @@ try
     " for syntax highlighting
 	" git clone https://github.com/hashivim/vim-terraform ~/.vim/bundle/vim-terraform
 	let g:terraform_align=1
+	let g:terraform_fmt_on_save=1
+
 
 	" Vim-HCLfmt
 	" for auto-formatting
 	" git clone git@github.com:fatih/vim-hclfmt.git ~/.vim/bundle/vim-hclfmt
     " go get github.com/fatih/hclfmt
 	let g:hcl_fmt_autosave = 1
-	let g:tf_fmt_autosave = 1
+	let g:tf_fmt_autosave = 0
 	let g:nomad_fmt_autosave = 0
 
 	" Airline
