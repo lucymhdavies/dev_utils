@@ -41,7 +41,11 @@ if [ -f ~/.presentation_mode ]; then
 	#PS1="\n🐳  \W lucy $ "
 
 	# Gay Mode
-	PS1="\n🏳️‍🌈  \W lucy $ "
+	#PS1="\n🏳️‍🌈  \W lucy $ "
+	PS1="\n🌈  \W lucy $ "
+
+	# Boring mode
+	#PS1="\n $ "
 
 
 	#imgcat ~/git_src/dev_utils/img/strawberry.png
@@ -797,3 +801,8 @@ set -o vi
 
 # If I'm gonna accidentally type sl sometimes...
 alias sl="sl -a -l; ls"
+
+
+
+# K8s
+alias kubecuddle=kubectl

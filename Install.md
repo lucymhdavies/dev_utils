@@ -83,6 +83,20 @@ if [ -f ~/.bash_box_specific ]; then
 fi
 ```
 
+## [ ] K8s Prompt
+
+Install https://github.com/jonmosco/kube-ps1
+
+```
+brew install kube-ps1
+```
+
+Add to prompt:
+
+```
+	export GIT_PROMPT_START_USER=${GIT_PROMPT_START_USER}\ '$(kube_ps1)'
+```
+
 
 ## [ ] Set up Bash Box Specific
 
