@@ -25,6 +25,7 @@ git clone git@github.com:lucymhdavies/dev_utils.git
 git config --global user.name "Lucy Davinhart"
 git config --global user.email lucy@lucymhdavies.com
 git config --global core.excludesfile ~/.gitignore_global
+git config --global init.defaultBranch main
 ```
 
 ``
