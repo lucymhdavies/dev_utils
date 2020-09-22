@@ -42,7 +42,8 @@ if [ -f ~/.presentation_mode ]; then
 
 	# Gay Mode
 	#PS1="\n🏳️‍🌈  \W lucy $ "
-	PS1="\n🌈  \W lucy $ "
+	# PS1="\n🌈  \W lucy $ "
+	PS1="\n🌈  \W strawb $ "
 
 	# Boring mode
 	#PS1="\n $ "
@@ -433,22 +434,22 @@ alias cdtmpnew="new_temp_dir=\$(mktemp -d) && cd ~/tmp/ >/dev/null && ln -s \$ne
 alias cdtmp="cd ~/tmp"
 
 
-# Dependency: git clone https://github.com/sivel/speedtest-cli.git
-function speedtest() {
-	git_url="git@github.com:sivel/speedtest-cli.git"
-	scriptdir="$HOME/git_src/github.com/sivel/speedtest-cli"
-	script="$scriptdir/speedtest.py"
-
-	# TODO: if script does not exist, clone repo
-
-	python $script --share | tee /tmp/speedtest.txt
-
-
-	# TODO: only do this bit if in iterm
-	share_img=$(cat /tmp/speedtest.txt | grep "Share results" | sed s/.*http/http/)
-
-	curl -s -L $share_img | imgcat
-}
+# # Dependency: git clone https://github.com/sivel/speedtest-cli.git
+# function speedtest() {
+# 	git_url="git@github.com:sivel/speedtest-cli.git"
+# 	scriptdir="$HOME/git_src/github.com/sivel/speedtest-cli"
+# 	script="$scriptdir/speedtest.py"
+# 
+# 	# TODO: if script does not exist, clone repo
+# 
+# 	python $script --share | tee /tmp/speedtest.txt
+# 
+# 
+# 	# TODO: only do this bit if in iterm
+# 	share_img=$(cat /tmp/speedtest.txt | grep "Share results" | sed s/.*http/http/)
+# 
+# 	curl -s -L $share_img | imgcat
+# }
 
 function imgcurl() {
 	curl -s -L $1 | imgcat
@@ -806,3 +807,6 @@ alias sl="sl -a -l; ls"
 
 # K8s
 alias kubecuddle=kubectl
+
+# https://twitter.com/jessica_schalz/status/1292973216634372097
+alias boop=ping
