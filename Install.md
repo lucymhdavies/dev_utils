@@ -124,6 +124,17 @@ brew install wget
 brew upgrade bash
 ```
 
+## [ ] Speed Test
+
+From https://www.speedtest.net/apps/cli
+
+```
+brew tap teamookla/speedtest
+brew update
+brew install speedtest --force
+```
+
+
 ## [ ] Update Bash
 
 See: https://itnext.io/upgrading-bash-on-macos-7138bd1066ba
