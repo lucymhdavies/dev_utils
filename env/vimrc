@@ -321,3 +321,4 @@ set foldlevel=99
 
 " Tab complete my commands!
 set wildmenu
+au BufNewFile,BufRead Jenkinsfile setf groovy
