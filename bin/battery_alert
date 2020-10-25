@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Based on https://github.com/imwally/battstat/blob/master/battstat
+get_darwin_percent() {
+	battery_details=$(pmset -g batt)
+
+	# Exit if no battery exists.
+	if ! echo "$battery_details" | grep -q InternalBattery; then
+		exit_no_battery
+	fi
+
+	percent=$(echo "$battery_details" | grep -o "[0-9]*"%)
+	echo ${percent} | sed 's/%//'
+}
+
+# Threshold below which we consider the battery sufficiently discharged
+battery_threshold=5
+
+battery_log_file=~/git_src/dev_utils/logs/battery.log
+
+lmhd_notices_file=/tmp/lmhd/dev-utils/updates/battery
+
+# age of file in seconds
+battery_threshold_alert_days=2
+battery_threshold_alert_seconds=$(( 60 * 60 * 24 * ${battery_threshold_alert_days} ))
+
+# Get current percent and, if below threshold, update log file
+if [ $(get_darwin_percent) -lt ${battery_threshold} ]; then
+	echo "Battery less than ${battery_threshold}% ($(get_darwin_percent)%)" > ${battery_log_file}
+	echo "Battery is below charge threshold: $(get_darwin_percent)% < ${battery_threshold}%" > ${lmhd_notices_file}
+	exit 0
+fi
+
+# Check if log file exists
+# If not, then we do not know when battery was last discharged
+if [ ! -f ${battery_log_file} ]; then
+	echo "Unknown when battery was last discharged" > ${lmhd_notices_file}
+	exit 0
+fi
+
+if [ "$(( $(date +"%s") - $(gstat -c "%Y" ${battery_log_file}) ))" -gt ${battery_threshold_alert_seconds} ]; then
+	echo "Battery charge was lower than ${battery_threshold}% more than ${battery_threshold_alert_days} days ago" > ${lmhd_notices_file}
+	exit 0
+fi
+
+
+# Battery fine, no alert needed
+rm -f ${lmhd_notices_file}

@@ -17,3 +17,6 @@
 # Check for new lucli and staticli
 0 * * * * ~/git_src/dev_utils/bin/lucli_check > ~/git_src/dev_utils/logs/lucli_check.log 2> ~/git_src/dev_utils/logs/lucli_check.err.log
 0 * * * * ~/git_src/dev_utils/bin/staticli_check > ~/git_src/dev_utils/logs/staticli_check.log 2> ~/git_src/dev_utils/logs/staticli_check.err.log
+
+# Check battery level
+*/5 * * * * ~/git_src/dev_utils/bin/battery_alert
