@@ -18,6 +18,7 @@ battery_threshold=5
 
 battery_log_file=~/git_src/dev_utils/logs/battery.log
 
+mkdir -p /tmp/lmhd/dev-utils/updates
 lmhd_notices_file=/tmp/lmhd/dev-utils/updates/battery
 
 # age of file in seconds
@@ -38,7 +39,7 @@ if [ ! -f ${battery_log_file} ]; then
 	exit 0
 fi
 
-if [ "$(( $(date +"%s") - $(gstat -c "%Y" ${battery_log_file}) ))" -gt ${battery_threshold_alert_seconds} ]; then
+if [ "$(( $(date +"%s") - $(/usr/local/bin/gstat -c "%Y" ${battery_log_file}) ))" -gt ${battery_threshold_alert_seconds} ]; then
 	echo "Battery charge was lower than ${battery_threshold}% more than ${battery_threshold_alert_days} days ago" > ${lmhd_notices_file}
 	exit 0
 fi
