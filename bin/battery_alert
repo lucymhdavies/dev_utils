@@ -22,7 +22,7 @@ mkdir -p /tmp/lmhd/dev-utils/updates
 lmhd_notices_file=/tmp/lmhd/dev-utils/updates/battery
 
 # age of file in seconds
-battery_threshold_alert_days=2
+battery_threshold_alert_days=28
 battery_threshold_alert_seconds=$(( 60 * 60 * 24 * ${battery_threshold_alert_days} ))
 
 # Get current percent and, if below threshold, update log file
