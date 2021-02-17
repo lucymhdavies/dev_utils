@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo -n "Kids these days with their "
-curl -s "https://en.wikipedia.org/w/api.php?action=query&list=random&format=json&rnnamespace=0&rnlimit=3" | jq -r '[ .query.random[].title ] | join(" and their ")'
+echo -n "You kids these days and your "
+curl -s "https://en.wikipedia.org/w/api.php?action=query&list=random&format=json&rnnamespace=0&rnlimit=3" | jq -r '[ .query.random[].title ] | join(", and your ")'
