@@ -1,0 +1,14 @@
+#!/bin/bash
+
+alias=$(cat ~/.config/lmhd/git_users.json | jq -r keys[] | fzf --no-height --reverse)
+
+name=$(cat ~/.config/lmhd/git_users.json | jq ".\"${alias}\"" | jq -r .name)
+git config --unset --global user.name
+git config --global user.name "${name}"
+
+email=$(cat ~/.config/lmhd/git_users.json | jq ".\"${alias}\"" | jq -r .email)
+git config --unset --global user.email
+git config --global user.email "${email}"
+
+echo Git Config Set:
+git config --get-regexp user
