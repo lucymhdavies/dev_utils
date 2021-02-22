@@ -1,6 +1,10 @@
 #!/bin/bash
 
-alias=$(cat ~/.config/lmhd/git_users.json | jq -r keys[] | fzf --no-height --reverse)
+alias=$(curl -s https://api.lmhd.me/v1/front.json | jq -r .members[0].name)
+echo "Fronter detected: ${alias}"
+if [[ "$alias" == "" ]]; then
+	alias=$(cat ~/.config/lmhd/git_users.json | jq -r keys[] | fzf --no-height --reverse)
+fi
 
 name=$(cat ~/.config/lmhd/git_users.json | jq ".\"${alias}\"" | jq -r .name)
 git config --unset --global user.name
