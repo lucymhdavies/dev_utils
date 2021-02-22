@@ -1,18 +1,37 @@
 #!/bin/bash
 
 alias=$(curl -s https://api.lmhd.me/v1/front.json | jq -r .members[0].name)
+
 echo "Fronter detected: ${alias}"
+
 if [[ "$alias" == "" ]]; then
 	alias=$(cat ~/.config/lmhd/git_users.json | jq -r keys[] | fzf --no-height --reverse)
 fi
 
+# Set Committer to fronter
 name=$(cat ~/.config/lmhd/git_users.json | jq ".\"${alias}\"" | jq -r .name)
-git config --unset --global user.name
-git config --global user.name "${name}"
+git config --unset --global committer.name
+git config --global committer.name "${name}"
 
 email=$(cat ~/.config/lmhd/git_users.json | jq ".\"${alias}\"" | jq -r .email)
-git config --unset --global user.email
-git config --global user.email "${email}"
+git config --unset --global committer.email
+git config --global committer.email "${email}"
+
+
+# Set Author to Lucy, for user profile linking
+# If committing to a work repo
+if git remote get-url origin | grep "skybet.net"; then
+	alias="Work ${alias}"
+fi
+name=$(cat ~/.config/lmhd/git_users.json | jq ".\"${alias}\"" | jq -r .name)
+git config --unset --global author.name
+git config --global author.name "${name}"
+
+email=$(cat ~/.config/lmhd/git_users.json | jq ".\"${alias}\"" | jq -r .email)
+git config --unset --global author.email
+git config --global author.email "${email}"
 
 echo Git Config Set:
 git config --get-regexp user
+git config --get-regexp author
+git config --get-regexp committer
