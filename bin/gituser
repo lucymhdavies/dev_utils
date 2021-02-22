@@ -35,3 +35,6 @@ echo Git Config Set:
 git config --get-regexp user
 git config --get-regexp author
 git config --get-regexp committer
+
+
+# TODO: in config file, store committer and author based on alias
