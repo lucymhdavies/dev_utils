@@ -122,6 +122,15 @@ ok brew htop
 
 
 #
+# Some useful Ruby Gems
+#
+
+ok gem bundler
+ok gem jekyll
+
+
+
+#
 # Stuff currently broken
 #
 
