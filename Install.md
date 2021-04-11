@@ -59,10 +59,6 @@ see https://github.com/pstadler/keybase-gpg-github
 also ~/git_src/dev_utils/git script
 
 
-
-
-
-
 ## [ ] K8s Prompt
 
 Install https://github.com/jonmosco/kube-ps1

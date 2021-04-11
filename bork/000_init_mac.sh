@@ -103,6 +103,7 @@ ok symlink $HOME/.bash_profile $HOME/.bashrc
 ok brew mas
 ok mas 497799835 Xcode
 did_install && xcode-select --install
+did_install && sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/
 
 ok brew coreutils
 ok brew bash-git-prompt
