@@ -3,11 +3,6 @@ try
 	" Pathogen
 	execute pathogen#infect()
 
-	" NERDTree
-	"autocmd StdinReadPre * let s:std_in=1
-	"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-	"map <C-n> :NERDTreeToggle<CR>
-
 	" Vim-Go
     " git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
 	" https://github.com/fatih/vim-go
@@ -17,13 +12,6 @@ try
 	let g:go_highlight_functions = 1
 	let g:go_highlight_methods   = 1
 	let g:go_fmt_command = "goimports"
-
-	" gocode:
-	"
-	" go get github.com/nsf/gocode
-	" ~/go/src/github.com/nsf/gocode/vim/symlink.sh
-	"
-	" Should just work with vim-go
 	filetype plugin on
 
 	" Vim-Terraform
@@ -46,9 +34,6 @@ try
 	" git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
 	" Theme
 	let g:airline_theme='violet'
-
-	" Jenkinsfile
-	" git clone git@github.com:martinda/Jenkinsfile-vim-syntax.git ~/.vim/bundle/Jenkinsfile-vim-syntax
 catch
 endtry
 

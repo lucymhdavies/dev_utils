@@ -83,14 +83,12 @@ ok brew git
 ok directory "$HOME/git_src"
 DEV_UTILS_DIR=$HOME/git_src/dev_utils
 DEV_UTILS_PRIVATE_DIR=$HOME/git_src/dev_utils_private
-# TODO: Uncomment this once done
-#ok github $DEV_UTILS_DIR lucymhdavies/dev_utils --branch=master --ssh
+ok github $DEV_UTILS_DIR lucymhdavies/dev_utils --branch=master --ssh
 ok github $DEV_UTILS_PRIVATE_DIR lucymhdavies/dev_utils_private --branch=main --ssh
 
 ok symlink $HOME/.bash_aliases      $DEV_UTILS_DIR/env/bash_aliases
 ok symlink $HOME/.bashrc            $DEV_UTILS_DIR/env/bashrc
 ok symlink $HOME/.screenrc          $DEV_UTILS_DIR/env/screenrc
-ok symlink $HOME/.vimrc             $DEV_UTILS_DIR/env/vimrc
 
 ok symlink $HOME/.bash_box_specific $DEV_UTILS_PRIVATE_DIR/$(hostname)/bashrc_box_specific
 
@@ -116,7 +114,6 @@ ok brew fzf
 ok brew gnu-sed
 ok brew wget
 ok brew speedtest-cli
-ok brew vim
 ok brew htop
 
 
@@ -221,7 +218,7 @@ if did_install; then
 	echo "Menu > iTerm > Preferences"
 	echo "Load preferences from a custom folder or URL:"
 	echo "https://raw.githubusercontent.com/lucymhdavies/dev_utils/master/iterm/com.googlecode.iterm2.plist"
-	echo "https://raw.githubusercontent.com/lucymhdavies/dev_utils/master/iterm/com.googlecode.iterm2.plist" | pbcopy
+	echo -n "https://raw.githubusercontent.com/lucymhdavies/dev_utils/master/iterm/com.googlecode.iterm2.plist" | pbcopy
 	echo "(it's in your paste buffer)"
 	read -p "Press Return to continue" etc
 
@@ -268,3 +265,49 @@ fi
 
 # TODO: Cronjob to do a bork check
 # https://github.com/skylarmacdonald/bork/issues/20
+
+
+
+
+
+#
+# Vim
+#
+
+ok brew vim
+ok symlink $HOME/.vimrc             $DEV_UTILS_DIR/env/vimrc
+ok directory "$HOME/.vim/autoload"
+ok directory "$HOME/.vim/bundle"
+
+# Pathogen, for Vim Plutins https://github.com/tpope/vim-pathogen
+pathogen_url=$(curl -Ls -o /dev/null -w %{url_effective} https://tpo.pe/pathogen.vim)
+ok download $HOME/.vim/autoload/pathogen.vim ${pathogen_url}
+
+# Vim Go
+ok github $HOME/.vim/bundle/vim-go fatih/vim-go --branch=master --ssh
+if did_install; then
+	echo
+	echo "========================================"
+	echo "Need to run Vim Command"
+	echo "========================================"
+	echo "Open Vim then run: :GoInstallBinaries (it's in your paste buffer)"
+	echo -n ":GoInstallBinaries" | pbcopy
+
+
+	read -p "Press Return to launch vim" etc
+	vim
+
+	echo "Should be done!"
+fi
+ok check "go get -u golang.org/x/tools/cmd/goimports"
+
+# Vim Terraform
+ok github $HOME/.vim/bundle/vim-terraform hashivim/vim-terraform --branch=master --ssh
+
+# Vim HCLfmt
+ok github $HOME/.vim/bundle/vim-hclfmt fatih/vim-hclfmt --branch=master --ssh
+ok check "go get -u github.com/fatih/hclfmt"
+
+# Vim Airline
+ok github $HOME/.vim/bundle/vim-airline vim-airline/vim-airline --branch=master --ssh
+ok github $HOME/.vim/bundle/vim-airline-themes vim-airline/vim-airline-themes --branch=master --ssh

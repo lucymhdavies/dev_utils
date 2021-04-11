@@ -96,9 +96,6 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
 
-go get github.com/nsf/gocode
-~/go/src/github.com/nsf/gocode/vim/symlink.sh
-
 git clone https://github.com/hashivim/vim-terraform ~/.vim/bundle/vim-terraform
 
 git clone git@github.com:fatih/vim-hclfmt.git ~/.vim/bundle/vim-hclfm
@@ -106,25 +103,9 @@ git clone git@github.com:fatih/vim-hclfmt.git ~/.vim/bundle/vim-hclfm
 git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
 
-git clone git@github.com:martinda/Jenkinsfile-vim-syntax.git ~/.vim/bundle/Jenkinsfile-vim-syntax
 ```
 
 
-
-
-## [X] Keybase
-
-Install from https://keybase.io/
-
-Use another device to add
-
-Enable kbfs from UI
-
-Check for success with:
-
-```
-ls /keybase/private/lmhd/
-```
 
 
 
@@ -139,16 +120,3 @@ Verify with
 ```
 staticli version
 ```
-
-
-## [ ] Random Go Binaries
-
-```
-go get -u golang.org/x/tools/cmd/goimports
-go get -u github.com/rakyll/gotest
-```
-
-
-## [X] Photoshop
-
-Download from https://creativecloud.adobe.com/apps/all/photoshop/installation
