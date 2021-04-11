@@ -22,6 +22,8 @@ ok cask slack
 ok cask visual-studio-code
 # TODO: All the config and stuff!
 
+ok cask adobe-creative-cloud
+
 
 ok cask backblaze
 # TODO: Launch /opt/homebrew/Caskroom/backblaze/7.0.2.490/bzd
