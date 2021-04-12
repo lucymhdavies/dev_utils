@@ -24,6 +24,18 @@ ok cask visual-studio-code
 
 ok cask adobe-creative-cloud
 
+ok cask authy
+ok cask airserver
+
+
+# Webcam Stuff
+ok brew-tap homebrew/cask-drivers
+ok cask logitech-camera-settings
+ok defaults com.logitech.vc.CameraSettings.Persistent "Anti-Flicker" integer 50
+ok defaults com.logitech.vc.CameraSettings.Persistent AutoFocus integer 1
+ok defaults com.logitech.vc.CameraSettings.Persistent AutoWhiteBalance integer 1
+
+
 
 ok cask backblaze
 # TODO: Launch /opt/homebrew/Caskroom/backblaze/7.0.2.490/bzd
