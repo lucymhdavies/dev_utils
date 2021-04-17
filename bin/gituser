@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [ ! -f ~/.config/lmhd/git_users.json ]; then
+	echo "No Git Fronter Config Detected!"
+	echo Create one:
+	echo ~/.config/lmhd/git_users.json
+	exit 0
+fi
+
 alias=$(curl -s https://api.lmhd.me/v1/front.json | jq -r .members[0].name)
 
 echo "Fronter detected: ${alias}"

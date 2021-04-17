@@ -6,12 +6,13 @@ get_darwin_percent() {
 
 	# Exit if no battery exists.
 	if ! echo "$battery_details" | grep -q InternalBattery; then
-		exit_no_battery
+		exit 0
 	fi
 
 	percent=$(echo "$battery_details" | grep -o "[0-9]*"%)
 	echo ${percent} | sed 's/%//'
 }
+get_darwin_percent # do once now, as we may qant to quit early
 
 # Threshold below which we consider the battery sufficiently discharged
 battery_threshold=5
