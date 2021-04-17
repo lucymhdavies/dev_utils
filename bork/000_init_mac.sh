@@ -312,3 +312,13 @@ ok check "go get -u github.com/fatih/hclfmt"
 # Vim Airline
 ok github $HOME/.vim/bundle/vim-airline vim-airline/vim-airline --branch=master --ssh
 ok github $HOME/.vim/bundle/vim-airline-themes vim-airline/vim-airline-themes --branch=master --ssh
+
+
+
+#
+# Trust Vault Generated Certs
+#
+
+# TODO: check if this cert is already in the keychain
+ok download /tmp/lmhd_root.pem https://vault.lmhd.me/v1/pki_root/ca/pem
+ok check "sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /tmp/lmhd_root.pem"
