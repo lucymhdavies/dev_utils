@@ -83,7 +83,7 @@ ok brew git
 ok directory "$HOME/git_src"
 DEV_UTILS_DIR=$HOME/git_src/dev_utils
 DEV_UTILS_PRIVATE_DIR=$HOME/git_src/dev_utils_private
-ok github $DEV_UTILS_DIR lucymhdavies/dev_utils --branch=master --ssh
+ok github $DEV_UTILS_DIR lucymhdavies/dev_utils --branch=main --ssh
 ok github $DEV_UTILS_PRIVATE_DIR lucymhdavies/dev_utils_private --branch=main --ssh
 
 ok symlink $HOME/.bash_aliases      $DEV_UTILS_DIR/env/bash_aliases
