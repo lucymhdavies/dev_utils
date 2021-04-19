@@ -9,6 +9,14 @@ fi
 
 alias=$(curl -s https://api.lmhd.me/v1/front.json | jq -r .members[0].name)
 
+if [[ "${alias}" == "null" ]]; then
+	echo "UNKNOWN FRONTER: Leaving git config well alone"
+	curl -s https://api.lmhd.me/v1/front.json
+	exit 1
+
+	# TODO: Pick from list manually
+fi
+
 echo "Fronter detected: ${alias}"
 
 if [[ "$alias" == "" ]]; then
