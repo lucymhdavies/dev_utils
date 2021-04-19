@@ -43,10 +43,10 @@ if [ -f ~/.presentation_mode ]; then
 	# Gay Mode
 	#PS1="\n🏳️‍🌈  \W lucy $ "
 	# PS1="\n🌈  \W lucy $ "
-	PS1="\n🌈  \W strawb $ "
+	#PS1="\n🌈  \W strawb $ "
 
 	# Boring mode
-	#PS1="\n $ "
+	PS1="\n $ "
 
 
 	#imgcat ~/git_src/dev_utils/img/strawberry.png
@@ -770,6 +770,7 @@ function what {
   shift
   man "$@"
 }
+alias mansplain=man
 
 
 alias luclidev="go run ~/go/src/github.com/lmhd/lucli/*.go"
