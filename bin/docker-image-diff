@@ -1,0 +1,64 @@
+#!/bin/bash
+
+set -e
+
+if [ "$#" -ne 2 ]; then
+	echo "Run with: docker-image-diff <image 1> <image 2>"
+	exit 1
+fi
+
+echo
+echo ========================================
+echo Pulling Images
+echo ========================================
+docker pull $1
+docker pull $2
+
+echo
+echo ========================================
+echo Saving Images
+echo ========================================
+
+# Wipe out any previous images
+# Need sudo, as some of the files may be owned by root
+sudo rm -rf ~/tmp/did/* || true
+
+mkdir -p ~/tmp/did/$1
+mkdir -p ~/tmp/did/$2
+
+# Squash with github.com/jwilder/docker-squash
+docker save $1 | docker-squash > ~/tmp/did/$1/image.tar
+docker save $2 | docker-squash > ~/tmp/did/$2/image.tar
+
+echo
+echo ========================================
+echo Extracting Images
+echo ========================================
+
+pushd ~/tmp/did/$1/
+	tar -xf image.tar
+	mkdir layer
+	mv */layer.tar layer/
+	pushd layer/
+		tar -xf layer.tar
+		rm layer.tar
+	popd
+popd
+
+pushd ~/tmp/did/$2/
+	tar -xf image.tar
+	mkdir layer
+	mv */layer.tar layer/
+	pushd layer/
+		tar -xf layer.tar
+		rm layer.tar
+	popd
+popd
+
+
+echo
+echo ========================================
+echo Diffing Images
+echo ========================================
+
+diff -r ~/tmp/did/$1/layer ~/tmp/did/$2/layer
