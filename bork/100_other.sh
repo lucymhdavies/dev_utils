@@ -27,6 +27,12 @@ ok cask adobe-creative-cloud
 ok cask authy
 ok cask airserver
 
+# https://github.com/hashicorp/vault/issues/10645
+# ok brew vault
+# TODO: At least check for its existence for now
+
+ok brew terraform
+
 
 # Webcam Stuff
 ok brew-tap homebrew/cask-drivers

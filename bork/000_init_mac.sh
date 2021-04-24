@@ -50,7 +50,9 @@ if check_failed && satisfying; then
 	echo "Generating SSH Key"
 	echo "========================================"
 	ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C "lucy@lucymhdavies.com"
-	echo "Please upload your new SSH key to GitHub before continuing"
+	echo "Please upload your new SSH key to GitHub and BitBucket before continuing"
+	echo "    https://github.com/settings/keys"
+	echo "    https://bitbucket.org/account/settings/ssh-keys/"
 	cat ~/.ssh/id_ed25519.pub | pbcopy
 	echo "(it's in your paste buffer)"
 	read -p "Press Return to continue" etc
@@ -145,10 +147,6 @@ if check_failed && satisfying; then
 	echo https://docs.docker.com/docker-for-mac/apple-m1/
 	read -p "Press Return to continue" etc
 fi
-
-# https://github.com/hashicorp/vault/issues/10645
-# ok brew vault
-# TODO: At least check for its existence for now
 
 
 
