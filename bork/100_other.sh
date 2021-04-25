@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bork satisfy
 
 
 # Important Cask Stuff
@@ -57,6 +57,7 @@ ok mas 682658836 GarageBand
 ok mas 1278508951 Trello
 ok mas 411643860 DaisyDisk
 ok mas 1480068668 Messenger
+ok cask whatsapp
 
 
 

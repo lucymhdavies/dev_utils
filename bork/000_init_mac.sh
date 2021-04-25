@@ -1,4 +1,4 @@
-#!/usr/bin/env bork
+#!/usr/bin/env bork satisfy
 
 #
 # Chicken Egg Stuff
