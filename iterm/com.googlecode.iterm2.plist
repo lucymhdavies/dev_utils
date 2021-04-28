@@ -2236,7 +2236,7 @@
 			<key>Rows</key>
 			<integer>50</integer>
 			<key>Screen</key>
-			<integer>0</integer>
+			<integer>-2</integer>
 			<key>Scrollback Lines</key>
 			<integer>0</integer>
 			<key>Scrollback With Status Bar</key>
@@ -5889,7 +5889,7 @@
 				<real>1</real>
 			</dict>
 			<key>Guid</key>
-			<string>87D4918E-E9F7-4412-904E-98058135B605</string>
+			<string>EAA8AB64-5352-4AD8-BF23-53663BEA95A7</string>
 			<key>Hide After Opening</key>
 			<false/>
 			<key>Horizontal Spacing</key>
