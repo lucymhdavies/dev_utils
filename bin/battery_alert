@@ -12,7 +12,7 @@ get_darwin_percent() {
 	percent=$(echo "$battery_details" | grep -o "[0-9]*"%)
 	echo ${percent} | sed 's/%//'
 }
-get_darwin_percent # do once now, as we may qant to quit early
+get_darwin_percent >/dev/null # do once now, as we may qant to quit early
 
 # Threshold below which we consider the battery sufficiently discharged
 battery_threshold=5
