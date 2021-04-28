@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ "$1" != "" ]; then
+    BORK_OPERATION=$1
+else
+    BORK_OPERATION=status
+fi
+echo ========================================
+echo bork ${BORK_OPERATION} all the things!
+echo ========================================
+
+if [ -d "${HOME}/git_src/dev_utils/bork" ]; then
+	for borkfile in ~/git_src/dev_utils/bork/*.sh; do
+		echo
+		echo ====================
+		basename ${borkfile}
+		echo ====================
+		bork $BORK_OPERATION $borkfile
+	done
+fi
