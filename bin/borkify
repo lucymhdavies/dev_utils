@@ -5,6 +5,11 @@ if [ "$1" != "" ]; then
 else
     BORK_OPERATION=status
 fi
+if [ "$2" != "" ]; then
+    BORK_CONTEXT=$2
+else
+    BORK_CONTEXT=EVERYWHERE
+fi
 echo ========================================
 echo bork ${BORK_OPERATION} all the things!
 echo ========================================
@@ -15,6 +20,11 @@ if [ -d "${HOME}/git_src/dev_utils/bork" ]; then
 		echo ====================
 		basename ${borkfile}
 		echo ====================
-		bork $BORK_OPERATION $borkfile
+		if cat ${borkfile} | grep -q "BORK_CONTEXT: ${BORK_CONTEXT}\|BORK_CONTEXT: EVERYWHERE"; then
+			bork $BORK_OPERATION $borkfile
+		else
+			echo Skipped, because:
+			cat ${borkfile} | grep "BORK_CONTEXT:"
+		fi
 	done
 fi

@@ -1,4 +1,5 @@
 #!/usr/bin/env bork satisfy
+# BORK_CONTEXT: HOME
 
 
 # Important Cask Stuff
