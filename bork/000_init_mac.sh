@@ -158,11 +158,12 @@ fi
 
 ok directory "$HOME/bin"
 
-ok check "[ -e $HOME/bin/lucli ]"
+ok check "[ -e $HOME/bin/lucli ] && $HOME/bin/lucli version"
 if check_failed && satisfying; then
 	if [[ $(uname -p) == 'arm' ]] && [[ $(uname -s) == 'Darwin' ]]; then
-		echo "Installing a version of lucli"
-		lucli_url=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/LMHD/lucli/releases/download/0.18.1/lucli.darwin.arm64)
+		lucli_version=$(curl -s https://api.github.com/repos/LMHD/lucli/releases | jq -r .[0].name)
+		echo "Installing latest version of lucli (${lucli_version})"
+		lucli_url=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/LMHD/lucli/releases/download/${lucli_version}/lucli.darwin.arm64)
 		ok download $HOME/bin/lucli ${lucli_url}
 		ok check "chmod +x $HOME/bin/lucli"
 	else
