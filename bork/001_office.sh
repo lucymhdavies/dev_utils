@@ -2,3 +2,4 @@
 # BORK_CONTEXT: EVERYWHERE
 
 ok cask microsoft-office
+ok cask google-drive
