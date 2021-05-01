@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Use dev bork if it exists
+export PATH=~/git_src/github.com/skylarmacdonald/bork/bin/:$PATH
+export BORK_COLOR=true
+
 if [ "$1" != "" ]; then
     BORK_OPERATION=$1
 else
