@@ -5,10 +5,15 @@ if [ "$1" != "" ]; then
 else
     BORK_OPERATION=status
 fi
-if [ "$2" != "" ]; then
-    BORK_CONTEXT=$2
-else
-    BORK_CONTEXT=EVERYWHERE
+
+# If we have a BORK_CONTEXT env var set, use that
+# otherwise, use parameter 2
+if [ -z "${BORK_CONTEXT}" ] ; then
+	if [ "$2" != "" ]; then
+	    BORK_CONTEXT=$2
+	else
+	    BORK_CONTEXT=EVERYWHERE
+	fi
 fi
 echo ========================================
 echo bork ${BORK_OPERATION} all the things!
