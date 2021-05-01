@@ -92,6 +92,7 @@ ok github $DEV_UTILS_PRIVATE_DIR lucymhdavies/dev_utils_private --branch=main --
 ok symlink $HOME/.bash_aliases      $DEV_UTILS_DIR/env/bash_aliases
 ok symlink $HOME/.bashrc            $DEV_UTILS_DIR/env/bashrc
 ok symlink $HOME/.screenrc          $DEV_UTILS_DIR/env/screenrc
+ok symlink $HOME/.digrc             $DEV_UTILS_DIR/env/digrc
 
 ok symlink $HOME/.bash_box_specific $DEV_UTILS_PRIVATE_DIR/$(hostname)/bashrc_box_specific
 
