@@ -158,7 +158,7 @@ fi
 
 ok directory "$HOME/bin"
 
-ok check "[ -e $HOME/bin/lucli ] && $HOME/bin/lucli version"
+ok check "[ -e $HOME/bin/lucli ] && $HOME/bin/lucli version 2>/dev/null"
 if check_failed && satisfying; then
 	if [[ $(uname -p) == 'arm' ]] && [[ $(uname -s) == 'Darwin' ]]; then
 		lucli_version=$(curl -s https://api.github.com/repos/LMHD/lucli/releases | jq -r .[0].name)
@@ -172,7 +172,7 @@ if check_failed && satisfying; then
 		exit 1
 	fi
 fi
-ok check "$HOME/bin/lucli update"
+ok check "$HOME/bin/lucli update 2>/dev/null"
 
 
 # TODO: Staticli
