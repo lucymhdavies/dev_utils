@@ -105,9 +105,6 @@ ok symlink $HOME/.bash_profile $HOME/.bashrc
 #
 
 ok brew mas
-ok mas 497799835 Xcode
-did_install && xcode-select --install
-did_install && sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/
 
 ok brew coreutils
 ok brew bash-git-prompt
@@ -120,15 +117,6 @@ ok brew gnu-sed
 ok brew wget
 ok brew speedtest-cli
 ok brew htop
-
-
-
-#
-# Some useful Ruby Gems
-#
-
-ok gem bundler
-ok gem jekyll
 
 
 
@@ -173,10 +161,6 @@ if check_failed && satisfying; then
 	fi
 fi
 ok check "$HOME/bin/lucli update 2>/dev/null"
-
-
-# TODO: Staticli
-# https://github.com/staticli/staticli/issues/60
 
 
 #
