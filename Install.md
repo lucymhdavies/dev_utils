@@ -1,6 +1,6 @@
 # How to install all this crap
 
-WIP. Being updated as I set up my new (LOL) MacBook.
+WIP. Being updated as I set up my Mac Mini.
 
 
 ## Bootstrap
