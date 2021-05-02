@@ -169,11 +169,11 @@ ok check "$HOME/bin/lucli update 2>/dev/null"
 
 ok symlink $HOME/.gitignore_global $DEV_UTILS_DIR/env/gitignore_global
 
+# Auto-Git Config for Fronters
+ok directory $HOME/.config/lmhd
+ok symlink $HOME/.config/lmhd/git_users.json $DEV_UTILS_DIR/git/git_users.json
 
-# TODO
-
-# TODO: /Users/strawb/.config/lmhd/git_users.json
-
+# TODO: Other Git Config?
 
 
 #
