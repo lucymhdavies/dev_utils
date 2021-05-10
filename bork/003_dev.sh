@@ -18,3 +18,6 @@ ok gem jekyll
 
 # TODO: Staticli
 # https://github.com/staticli/staticli/issues/60
+
+
+ok brew hashicorp/tap/terraform-ls
