@@ -1,0 +1,92 @@
+#!/bin/bash
+# Open a specified file or directory in GitHub/BitBucket/etc. in your browser
+
+# TODO: BitBucket
+# TODO: Custom (e.g. BitBucket Server/Stash)
+
+
+export remote_url=$(git remote get-url origin)
+# Could be one of these:
+#   git@github.com:lucymhdavies/dev_utils.git
+#   https://github.com/lucymhdavies/dev_utils.git
+
+open_url=true
+while getopts "n" arg; do
+    case $arg in
+        n)
+            open_url=false
+            shift
+            ;;
+    esac
+done
+
+
+#
+# Get Browser URL for root of repo
+#
+
+export browser_url=""
+
+# If it's one of these: git@github.com:lucymhdavies/dev_utils.git
+if [[ ${remote_url} == git@* ]]; then
+    browser_url=$(echo ${remote_url} | sed 's/.git$//' | sed 's#:#/#' | sed 's#^git@#https://#')
+fi
+
+# If it's one of these: https://github.com/lucymhdavies/dev_utils.git
+if [[ ${remote_url} == http* ]]; then
+    browser_url=$(echo ${remote_url} | sed 's/.git$//')
+fi
+
+
+
+#
+# Get directory relative to base of repo
+#
+
+# get branch/tag/commit
+export repo_rev=$(git rev-parse --abbrev-ref HEAD)
+# get current dir within repo
+export repo_path=$(git rev-parse --show-prefix)
+
+# If user has not specified a particular file or directory...
+if [ -z $1 ]; then
+    # If GitHub
+    # e.g. https://github.com/lucymhdavies/dev_utils/tree/main/bin
+    if [[ ${browser_url} == https://github.com* ]]; then
+        browser_url="${browser_url}/tree/${repo_rev}/${repo_path}"
+    fi
+else
+    # Assume it's a file unless told otherwise
+    is_file=true
+
+    # If it exists
+    if [ -e ${1} ]; then
+        # if it's a directory
+        if [ -d ${1} ]; then
+            is_file=false
+        fi
+
+        repo_path="${repo_path}${1}"
+    fi
+
+    # If GitHub
+    # e.g. https://github.com/lucymhdavies/dev_utils/blob/main/bin/git-open
+    if [[ ${browser_url} == https://github.com* ]]; then
+        if is_file; then
+            browser_url="${browser_url}/blob/${repo_rev}/${repo_path}"
+        else
+            browser_url="${browser_url}/tree/${repo_rev}/${repo_path}"
+        fi
+    fi
+fi
+
+
+
+echo "Git Remote URL:  ${remote_url}"
+echo "Current Path:    ${repo_path}"
+echo "Current Rev:     ${repo_rev}"
+echo "Repo URL:        ${browser_url}"
+
+if ${open_url}; then
+    open ${browser_url}
+fi
