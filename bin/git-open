@@ -1,5 +1,14 @@
 #!/bin/bash
 # Open a specified file or directory in GitHub/BitBucket/etc. in your browser
+#
+# For example:
+#
+#   ✔ strawb@Sakura ~/git_src/dev_utils [main|✔]
+#   $ git-open bin/git-open
+#   Git Remote URL:  git@github.com:lucymhdavies/dev_utils.git
+#   Current Path:    bin/git-open
+#   Current Rev:     main
+#   Repo URL:        https://github.com/lucymhdavies/dev_utils/blob/main/bin/git-open
 
 # TODO: BitBucket
 # TODO: Custom (e.g. BitBucket Server/Stash)
