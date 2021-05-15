@@ -163,6 +163,8 @@ if check_failed && satisfying; then
 fi
 ok check "$HOME/bin/lucli update 2>/dev/null"
 
+# TODO: lucli.yml
+
 
 #
 # Initial Git Config
