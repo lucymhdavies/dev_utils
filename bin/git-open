@@ -57,7 +57,7 @@ if [ -z $1 ]; then
     fi
 else
     # Assume it's a file unless told otherwise
-    is_file=true
+    export is_file=true
 
     # If it exists
     if [ -e ${1} ]; then
@@ -72,7 +72,7 @@ else
     # If GitHub
     # e.g. https://github.com/lucymhdavies/dev_utils/blob/main/bin/git-open
     if [[ ${browser_url} == https://github.com* ]]; then
-        if is_file; then
+        if ${is_file}; then
             browser_url="${browser_url}/blob/${repo_rev}/${repo_path}"
         else
             browser_url="${browser_url}/tree/${repo_rev}/${repo_path}"
