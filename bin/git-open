@@ -10,8 +10,30 @@
 #   Current Rev:     main
 #   Repo URL:        https://github.com/lucymhdavies/dev_utils/blob/main/bin/git-open
 
+# Relies on gsed for some things
+function sed() {
+  # TODO: only do this sometimes
+  # i.e. if gsed exists
+  gsed $@
+}
+
+#
+# Supports
+#
+
+# GitHub
+#  DONE - git@github.com:lucymhdavies/dev_utils.git
+#  DONE - https://github.com/lucymhdavies/dev_utils.git
+
 # TODO: BitBucket
-# TODO: Custom (e.g. BitBucket Server/Stash)
+
+# TODO BitBucket Server
+# Personal repos:
+#   TODO - ssh://git@stash.fancycorp.io:7999/~${user}/${repo}.git
+#   TODO - https://stash.fancycorp.io/users/${user}/repos/${repo}
+# Project repos:
+#   DONE - ssh://git@stash.fancycorp.io:7999/${project}/${repo}.git
+#   TODO - https://stash.fancycorp.io/scm/ide/pscli.git
 
 
 export remote_url=$(git remote get-url origin)
@@ -35,15 +57,29 @@ done
 #
 
 export browser_url=""
+export bitbucket_server=false
+
+# If it's one of these: ssh://git@stash.fancycorp.io:7999/${project}/${repo}.git
+# And therefore likely BitBucket Server
+if [[ ${remote_url} == ssh://*:7999* ]]; then
+    bitbucket_server=true
+    browser_url=$(echo ${remote_url} | sed 's/.git$//' | sed 's#^ssh://git@#https://#' | sed 's/:7999//')
+    # We now have
+    # https://stash.fancycorp.io/${project}/${repo}
+fi
 
 # If it's one of these: git@github.com:lucymhdavies/dev_utils.git
 if [[ ${remote_url} == git@* ]]; then
     browser_url=$(echo ${remote_url} | sed 's/.git$//' | sed 's#:#/#' | sed 's#^git@#https://#')
+    # We now have
+    # https://github.com/lucymhdavies/dev_utils
 fi
 
 # If it's one of these: https://github.com/lucymhdavies/dev_utils.git
 if [[ ${remote_url} == http* ]]; then
     browser_url=$(echo ${remote_url} | sed 's/.git$//')
+    # We now have
+    # https://github.com/lucymhdavies/dev_utils
 fi
 
 
@@ -64,6 +100,24 @@ if [ -z $1 ]; then
     if [[ ${browser_url} == https://github.com* ]]; then
         browser_url="${browser_url}/tree/${repo_rev}/${repo_path}"
     fi
+
+
+    # If BitBucket Server
+    # e.g. https://stash.fancycorp.io/projects/IDE/repos/pscli/browse?at=refs/heads/main
+    # e.g. https://stash.fancycorp.io/projects/IDE/repos/pscli/browse?at=refs/heads/feature/go_modules
+    if ${bitbucket_server}; then
+        # We currently have:
+        # https://stash.fancycorp.io/${project}/${repo}
+
+        # Thanks to: https://stackoverflow.com/a/27813899
+        browser_url=$(echo ${browser_url} | sed -r 's#/#&projects/#3' | sed -r 's#/#&repos/#5')
+        # We now have:
+        # https://stash.fancycorp.io/projects/${project}/repos/${repo}
+
+        # Append revision
+        browser_url="${browser_url}/browse/${repo_path}?at=refs/heads/${repo_rev}"
+    fi
+
 else
     # Assume it's a file unless told otherwise
     export is_file=true
@@ -74,18 +128,36 @@ else
         if [ -d ${1} ]; then
             is_file=false
         fi
-
-        repo_path="${repo_path}${1}"
     fi
 
     # If GitHub
     # e.g. https://github.com/lucymhdavies/dev_utils/blob/main/bin/git-open
     if [[ ${browser_url} == https://github.com* ]]; then
+        repo_path="${repo_path}${1}"
+
         if ${is_file}; then
             browser_url="${browser_url}/blob/${repo_rev}/${repo_path}"
         else
             browser_url="${browser_url}/tree/${repo_rev}/${repo_path}"
         fi
+    fi
+
+    # If BitBucket Server
+    # e.g. https://stash.fancycorp.io/projects/IDE/repos/pscli/browse/main.go?at=refs/heads/main
+    # e.g. https://stash.fancycorp.io/projects/IDE/repos/pscli/browse/main.go?at=refs/heads/feature/go_modules
+    if ${bitbucket_server}; then
+        repo_path="${repo_path}${1}"
+
+        # We currently have:
+        # https://stash.fancycorp.io/${project}/${repo}
+
+        # Thanks to: https://stackoverflow.com/a/27813899
+        browser_url=$(echo ${browser_url} | sed -r 's#/#&projects/#3' | sed -r 's#/#&repos/#5')
+        # We now have:
+        # https://stash.fancycorp.io/projects/${project}/repos/${repo}
+
+        # Append revision
+        browser_url="${browser_url}/browse/${repo_path}?at=refs/heads/${repo_rev}"
     fi
 fi
 
