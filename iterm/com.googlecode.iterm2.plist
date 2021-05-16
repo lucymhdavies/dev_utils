@@ -617,7 +617,7 @@
 	<key>HideScrollbar</key>
 	<true/>
 	<key>HideTab</key>
-	<false/>
+	<true/>
 	<key>HighlightTabLabels</key>
 	<true/>
 	<key>HotKeyBookmark</key>
@@ -3775,6 +3775,8 @@
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm</string>
+			<key>Title Components</key>
+			<integer>66</integer>
 			<key>Transparency</key>
 			<real>0.16696098372781065</real>
 			<key>Triggers</key>
@@ -5604,6 +5606,8 @@
 	<integer>3</integer>
 	<key>SavePasteHistory</key>
 	<false/>
+	<key>SeparateWindowTitlePerTab</key>
+	<true/>
 	<key>Show Toolbelt</key>
 	<false/>
 	<key>ShowBookmarkName</key>
