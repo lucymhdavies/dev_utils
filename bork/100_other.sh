@@ -58,6 +58,7 @@ ok mas 682658836 GarageBand
 ok mas 1278508951 Trello
 ok mas 411643860 DaisyDisk
 ok mas 1480068668 Messenger
+ok mas 1387764101 Minimalist
 ok cask whatsapp
 
 
