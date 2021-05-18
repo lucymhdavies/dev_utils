@@ -1,6 +1,7 @@
 
-# download latest dev_utils
-0 3 * * * cd ~/git_src/dev_utils/ && git pull > ~/git_src/dev_utils/logs/update.log 2> ~/git_src/dev_utils/logs/update.err.log
+#
+# Common LMHD Stuff
+#
 
 # Clear temporary files
 0 * * * * ~/git_src/dev_utils/bin/cleartmp > ~/git_src/dev_utils/logs/cleartmp.log 2> ~/git_src/dev_utils/logs/cleartmp.err.log
@@ -10,13 +11,6 @@
 
 # Update directories for frcd and gocd
 * * * * * ~/git_src/dev_utils/bin/frd
-
-# Check for uncommitted dev_utils
-#0 * * * * ~/git_src/dev_utils/bin/uncommit_check > ~/git_src/dev_utils/logs/uncommit.log 2> ~/git_src/dev_utils/logs/uncommit.err.log
-
-# Check for new lucli and staticli
-0 * * * * ~/git_src/dev_utils/bin/lucli_check > ~/git_src/dev_utils/logs/lucli_check.log 2> ~/git_src/dev_utils/logs/lucli_check.err.log
-0 * * * * ~/git_src/dev_utils/bin/staticli_check > ~/git_src/dev_utils/logs/staticli_check.log 2> ~/git_src/dev_utils/logs/staticli_check.err.log
 
 # Check battery level
 * * * * * ~/git_src/dev_utils/bin/battery_alert
