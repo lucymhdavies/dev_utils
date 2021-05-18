@@ -4,3 +4,11 @@
 borkify | tee ~/tmp/borkify.log
 
 cat ~/tmp/borkify.log | grep -v 'ok' > /tmp/lmhd/dev-utils/updates/bork
+
+if [ -s /tmp/lmhd/dev-utils/updates/bork ]
+then
+	echo >> /tmp/lmhd/dev-utils/updates/bork
+	echo Run: borkify satisfy >> /tmp/lmhd/dev-utils/updates/bork
+else
+	rm /tmp/lmhd/dev-utils/updates/bork
+fi
