@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Run borkify, outputting 
+borkify | tee ~/tmp/borkify.log
+
+cat ~/tmp/borkify.log | grep -v 'ok' > /tmp/lmhd/dev-utils/updates/bork

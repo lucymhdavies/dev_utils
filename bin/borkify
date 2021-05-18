@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# All echos in this file should go to stderr
+function echo() {
+  command echo $@ >&2
+}
+
 export BORK_COLOR=true
 
 if [ "$1" != "" ]; then
@@ -25,13 +30,13 @@ if [ -d "${HOME}/git_src/dev_utils/bork" ]; then
 	for borkfile in ~/git_src/dev_utils/bork/*.sh; do
 		echo
 		echo ====================
-		basename ${borkfile}
+		echo $(basename ${borkfile})
 		echo ====================
 		if cat ${borkfile} | grep -q "BORK_CONTEXT: ${BORK_CONTEXT}\|BORK_CONTEXT: EVERYWHERE"; then
 			bork $BORK_OPERATION $borkfile
 		else
 			echo Skipped, because:
-			cat ${borkfile} | grep "BORK_CONTEXT:"
+			echo $(cat ${borkfile} | grep "BORK_CONTEXT:")
 		fi
 	done
 fi
