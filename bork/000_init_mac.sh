@@ -112,6 +112,7 @@ ok brew thefuck
 ok brew watch
 ok brew go
 ok brew jq
+ok brew yq
 ok brew fzf
 ok brew gnu-sed
 ok brew wget
