@@ -2,7 +2,7 @@
 
 #export BORKIFY_NO_COLOR=true
 
-export PATH=/opt/homebrew/bin/:/Users/strawb/git_src/dev_utils/bin:$PATH
+export PATH=/opt/homebrew/bin/:/usr/local/bin/:~/git_src/dev_utils/bin:$PATH
 
 # Run borkify, outputting 
 borkify | tee ~/tmp/borkify.log
