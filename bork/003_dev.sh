@@ -11,6 +11,7 @@ did_install && sudo xcode-select --switch /Applications/Xcode.app/Contents/Devel
 # Some useful Ruby Gems
 #
 
+ok brew ruby
 ok gem bundler
 ok gem jekyll
 
@@ -21,3 +22,6 @@ ok gem jekyll
 
 ok brew-tap hashicorp/tap
 ok brew terraform-ls
+
+# Cobra!
+ok check "go get github.com/spf13/cobra/cobra"

@@ -5,7 +5,9 @@ function echo() {
   command echo $@ >&2
 }
 
-export BORK_COLOR=true
+if [[ -z "${BORKIFY_NO_COLOR}" ]]; then
+	export BORK_COLOR=true
+fi
 
 if [ "$1" != "" ]; then
     BORK_OPERATION=$1
