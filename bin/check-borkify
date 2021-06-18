@@ -1,7 +1,13 @@
 #!/bin/bash
 
+#export BORKIFY_NO_COLOR=true
+
+export PATH=/opt/homebrew/bin/:/Users/strawb/git_src/dev_utils/bin:$PATH
+
 # Run borkify, outputting 
 borkify | tee ~/tmp/borkify.log
+
+mkdir -p /tmp/lmhd/dev-utils/updates
 
 cat ~/tmp/borkify.log | grep -v 'ok' > /tmp/lmhd/dev-utils/updates/bork
 

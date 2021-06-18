@@ -302,3 +302,10 @@ ok check "go get -u github.com/fatih/hclfmt"
 # Vim Airline
 ok github $HOME/.vim/bundle/vim-airline vim-airline/vim-airline --branch=master --ssh
 ok github $HOME/.vim/bundle/vim-airline-themes vim-airline/vim-airline-themes --branch=master --ssh
+
+
+
+
+
+# TODO: DNS
+# https://1.1.1.1/dns/
