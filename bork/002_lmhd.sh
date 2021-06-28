@@ -16,3 +16,6 @@ fi
 
 # TODO: really need a way of checking if specific certs are trusted...
 # Maybe store the pem files somewhere non-temporary, and use that to check?
+
+# Probably involves:
+# security trust-settings-export -s -d foo
