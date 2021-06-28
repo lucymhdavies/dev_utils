@@ -64,17 +64,6 @@ ok cask whatsapp
 
 
 #
-# Games
-#
-
-ok cask minecraft
-ok cask steam
-ok mas 1246969117 Steam Link
-ok cask openra
-
-
-
-#
 # Other Config
 #
 # TODO: Enable Home Sharing
