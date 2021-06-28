@@ -34,29 +34,6 @@ function pres(){
 	source $HOME/.bashrc
 }
 
-if [ -f ~/.presentation_mode ]; then
-	PRESENTATION_MODE=true
-
-	# Docker mode
-	#PS1="\n🐳  \W lucy $ "
-
-	# Gay Mode
-	#PS1="\n🏳️‍🌈  \W lucy $ "
-	# PS1="\n🌈  \W lucy $ "
-	#PS1="\n🌈  \W strawb $ "
-
-	# Boring mode
-	PS1="\n $ "
-
-
-	#imgcat ~/git_src/dev_utils/img/strawberry.png
-
-	# UGUU ANIME MODE
-	#PS1="\n(づ｡◕‿‿◕｡)づ 🌈  \W lucy $ "
-else
-	PRESENTATION_MODE=false
-fi
-
 
 if [ -f ~/.bash_debug_log ]; then
 	BASH_DEBUG_LOGGING=true
@@ -355,7 +332,7 @@ alias tsl=timestamp_line
 # push ssh key to server
 # TODO: specify which key to push
 function push-key {
-	ssh -q $1 "mkdir -p ~/.ssh/ && echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys && cat .ssh/authorized_keys | sort -u > .ssh/authorized_keys.new && mv .ssh/authorized_keys.new .ssh/authorized_keys"
+	ssh -q $1 "mkdir -p ~/.ssh/ && echo '`cat ~/.ssh/id_ed25519.pub`' >> ~/.ssh/authorized_keys && cat .ssh/authorized_keys | sort -u > .ssh/authorized_keys.new && mv .ssh/authorized_keys.new .ssh/authorized_keys"
 }
 
 # Some more OS X specific stuff
@@ -645,6 +622,11 @@ function frcd() {
 		return
 	fi
 }
+
+
+export GOPATH=~/go/
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 function gocd() {
 	if [[ ! -f "/tmp/gocd" ]]; then
 		echo "loading..."
@@ -812,3 +794,11 @@ alias kubecuddle=kubectl
 
 # https://twitter.com/jessica_schalz/status/1292973216634372097
 alias boop=ping
+
+
+# Ruby stuff
+export GEM_HOME="$HOME/.gem"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="~/.gem/ruby/3.0.0/bin:$PATH"
+export SDKROOT=$(xcrun --show-sdk-path)
+
