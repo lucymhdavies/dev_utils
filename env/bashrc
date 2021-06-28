@@ -6,6 +6,11 @@
 export PATH=/opt/homebrew/bin/:$PATH
 eval "$(brew shellenv)"
 
+if [ -f ~/.presentation_mode ]; then
+	PRESENTATION_MODE=true
+else
+	PRESENTATION_MODE=false
+fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -15,9 +20,7 @@ if [ -f ~/.bash_box_specific ]; then
     . ~/.bash_box_specific
 fi
 
-if [ -f ~/.presentation_mode ]; then
-	PRESENTATION_MODE=true
-
+if $PRESENTATION_MODE; then
 	# Docker mode
 	#PS1="\n🐳  \W lucy $ "
 
@@ -35,8 +38,6 @@ if [ -f ~/.presentation_mode ]; then
 	# UGUU ANIME MODE
 	#PS1="\n(づ｡◕‿‿◕｡)づ 🌈  \W lucy $ "
 else
-	PRESENTATION_MODE=false
-
 	if [ -z "${LMHD_GIT_PROMPT_SKIP}" ]; then
 		if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
 			#GIT_PROMPT_ONLY_IN_REPO=1
