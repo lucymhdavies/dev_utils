@@ -29,7 +29,7 @@ echo bork ${BORK_OPERATION} all the things!
 echo ========================================
 
 if [ -d "${HOME}/git_src/dev_utils/bork" ]; then
-	for borkfile in ~/git_src/dev_utils/bork/*.sh; do
+	for borkfile in ${HOME}/git_src/dev_utils/bork/*.sh; do
 		echo
 		echo ====================
 		echo $(basename ${borkfile})
@@ -40,5 +40,15 @@ if [ -d "${HOME}/git_src/dev_utils/bork" ]; then
 			echo Skipped, because:
 			echo $(cat ${borkfile} | grep "BORK_CONTEXT:")
 		fi
+	done
+fi
+
+if [ -d "${HOME}/git_src/dev_utils_private/${HOSTNAME}/bork" ]; then
+	for borkfile in ${HOME}/git_src/dev_utils_private/${HOSTNAME}/bork/*.sh; do
+		echo
+		echo ====================
+		echo ${HOSTNAME} $(basename ${borkfile})
+		echo ====================
+		bork $BORK_OPERATION $borkfile
 	done
 fi
