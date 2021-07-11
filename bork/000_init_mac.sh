@@ -8,6 +8,9 @@
 ok brew
 ok brew bork
 
+# Make sure we've not got a custom branch of Brew formula checked out
+ok github $(brew --prefix)/Library/Taps/homebrew/homebrew-core Homebrew/homebrew-core --branch=master
+
 
 
 #
