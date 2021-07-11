@@ -7,7 +7,7 @@
 #
 
 # Check if this cert is already in the keychain
-ok check "security dump-trust-settings -s -d | grep lmhd.me"
+ok check "security dump-trust-settings -s -d | grep LMHD"
 if check_failed && satisfying; then
 	# If not, download and trust
 	ok download /tmp/lmhd_root.pem https://vault.lmhd.me/v1/pki/root/ca/pem
