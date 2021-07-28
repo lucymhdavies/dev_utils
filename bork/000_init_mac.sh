@@ -12,9 +12,9 @@ ok brew bork
 # on latest macOS this is $(brew --prefix)/Library/Taps/homebrew/homebrew-core
 # on earlier macOS this is $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core
 [ -d $(brew --prefix)/Library/Taps/homebrew/homebrew-core ] && \
-	ok github $(brew --prefix)/Library/Taps/homebrew/homebrew-core Homebrew/homebrew-core --branch=master
+	ok github $(brew --prefix)/Library/Taps/homebrew/homebrew-core Homebrew/homebrew-core --branch=master --untracked-files=normal
 [ -d $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core ] && \
-	ok github $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core Homebrew/homebrew-core --branch=master
+	ok github $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core Homebrew/homebrew-core --branch=master --untracked-files=normal
 
 
 
@@ -94,8 +94,8 @@ ok brew git
 ok directory "$HOME/git_src"
 DEV_UTILS_DIR=$HOME/git_src/dev_utils
 DEV_UTILS_PRIVATE_DIR=$HOME/git_src/dev_utils_private
-ok github $DEV_UTILS_DIR lucymhdavies/dev_utils --branch=main --ssh
-ok github $DEV_UTILS_PRIVATE_DIR lucymhdavies/dev_utils_private --branch=main --ssh
+ok github $DEV_UTILS_DIR lucymhdavies/dev_utils --branch=main --ssh --untracked-files=normal
+ok github $DEV_UTILS_PRIVATE_DIR lucymhdavies/dev_utils_private --branch=main --ssh --untracked-files=normal
 
 ok symlink $HOME/.bash_aliases      $DEV_UTILS_DIR/env/bash_aliases
 ok symlink $HOME/.bashrc            $DEV_UTILS_DIR/env/bashrc
