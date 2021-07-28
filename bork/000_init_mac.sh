@@ -9,7 +9,12 @@ ok brew
 ok brew bork
 
 # Make sure we've not got a custom branch of Brew formula checked out
-ok github $(brew --prefix)/Library/Taps/homebrew/homebrew-core Homebrew/homebrew-core --branch=master
+# on latest macOS this is $(brew --prefix)/Library/Taps/homebrew/homebrew-core
+# on earlier macOS this is $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core
+[ -d $(brew --prefix)/Library/Taps/homebrew/homebrew-core ] && \
+	ok github $(brew --prefix)/Library/Taps/homebrew/homebrew-core Homebrew/homebrew-core --branch=master
+[ -d $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core ] && \
+	ok github $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core Homebrew/homebrew-core --branch=master
 
 
 
