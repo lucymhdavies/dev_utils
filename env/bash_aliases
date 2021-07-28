@@ -803,3 +803,7 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="~/.gem/ruby/3.0.0/bin:$PATH"
 export SDKROOT=$(xcrun --show-sdk-path)
 
+
+
+# Development version of bork
+alias devbork=~/git_src/github.com/skylarmacdonald/bork/bin/bork
