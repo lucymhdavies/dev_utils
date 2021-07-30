@@ -4,9 +4,14 @@
 #
 # Chicken Egg Stuff
 #
-
 ok brew
-ok brew bork
+ok brew bork --HEAD
+
+
+
+#
+# Homebrew
+#
 
 # Make sure we've not got a custom branch of Brew formula checked out
 # on latest macOS this is $(brew --prefix)/Library/Taps/homebrew/homebrew-core
