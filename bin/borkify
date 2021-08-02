@@ -52,3 +52,8 @@ if [ -d "${HOME}/git_src/dev_utils_private/${HOSTNAME}/bork" ]; then
 		bork $BORK_OPERATION $borkfile
 	done
 fi
+
+# Update check-borkify once we've done a satisfy
+if [ "${BORK_OPERATION}" == "satisfy" ]; then
+	check-borkify
+fi
