@@ -198,7 +198,7 @@ else
 	RESULT=$?
 	if [ $RESULT -eq 0 ]; then
 		alias dusort="du -d 1 -h | gsort -h"
-		alias watch_dusort="watch 'du -d 1 -h | gsort -h'"
+		alias watch_dusort="watch -d 'du -d 1 -h | gsort -h'"
 	else
 		alias dusort="echo dusort needs gsort. brew install coreutils should fix that"
 	fi
