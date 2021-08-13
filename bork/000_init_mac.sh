@@ -6,7 +6,12 @@
 #
 ok brew
 ok brew bork --HEAD
-
+if did_upgrade; then
+	echo "========================================"
+	echo "Bork Upgraded! Run Bork Again"
+	echo "========================================"
+	exit 1
+fi
 
 
 #
