@@ -53,7 +53,8 @@ if [ -d "${HOME}/git_src/dev_utils_private/${HOSTNAME}/bork" ]; then
 	done
 fi
 
-# Update check-borkify once we've done a satisfy
+# Assume Bork was fine, and remove the update notice
+# If it was in fact not fine, then we will find out next time the cron runs
 if [ "${BORK_OPERATION}" == "satisfy" ]; then
-	check-borkify
+	rm /tmp/lmhd/dev-utils/updates/bork
 fi
