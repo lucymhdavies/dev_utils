@@ -28,6 +28,8 @@ ok cask adobe-creative-cloud
 ok cask authy
 ok cask airserver
 
+ok cask cool-retro-term
+
 
 # Webcam Stuff
 ok brew-tap homebrew/cask-drivers
