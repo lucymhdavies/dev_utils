@@ -129,7 +129,7 @@ if did_install; then
 	echo "Load preferences from a custom folder or URL:"
 	echo "~/git_src/dev_utils/iterm"
 	echo
-	echo "Save changes to folder when iTerm2 quits"
+	echo "Save changes to folder: Automatically"
 	echo "Save Current Settings to Folder"
 	read -p "Press Return to continue" etc
 
@@ -187,6 +187,7 @@ if did_install; then
 	echo "========================================"
 	echo "Open Vim then run: :GoInstallBinaries (it's in your paste buffer)"
 	echo -n ":GoInstallBinaries" | pbcopy
+	# TODO: can I do this programatically?
 
 
 	read -p "Press Return to launch vim" etc
