@@ -9,9 +9,6 @@
 
 ok brew mas
 
-ok brew coreutils
-ok brew bash-git-prompt
-ok brew thefuck
 ok brew watch
 ok brew go
 ok brew jq

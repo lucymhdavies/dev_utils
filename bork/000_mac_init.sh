@@ -123,3 +123,12 @@ ok symlink $HOME/.digrc             $DEV_UTILS_DIR/env/digrc
 ok symlink $HOME/.bash_box_specific $DEV_UTILS_PRIVATE_DIR/$(hostname)/bashrc_box_specific
 
 ok symlink $HOME/.bash_profile $HOME/.bashrc
+
+
+
+#
+# Common Utils, and stuff referenced in Bash Aliases
+#
+ok brew coreutils
+ok brew bash-git-prompt
+ok brew thefuck
