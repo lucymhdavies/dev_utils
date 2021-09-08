@@ -1,6 +1,9 @@
 #!/usr/bin/env bork satisfy
 # BORK_CONTEXT: EVERYWHERE
 
+DEV_UTILS_DIR=$HOME/git_src/dev_utils
+DEV_UTILS_PRIVATE_DIR=$HOME/git_src/dev_utils_private
+
 
 
 #
@@ -60,7 +63,6 @@ if check_failed && satisfying; then
 	else
 		# TODO: DO SOMETHING
 		echo "Non M1. Not sure what do"
-		exit 1
 	fi
 fi
 ok check "$HOME/bin/lucli update 2>/dev/null"
