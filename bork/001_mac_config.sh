@@ -7,7 +7,7 @@
 #
 
 # Three finger drag
-ok defaults NSGlobalDomain com.apple.trackpad.threeFingerDragGesture bool true
+ok defaults com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag bool true
 
 
 
