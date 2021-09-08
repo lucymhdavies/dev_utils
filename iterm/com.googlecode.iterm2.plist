@@ -5809,7 +5809,7 @@
 				<real>0.9217638373374939</real>
 			</dict>
 			<key>Bonjour Service Address</key>
-			<string>192.168.0.44</string>
+			<string>127.0.0.1</string>
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
@@ -5817,7 +5817,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string>ssh 192.168.0.44</string>
+			<string>ssh 127.0.0.1</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -5889,7 +5889,7 @@
 				<real>1</real>
 			</dict>
 			<key>Guid</key>
-			<string>91CA53B3-3D8E-49CD-90C2-09D1FB1BCE47</string>
+			<string>98F3FE37-267E-43B3-B114-8A52409FD2ED</string>
 			<key>Hide After Opening</key>
 			<false/>
 			<key>Horizontal Spacing</key>
