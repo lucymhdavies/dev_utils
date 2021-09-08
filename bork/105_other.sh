@@ -9,8 +9,6 @@ ok cask maccy
 # TODO: Maccy Config
 ok cask discord
 ok cask zoom
-ok cask lastpass
-# TODO: lastpass keyboard shortcuts
 ok cask bartender
 # TODO: Bartender config?
 ok cask istat-menus

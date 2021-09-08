@@ -56,6 +56,14 @@ if [ -n "$COMPUTER_NAME" ]; then
 fi
 
 
+#
+# LastPass
+#
+
+ok cask lastpass
+# TODO: lastpass keyboard shortcuts
+
+
 
 #
 # SSH Key
@@ -78,3 +86,40 @@ if check_failed && satisfying; then
 fi
 ok brew gnupg
 ok brew pinentry-mac
+
+
+
+#
+# Rosetta
+#
+
+if [[ $(uname -p) == 'arm' ]] && [[ $(uname -s) == 'Darwin' ]]; then
+	ok check "/usr/sbin/softwareupdate --install-rosetta --agree-to-license 2>/dev/null"
+fi
+
+
+
+#
+# Bash and Dev Utils
+#
+
+ok brew bash
+ok shells $(brew --prefix)/bin/bash
+did_install && chsh -s $(brew --prefix)/bin/bash
+
+ok brew git
+
+ok directory "$HOME/git_src"
+DEV_UTILS_DIR=$HOME/git_src/dev_utils
+DEV_UTILS_PRIVATE_DIR=$HOME/git_src/dev_utils_private
+ok github $DEV_UTILS_DIR lucymhdavies/dev_utils --branch=main --ssh --untracked-files=normal
+ok github $DEV_UTILS_PRIVATE_DIR lucymhdavies/dev_utils_private --branch=main --ssh --untracked-files=normal
+
+ok symlink $HOME/.bash_aliases      $DEV_UTILS_DIR/env/bash_aliases
+ok symlink $HOME/.bashrc            $DEV_UTILS_DIR/env/bashrc
+ok symlink $HOME/.screenrc          $DEV_UTILS_DIR/env/screenrc
+ok symlink $HOME/.digrc             $DEV_UTILS_DIR/env/digrc
+
+ok symlink $HOME/.bash_box_specific $DEV_UTILS_PRIVATE_DIR/$(hostname)/bashrc_box_specific
+
+ok symlink $HOME/.bash_profile $HOME/.bashrc
