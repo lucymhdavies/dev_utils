@@ -8,7 +8,6 @@ ok cask discord
 ok cask keybase
 # TODO: Setup / folders / etc
 # sudo kmutil load -p /Library/Filesystems/kbfuse.fs/Contents/Extensions/11/kbfuse.kext
-ok cask slack
 
 ok cask adobe-creative-cloud
 

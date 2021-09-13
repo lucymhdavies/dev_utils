@@ -7,6 +7,8 @@
 
 ok cask google-chrome
 
+ok cask slack
+
 ok cask maccy
 # TODO: Maccy Config
 
