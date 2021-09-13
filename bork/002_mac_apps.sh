@@ -54,15 +54,22 @@ ok directory "$HOME/bin"
 
 ok check "[ -e $HOME/bin/lucli ] && $HOME/bin/lucli version 2>/dev/null"
 if check_failed && satisfying; then
-	if [[ $(uname -p) == 'arm' ]] && [[ $(uname -s) == 'Darwin' ]]; then
-		lucli_version=$(curl -s https://api.github.com/repos/LMHD/lucli/releases | jq -r .[0].name)
+	lucli_version=$(curl -s https://api.github.com/repos/LMHD/lucli/releases | jq -r .[0].name)
+
+	if [[ $(uname -s) == 'Darwin' ]]; then
 		echo "Installing latest version of lucli (${lucli_version})"
-		lucli_url=https://github.com/LMHD/lucli/releases/download/${lucli_version}/lucli.darwin.arm64
-		ok download $HOME/bin/lucli ${lucli_url}
-		ok check "chmod +x $HOME/bin/lucli"
+
+		if [[ $(uname -p) == 'arm' ]] && [[ $(uname -s) == 'Darwin' ]]; then
+			lucli_url=https://github.com/LMHD/lucli/releases/download/${lucli_version}/lucli.darwin.arm64
+			ok download $HOME/bin/lucli ${lucli_url}
+			ok check "chmod +x $HOME/bin/lucli"
+		else
+			lucli_url=https://github.com/LMHD/lucli/releases/download/${lucli_version}/lucli.darwin.amd64
+			ok download $HOME/bin/lucli ${lucli_url}
+			ok check "chmod +x $HOME/bin/lucli"
+		fi
 	else
-		# TODO: DO SOMETHING
-		echo "Non M1. Not sure what do"
+		echo "Not macOS. Not sure what do"
 	fi
 fi
 ok check "$HOME/bin/lucli update 2>/dev/null"
