@@ -23,6 +23,7 @@ ok brew speedtest-cli
 ok brew htop
 ok brew tree
 ok mas 1153157709 Speedtest
+ok mas 937984704 Amphetamine
 
 
 
