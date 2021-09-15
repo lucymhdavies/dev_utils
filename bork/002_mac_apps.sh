@@ -22,8 +22,15 @@ ok brew wget
 ok brew speedtest-cli
 ok brew htop
 ok brew tree
+
+
+#
+# Mac Apps
+#
+
 ok mas 1153157709 Speedtest
 ok mas 937984704 Amphetamine
+ok mas 467040476 HiddenMe
 
 
 
