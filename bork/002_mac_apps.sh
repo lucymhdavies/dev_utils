@@ -31,6 +31,7 @@ ok brew tree
 ok mas 1153157709 Speedtest
 ok mas 937984704 Amphetamine
 ok mas 467040476 HiddenMe
+ok mas 425424353 TheUnarchiver
 
 
 
