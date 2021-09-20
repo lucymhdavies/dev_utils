@@ -24,6 +24,8 @@ ok cask istat-menus
 ok cask visual-studio-code
 # TODO: All the config and stuff!
 
+ok cask google-drive
+ok cask dropbox
 
 #
 # Mac App Store
