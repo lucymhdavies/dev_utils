@@ -35,7 +35,7 @@ git config --global committer.email "${email}"
 
 # Set Author to Lucy, for user profile linking
 # If committing to a work repo
-if git remote get-url origin | grep "skybet.net"; then
+if git remote get-url origin | grep "hashicorp"; then
 	alias="Work ${alias}"
 fi
 name=$(cat ~/.config/lmhd/git_users.json | jq ".\"${alias}\"" | jq -r .name)
