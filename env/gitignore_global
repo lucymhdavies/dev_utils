@@ -21,3 +21,9 @@ Thumbs.db
 # Terraform Plugins
 #
 .terraform/plugins
+
+
+#
+# Env Vars
+#
+.env
