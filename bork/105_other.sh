@@ -12,7 +12,6 @@ ok cask keybase
 ok cask adobe-creative-cloud
 
 ok cask authy
-ok cask airserver
 
 ok cask cool-retro-term
 

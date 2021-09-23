@@ -33,6 +33,12 @@ ok mas 937984704 Amphetamine
 ok mas 467040476 HiddenMe
 ok mas 425424353 TheUnarchiver
 
+#
+# Other useful apps
+#
+ok cask airserver
+
+
 
 
 #
@@ -230,3 +236,14 @@ ok github $HOME/.vim/bundle/vim-airline-themes vim-airline/vim-airline-themes --
 
 # TODO: DNS
 # https://1.1.1.1/dns/
+
+
+#
+# Git
+#
+
+ok brew git-secrets
+# TODO: auto-install
+# https://github.com/awslabs/git-secrets#id10
+
+# TODO: check if all repos have it configured maybe?
