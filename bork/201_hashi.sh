@@ -9,6 +9,7 @@
 ok brew-tap hashicorp/tap
 ok brew terraform-ls
 ok brew terraform
+# TODO: tab completion
 
 # https://28mm.github.io/blast-radius-docs/
 ok brew graphviz
@@ -40,9 +41,22 @@ ok brew graphviz
 
 
 #
-# Vault
+# Others
 #
 
 ok brew vault
+# TODO: tab completion
 
+ok brew consul
 
+ok brew nomad
+# TODO: tab completion
+#complete -C /usr/local/bin/nomad nomad
+
+ok brew boundary
+
+ok brew waypoint
+
+ok brew vagrant
+
+ok brew packer
