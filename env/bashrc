@@ -42,8 +42,17 @@ else
 		if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
 			#GIT_PROMPT_ONLY_IN_REPO=1
 			GIT_PROMPT_THEME=Solarized
-			GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_ ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]"
-			GIT_PROMPT_END=""
+
+			# Prompt start
+			# Was last command successful?
+			GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_ "
+				# Where am I?
+				GIT_PROMPT_START="${GIT_PROMPT_START}${debian_chroot:+($debian_chroot)}"
+				GIT_PROMPT_START="${GIT_PROMPT_START}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]"
+
+			# TODO: Vault/Kube/Nomad/Consul/etc.
+
+			GIT_PROMPT_END="\n$ "
 			GIT_PROMPT_FETCH_REMOTE_STATUS=1
 			source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 		fi
