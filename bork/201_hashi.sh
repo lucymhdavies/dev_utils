@@ -1,6 +1,8 @@
 #!/usr/bin/env bork satisfy
 # BORK_CONTEXT: EVERYWHERE
 
+# The HashiCorp Stack, and other helpful tools
+
 
 #
 # Terraform
@@ -38,6 +40,8 @@ ok brew graphviz
 # verifying : pip3 blastradius
 # *  failed
 # missing
+
+ok brew awscli
 
 
 #
