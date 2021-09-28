@@ -102,6 +102,9 @@ ok symlink $HOME/.gitignore_global $DEV_UTILS_DIR/env/gitignore_global
 ok directory $HOME/.config/lmhd
 ok symlink $HOME/.config/lmhd/git_users.json $DEV_UTILS_DIR/git/git_users.json
 
+# Default branch for new git repos
+ok check "git config --global init.defaultBranch main"
+
 # TODO: Other Git Config?
 
 

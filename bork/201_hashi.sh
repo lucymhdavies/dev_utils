@@ -57,6 +57,6 @@ ok brew boundary
 
 ok brew waypoint
 
-ok brew vagrant
+ok cask vagrant
 
 ok brew packer
