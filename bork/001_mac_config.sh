@@ -39,3 +39,12 @@ ok defaults com.apple.dock autohide bool true
 if any_updated; then
   killall Dock
 fi
+
+
+
+#
+# Mouse
+#
+
+ok brew-tap homebrew/cask-drivers
+ok cask kensingtonworks

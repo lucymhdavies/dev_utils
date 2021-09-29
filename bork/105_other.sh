@@ -17,7 +17,6 @@ ok cask cool-retro-term
 
 
 # Webcam Stuff
-ok brew-tap homebrew/cask-drivers
 ok cask logitech-camera-settings
 ok defaults com.logitech.vc.CameraSettings.Persistent "Anti-Flicker" integer 50
 ok defaults com.logitech.vc.CameraSettings.Persistent AutoFocus integer 1
