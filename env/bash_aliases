@@ -807,3 +807,8 @@ export SDKROOT=$(xcrun --show-sdk-path)
 
 # Development version of bork
 alias devbork=~/git_src/github.com/skylarmacdonald/bork/bin/bork
+
+
+# AWS stuff
+# Replacement for AWS Shell
+alias aws-shell="AWS_CLI_AUTO_PROMPT=on aws"
