@@ -47,4 +47,3 @@ fi
 #
 
 ok brew-tap homebrew/cask-drivers
-ok cask kensingtonworks
