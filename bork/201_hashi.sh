@@ -64,3 +64,5 @@ ok brew waypoint
 ok cask vagrant
 
 ok brew packer
+
+ok brew sentinel
