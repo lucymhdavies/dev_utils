@@ -812,3 +812,5 @@ alias devbork=~/git_src/github.com/skylarmacdonald/bork/bin/bork
 # AWS stuff
 # Replacement for AWS Shell
 alias aws-shell="AWS_CLI_AUTO_PROMPT=on aws"
+# AWS Auto-complete https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
+complete -C '/usr/local/bin/aws_completer' aws
