@@ -814,3 +814,8 @@ alias devbork=~/git_src/github.com/skylarmacdonald/bork/bin/bork
 alias aws-shell="AWS_CLI_AUTO_PROMPT=on aws"
 # AWS Auto-complete https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
 complete -C '/usr/local/bin/aws_completer' aws
+
+
+# Hashi Stuff
+complete -C /usr/local/bin/terraform terraform
+
