@@ -42,6 +42,8 @@ ok brew graphviz
 # missing
 
 ok brew awscli
+ok brew azure-cli
+ok cask google-cloud-sdk
 
 
 #
