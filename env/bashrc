@@ -43,12 +43,17 @@ else
 			#GIT_PROMPT_ONLY_IN_REPO=1
 			GIT_PROMPT_THEME=Solarized
 
+			# If we've not set a custom "hostname" for display in the prompt, use actual hostname
+			if [ -z $DISPLAY_HOSTNAME ]; then
+				DISPLAY_HOSTNAME="\h"
+			fi
+
 			# Prompt start
 			# Was last command successful?
 			GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_ "
 				# Where am I?
 				GIT_PROMPT_START="${GIT_PROMPT_START}${debian_chroot:+($debian_chroot)}"
-				GIT_PROMPT_START="${GIT_PROMPT_START}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]"
+				GIT_PROMPT_START="${GIT_PROMPT_START}\[\033[01;32m\]\u@${DISPLAY_HOSTNAME}\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]"
 
 			# TODO: Vault/Kube/Nomad/Consul/etc.
 
