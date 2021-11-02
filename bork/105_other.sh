@@ -5,7 +5,6 @@
 # Important Cask Stuff
 ok cask chrome-remote-desktop-host
 ok cask discord
-ok cask keybase
 # TODO: Setup / folders / etc
 # sudo kmutil load -p /Library/Filesystems/kbfuse.fs/Contents/Extensions/11/kbfuse.kext
 

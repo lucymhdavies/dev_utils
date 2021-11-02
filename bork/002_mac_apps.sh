@@ -37,6 +37,7 @@ ok mas 425424353 TheUnarchiver
 # Other useful apps
 #
 ok cask airserver
+ok cask keybase
 
 
 
