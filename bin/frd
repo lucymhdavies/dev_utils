@@ -4,7 +4,7 @@
 FILE=/tmp/frd.lock
 if [ -f $FILE ]; then
   # check for running process, and exit if there is one
-  ps -ef | grep -v grep | grep -v $$ | grep frd && exit 0
+  ps -ef | grep -v grep | grep -v $$ | grep frd -q && exit 0
 else
   touch $FILE
 fi
