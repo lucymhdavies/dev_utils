@@ -48,7 +48,7 @@ ok cask keybase
 
 # https://docs.docker.com/docker-for-mac/apple-m1/
 # ok cask docker
-ok check "docker run hello-world"
+ok check "bork check which docker"
 if check_failed && satisfying; then
 	echo
 	echo "========================================"
