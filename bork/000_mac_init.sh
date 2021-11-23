@@ -104,6 +104,7 @@ fi
 #
 
 ok brew bash
+did_install && echo "Bash Updated! Finishing early" && exit 1
 ok shells $(brew --prefix)/bin/bash
 did_install && chsh -s $(brew --prefix)/bin/bash
 
