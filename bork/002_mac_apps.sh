@@ -238,6 +238,9 @@ ok github $HOME/.vim/bundle/vim-airline-themes vim-airline/vim-airline-themes --
 # VIM Sentinel
 ok github $HOME/.vim/bundle/sentinel.vim hashicorp/sentinel.vim --branch=master --ssh
 
+# VIM Nomad
+ok github $HOME/.vim/bundle/vim-nomadproject hashivim/vim-nomadproject --branch=master --ssh
+
 
 
 

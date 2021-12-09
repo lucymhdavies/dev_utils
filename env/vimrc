@@ -46,6 +46,9 @@ set t_Co=256
 " Enable syntax highlighting
 syntax on
 
+" Nomad Syntax Highlighting
+au BufReadPost *.nomad set syntax=hcl
+
 " Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
