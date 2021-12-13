@@ -26,10 +26,16 @@ lmhd_notices_file=/tmp/lmhd/dev-utils/updates/battery
 battery_threshold_alert_days=28
 battery_threshold_alert_seconds=$(( 60 * 60 * 24 * ${battery_threshold_alert_days} ))
 
+current_percent=$(get_darwin_percent)
+
 # Get current percent and, if below threshold, update log file
-if [ $(get_darwin_percent) -lt ${battery_threshold} ]; then
-	echo "Battery less than ${battery_threshold}% ($(get_darwin_percent)%)" > ${battery_log_file}
-	echo "Battery is below charge threshold: $(get_darwin_percent)% < ${battery_threshold}%" > ${lmhd_notices_file}
+if [ ${current_percent} -lt ${battery_threshold} ]; then
+	echo "Battery less than ${battery_threshold}% (${current_percent}%)" > ${battery_log_file}
+	echo "Battery is below charge threshold: ${current_percent}% < ${battery_threshold}%" > ${lmhd_notices_file}
+
+	# Remind me to plug in!
+	osascript -e "display notification with title \"$0\" subtitle \"The battery is currentlty at ${current_percent}%\" sound name \"Submarine\""
+
 	exit 0
 fi
 
