@@ -10,17 +10,19 @@ fi
 alias=$(curl -s https://api.lmhd.me/v1/front.json | jq -r .members[0].name)
 
 if [[ "${alias}" == "null" ]]; then
-	echo "UNKNOWN FRONTER: Leaving git config well alone"
-	curl -s https://api.lmhd.me/v1/front.json
-	exit 1
-
-	# TODO: Pick from list manually
+	echo "UNKNOWN FRONTER: please pick from list"
+	alias=""
 fi
 
-echo "Fronter detected: ${alias}"
 
 if [[ "$alias" == "" ]]; then
-	alias=$(cat ~/.config/lmhd/git_users.json | jq -r keys[] | fzf --no-height --reverse)
+	alias=$(cat ~/.config/lmhd/git_users.json | jq -r keys[] | grep -v Work | fzf --no-height --reverse)
+	if [[ "${alias}" == "" ]]; then
+		exit 1
+	fi
+	echo "Fronter selected: ${alias}"
+else
+	echo "Fronter detected: ${alias}"
 fi
 
 # Set Committer to fronter
