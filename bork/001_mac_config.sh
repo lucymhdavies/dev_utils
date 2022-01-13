@@ -47,3 +47,11 @@ fi
 #
 
 ok brew-tap homebrew/cask-drivers
+
+
+
+#
+# Finder
+#
+
+ok defaults com.apple.finder FXRemoveOldTrashItems bool true
