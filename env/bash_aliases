@@ -173,7 +173,7 @@ alias c="clear"
 alias df="df -h"
 alias color_less="less -r"
 
-alias grin="grep -rin --color=auto --exclude-dir='.git' --exclude-dir='.kitchen'"
+alias grin="grep -riIn --color=auto --exclude-dir='.git' --exclude-dir='.kitchen'"
 function g {
 	grin "$@" .
 }
