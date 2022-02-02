@@ -104,7 +104,12 @@ fi
 #
 
 ok brew bash
-did_install && echo "Bash Updated! Finishing early" && exit 1
+if did_upgrade || did_install; then
+	echo "========================================"
+	echo "Bash Upgraded! Run Bork Again"
+	echo "========================================"
+	exit 1
+fi
 ok shells $(brew --prefix)/bin/bash
 did_install && chsh -s $(brew --prefix)/bin/bash
 
