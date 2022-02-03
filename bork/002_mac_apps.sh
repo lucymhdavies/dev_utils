@@ -259,3 +259,8 @@ ok brew git-secrets
 # https://github.com/awslabs/git-secrets#id10
 
 # TODO: check if all repos have it configured maybe?
+
+
+# Important Cask Stuff
+ok cask chrome-remote-desktop-host
+ok cask discord
