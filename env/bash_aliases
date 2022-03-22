@@ -819,4 +819,10 @@ complete -C '/usr/local/bin/aws_completer' aws
 # Hashi Stuff
 complete -C /usr/local/bin/terraform terraform
 complete -C /usr/local/bin/vault vault
+# Vault login
+alias lmhd_vault_login="VAULT_ADDR=https://vault.lmhd.me vault login -method=oidc -path=okta_oidc"
 
+
+# Google Stuff
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
