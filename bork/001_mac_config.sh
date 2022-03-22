@@ -55,3 +55,14 @@ ok brew-tap homebrew/cask-drivers
 #
 
 ok defaults com.apple.finder FXRemoveOldTrashItems bool true
+
+
+#
+# Keyboard
+#
+# Disable dictation shortcut
+if satisfying; then
+	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 164 "<dict><key>enabled</key><false/></dict>"
+	# https://apple.stackexchange.com/a/414836
+	/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+fi
