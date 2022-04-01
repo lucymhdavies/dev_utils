@@ -180,7 +180,7 @@ fi
 # Crons
 #
 
-ok check "crontab -l"
+ok check "diff -q <(crontab -l) $DEV_UTILS_DIR/cron/crontab"
 if check_failed && satisfying; then
 	ok check "crontab $DEV_UTILS_DIR/cron/crontab"
 fi
