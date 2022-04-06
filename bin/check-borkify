@@ -9,7 +9,9 @@ borkify | tee ~/tmp/borkify.log
 
 mkdir -p /tmp/lmhd/dev-utils/updates
 
-cat ~/tmp/borkify.log | grep -v 'ok' > /tmp/lmhd/dev-utils/updates/bork
+cat ~/tmp/borkify.log \
+	| grep -v 'ok' \
+	> /tmp/lmhd/dev-utils/updates/bork
 
 if [ -s /tmp/lmhd/dev-utils/updates/bork ]
 then
