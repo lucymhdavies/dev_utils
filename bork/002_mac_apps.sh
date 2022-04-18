@@ -23,6 +23,7 @@ ok brew speedtest-cli
 ok brew htop
 ok brew tree
 ok brew gron
+ok brew gh
 
 
 #
