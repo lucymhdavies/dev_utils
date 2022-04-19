@@ -21,5 +21,5 @@ ok gem jekyll
 # https://github.com/staticli/staticli/issues/60
 
 # Cobra!
-ok check "go get github.com/spf13/cobra/cobra"
+ok check "go install github.com/spf13/cobra-cli@latest"
 

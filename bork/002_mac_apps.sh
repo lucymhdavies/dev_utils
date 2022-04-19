@@ -225,14 +225,14 @@ if did_install; then
 
 	echo "Should be done!"
 fi
-ok check "go get -u golang.org/x/tools/cmd/goimports"
+ok check "go install golang.org/x/tools/cmd/goimports@latest"
 
 # Vim Terraform
 ok github $HOME/.vim/bundle/vim-terraform hashivim/vim-terraform --branch=master --ssh
 
 # Vim HCLfmt
 ok github $HOME/.vim/bundle/vim-hclfmt fatih/vim-hclfmt --branch=master --ssh
-ok check "go get -u github.com/fatih/hclfmt"
+ok check "go install github.com/fatih/hclfmt@latest"
 
 # Vim Airline
 ok github $HOME/.vim/bundle/vim-airline vim-airline/vim-airline --branch=master --ssh
