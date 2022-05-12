@@ -60,7 +60,7 @@ ok brew nomad
 #complete -C /usr/local/bin/nomad nomad
 
 ok brew boundary
-ok brew hashicorp-boundary-desktop
+ok cask hashicorp-boundary-desktop
 
 ok brew waypoint
 
