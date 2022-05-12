@@ -41,6 +41,7 @@ ok mas 425424353 TheUnarchiver
 ok cask airserver
 ok cask keybase
 ok cask yubico-yubikey-manager
+ok cask mos
 
 
 
