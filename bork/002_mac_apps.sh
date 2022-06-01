@@ -44,6 +44,10 @@ ok cask yubico-yubikey-manager
 ok cask mos
 
 
+ok brew-tap heroku/brew
+ok brew heroku
+
+
 
 
 #
