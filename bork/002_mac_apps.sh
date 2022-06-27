@@ -237,7 +237,7 @@ ok github $HOME/.vim/bundle/vim-terraform hashivim/vim-terraform --branch=master
 
 # Vim HCLfmt
 ok github $HOME/.vim/bundle/vim-hclfmt fatih/vim-hclfmt --branch=master --ssh
-ok check "go install github.com/fatih/hclfmt@latest"
+ok check "go install github.com/2nick/hclfmt@latest"
 
 # Vim Airline
 ok github $HOME/.vim/bundle/vim-airline vim-airline/vim-airline --branch=master --ssh
