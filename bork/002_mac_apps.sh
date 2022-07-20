@@ -114,6 +114,7 @@ ok symlink $HOME/.config/lmhd/git_users.json $DEV_UTILS_DIR/git/git_users.json
 # Default branch for new git repos
 ok check "git config --global init.defaultBranch main"
 ok check "git config --global core.excludesfile ~/.gitignore_global"
+ok check "git config --global --add --bool push.autoSetupRemote true"
 
 # TODO: Other Git Config?
 
