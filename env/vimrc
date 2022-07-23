@@ -24,7 +24,10 @@ try
 	" Vim-HCLfmt
 	" for auto-formatting
 	" git clone git@github.com:fatih/vim-hclfmt.git ~/.vim/bundle/vim-hclfmt
-    " go get github.com/fatih/hclfmt
+	"
+	" Need one of these forks:
+	" https://github.com/fatih/hclfmt/network
+    " go install github.com/2nick/hclfmt
 	let g:hcl_fmt_autosave = 1
 	let g:tf_fmt_autosave = 0
 	let g:nomad_fmt_autosave = 1
