@@ -19,11 +19,13 @@ ok brew yq
 ok brew fzf
 ok brew gnu-sed
 ok brew wget
-ok brew speedtest-cli
 ok brew htop
 ok brew tree
 ok brew gron
 ok brew gh
+
+ok brew-tap teamookla/speedtest
+ok brew speedtest
 
 
 #
