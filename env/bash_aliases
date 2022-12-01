@@ -106,12 +106,10 @@ export HISTFILE=~/.bash_eternal_history
 
 
 
-export PATH=$PATH:.
-export PATH=$PATH:~/bin
-export PATH=$PATH:~/go/bin
-export PATH=$PATH:~/git_src/dev_utils/bin
+export PATH=~/go/bin:$PATH
+export PATH=~/git_src/dev_utils/bin:$PATH
 # Add Visual Studio Code (code)
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 is_osx=`uname | grep -i darwin | wc -l`
 
@@ -625,8 +623,8 @@ function frcd() {
 
 
 export GOPATH=~/go/
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+export PATH=$GOPATH/bin:$PATH
+export PATH=$GOROOT/bin:$PATH
 function gocd() {
 	if [[ ! -f "/tmp/gocd" ]]; then
 		echo "loading..."
@@ -826,3 +824,20 @@ alias lmhd_vault_login="VAULT_ADDR=https://vault.lmhd.me vault login -method=oid
 # Google Stuff
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
+
+
+
+
+
+
+
+
+
+
+
+#
+# Keep this at the very end, to ensure PATH override order
+#
+
+export PATH=~/bin:$PATH
+export PATH=.:$PATH
