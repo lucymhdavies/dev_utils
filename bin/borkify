@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Ensure the latest bork symlink (which, if it exists, will be in ~/bin) is used
+export PATH=~/bin:$PATH
+
 # All echos in this file should go to stderr
 function echo() {
   command echo $@ >&2
