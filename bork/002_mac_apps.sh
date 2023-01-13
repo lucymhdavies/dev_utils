@@ -274,3 +274,13 @@ ok brew git-secrets
 # Important Cask Stuff
 ok cask chrome-remote-desktop-host
 ok cask discord
+
+
+
+#
+# Elgato Stream Deck
+
+#
+ok cask elgato-stream-deck
+# TODO: elgato config
+# Somewhere in ~/Library/Application Support/com.elgato.StreamDeck
