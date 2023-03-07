@@ -593,8 +593,8 @@ alias superclear="for i in \$(seq \$(tput lines)); do echo ' '; done ; clear"
 alias clearscrollback="printf '\e]50;ClearScrollback\a'"
 
 function hgrep() {
-	# Reverse history (excluding comments)
-	tac ~/.bash_eternal_history | grep -v '^#' | fzf --reverse -i -q "$*"
+	# History (excluding comments, and unique lines only)
+	cat ~/.bash_eternal_history | grep -v '^#' | sort -u | fzf --reverse -i -q "$*"
 }
 
 function frcd() {
