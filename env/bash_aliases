@@ -3,7 +3,8 @@
 # What is a bash profile, but a miserable pile of secrets?
 #
 
-~/git_src/dev_utils/bin/imgcat ~/git_src/dev_utils/img/trans-gopher.png
+# imgcat no longer works :(
+#~/git_src/dev_utils/bin/imgcat ~/git_src/dev_utils/img/trans-gopher.png
 
 # The real directory that this bash file is stored in
 DEV_UTILS_ENV_DIR=$(dirname $(realpath ~/.bash_aliases))
