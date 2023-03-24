@@ -20,6 +20,23 @@ if [ -f ~/.bash_box_specific ]; then
     . ~/.bash_box_specific
 fi
 
+vault_ps1() {
+	VAULT_ADDR_DISPLAY=${VAULT_ADDR}
+
+	if test -f ~/.vault-ps1; then
+		if [[ "${VAULT_NAMESPACE}" == "" ]]; then
+			echo -e " \e[93m(V|${VAULT_ADDR_DISPLAY})\e[m"
+		else
+			echo -e " \e[93m(V|${VAULT_NAMESPACE}:${VAULT_ADDR_DISPLAY})\e[m"
+		fi
+	fi
+
+	# TODO: helper script to get vault user
+	# (don't want to do this inline)
+}
+alias vaulton="touch ~/.vault-ps1"
+alias vaultoff="rm -f ~/.vault-ps1"
+
 if $PRESENTATION_MODE; then
 	# Docker mode
 	#PS1="\n🐳  \W lucy $ "
@@ -50,10 +67,13 @@ else
 
 			# Prompt start
 			# Was last command successful?
-			GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_ "
+			GIT_PROMPT_START="\n_LAST_COMMAND_INDICATOR_ "
 				# Where am I?
 				GIT_PROMPT_START="${GIT_PROMPT_START}${debian_chroot:+($debian_chroot)}"
 				GIT_PROMPT_START="${GIT_PROMPT_START}\[\033[01;32m\]\u@${DISPLAY_HOSTNAME}\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]"
+
+			# Vault
+			GIT_PROMPT_START="${GIT_PROMPT_START}\$(vault_ps1)"
 
 			# TODO: Vault/Kube/Nomad/Consul/etc.
 
