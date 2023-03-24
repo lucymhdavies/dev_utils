@@ -33,6 +33,9 @@ vault_ps1() {
 
 	# TODO: helper script to get vault user
 	# (don't want to do this inline)
+	#
+	# Thinking have a directory somewhere (dev_utils/bin/prompts/ perhaps)
+	# then bashrc should find all of those, and add them all to GIT_PROMPT_START
 }
 alias vaulton="touch ~/.vault-ps1"
 alias vaultoff="rm -f ~/.vault-ps1"
