@@ -36,6 +36,9 @@ if [ ${current_percent} -lt ${battery_threshold} ]; then
 	# Remind me to plug in!
 	osascript -e "display notification with title \"$0\" subtitle \"The battery is currentlty at ${current_percent}%\" sound name \"Submarine\""
 
+	# With a visual notification too
+	for i in {1..10}; do shortcuts run "Luxafor: Pattern (Police)"; sleep 1; done
+
 	exit 0
 fi
 
