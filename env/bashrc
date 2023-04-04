@@ -40,6 +40,17 @@ vault_ps1() {
 alias vaulton="touch ~/.vault-ps1"
 alias vaultoff="rm -f ~/.vault-ps1"
 
+tf_ps1() {
+	if test -f ~/.tf-ps1; then
+		# TODO: Check if we're in a TF workspace?
+
+		# TODO: get TFC URL and Org
+		echo -e " \e[95m(TF|$(terraform workspace show))\e[m"
+	fi
+}
+alias tfon="touch ~/.tf-ps1"
+alias tfoff="rm -f ~/.tf-ps1"
+
 if $PRESENTATION_MODE; then
 	# Docker mode
 	#PS1="\n🐳  \W lucy $ "
@@ -76,7 +87,7 @@ else
 				GIT_PROMPT_START="${GIT_PROMPT_START}\[\033[01;32m\]\u@${DISPLAY_HOSTNAME}\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]"
 
 			# Vault
-			GIT_PROMPT_START="${GIT_PROMPT_START}\$(vault_ps1)"
+			GIT_PROMPT_START="${GIT_PROMPT_START}\$(vault_ps1)\$(tf_ps1)"
 
 			# TODO: Vault/Kube/Nomad/Consul/etc.
 
