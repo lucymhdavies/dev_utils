@@ -594,8 +594,6 @@
 	<true/>
 	<key>DisableFullscreenTransparency</key>
 	<true/>
-	<key>EnableAPIServer</key>
-	<false/>
 	<key>EnableDivisionView</key>
 	<true/>
 	<key>EnableProxyIcon</key>
