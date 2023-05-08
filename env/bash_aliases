@@ -68,16 +68,6 @@ if [[ $(compgen -c | grep ^brew$ | wc -l) -ne 0 ]]; then
 	has_brew=true
 fi
 
-# TODO: store status of these in ~/.bash_dependencies for example, so we're not relying on compgen
-# Install dependencies
-# TODO: This should be `brew install lucybash`
-# for c in fzf coreutils jq gsort thefuck; do
-# 	if $has_brew && ( [[ $(compgen -c | grep ^$c$ | wc -l) -eq 0 ]] && [[ $(brew list | grep ^$c$ | wc -l) -eq 0 ]] ); then
-# 		echo "Installing $c"
-# 		brew install $c
-# 	fi
-# done
-
 bashdebug "LUCYTIME ALIASES 2 $(date)"
 
 
