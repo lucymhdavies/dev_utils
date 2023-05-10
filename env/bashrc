@@ -6,7 +6,31 @@
 export PATH=/opt/homebrew/bin/:$PATH
 eval "$(brew shellenv)"
 
-if [ -f ~/.presentation_mode ]; then
+
+#
+# Presentation Mode
+#
+
+function pres(){
+	case $1 in
+		on)
+			touch ~/.config/lmhd/presentation_mode
+			;;
+		off)
+			rm ~/.config/lmhd/presentation_mode
+			;;
+		*)
+			echo "Usage: pres [on|off]"
+			return
+			;;
+	esac
+	clear
+
+	# Really, you need a bash session
+	# otherwise Git Prompt overrides PS1
+	source $HOME/.bashrc
+}
+if [ -f ~/.config/lmhd/presentation_mode ]; then
 	PRESENTATION_MODE=true
 else
 	PRESENTATION_MODE=false
@@ -23,7 +47,7 @@ fi
 vault_ps1() {
 	VAULT_ADDR_DISPLAY=${VAULT_ADDR}
 
-	if test -f ~/.vault-ps1; then
+	if test -f ~/.config/lmhd/vault-ps1; then
 		if [[ "${VAULT_NAMESPACE}" == "" ]]; then
 			echo -e " \e[93m(V|${VAULT_ADDR_DISPLAY})\e[m"
 		else
@@ -37,19 +61,19 @@ vault_ps1() {
 	# Thinking have a directory somewhere (dev_utils/bin/prompts/ perhaps)
 	# then bashrc should find all of those, and add them all to GIT_PROMPT_START
 }
-alias vaulton="touch ~/.vault-ps1"
-alias vaultoff="rm -f ~/.vault-ps1"
+alias vaulton="touch ~/.config/lmhd/vault-ps1"
+alias vaultoff="rm -f ~/.config/lmhd/vault-ps1"
 
 tf_ps1() {
-	if test -f ~/.tf-ps1; then
+	if test -f ~/.config/lmhd/tf-ps1; then
 		# TODO: Check if we're in a TF workspace?
 
 		# TODO: get TFC URL and Org
 		echo -e " \e[95m(TF|$(terraform workspace show))\e[m"
 	fi
 }
-alias tfon="touch ~/.tf-ps1"
-alias tfoff="rm -f ~/.tf-ps1"
+alias tfon="touch ~/.config/lmhd/tf-ps1"
+alias tfoff="rm -f ~/.config/lmhd/tf-ps1"
 
 if $PRESENTATION_MODE; then
 	# Docker mode
@@ -67,7 +91,7 @@ if $PRESENTATION_MODE; then
 	#imgcat ~/git_src/dev_utils/img/strawberry.png
 
 	# UGUU ANIME MODE
-	#PS1="\n(づ｡◕‿‿◕｡)づ 🌈  \W lucy $ "
+	export PS1="\n(づ｡◕‿‿◕｡)づ 🌈  \W lucy $ "
 else
 	if [ -z "${LMHD_GIT_PROMPT_SKIP}" ]; then
 		if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then

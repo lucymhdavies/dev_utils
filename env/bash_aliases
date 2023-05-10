@@ -11,30 +11,6 @@ DEV_UTILS_ENV_DIR=$(dirname $(realpath ~/.bash_aliases))
 
 
 
-#
-# Presentation Mode
-#
-
-function pres(){
-	case $1 in
-		on)
-			touch ~/.presentation_mode
-			;;
-		off)
-			rm ~/.presentation_mode
-			;;
-		*)
-			echo "Usage: pres [on|off]"
-			return
-			;;
-	esac
-	clear
-
-	# Really, you need a bash session
-	# otherwise Git Prompt overrides PS1
-	source $HOME/.bashrc
-}
-
 
 if [ -f ~/.bash_debug_log ]; then
 	BASH_DEBUG_LOGGING=true
