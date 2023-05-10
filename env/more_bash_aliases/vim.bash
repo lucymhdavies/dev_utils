@@ -2,7 +2,6 @@
 # vim and vim accessories
 #
 
-alias vi="vim -p"
 alias vim="vim -p"
 alias view="vim -R"
 export EDITOR=vim
