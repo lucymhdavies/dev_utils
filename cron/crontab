@@ -4,16 +4,16 @@
 #
 
 # Clear temporary files
-0 * * * * nice -n 20 ~/git_src/dev_utils/bin/cleartmp > ~/git_src/dev_utils/logs/cleartmp.log 2> ~/git_src/dev_utils/logs/cleartmp.err.log
+0 */6 * * * nice -n 20 ~/git_src/dev_utils/bin/cleartmp > ~/git_src/dev_utils/logs/cleartmp.log 2> ~/git_src/dev_utils/logs/cleartmp.err.log
 
 # Clear trash
-0 * * * * nice -n 20 ~/git_src/dev_utils/bin/cleartrash > ~/git_src/dev_utils/logs/cleartrash.log 2> ~/git_src/dev_utils/logs/cleartrash.err.log
+0 */6 * * * nice -n 20 ~/git_src/dev_utils/bin/cleartrash > ~/git_src/dev_utils/logs/cleartrash.log 2> ~/git_src/dev_utils/logs/cleartrash.err.log
 
 # Update directories for frcd and gocd
-0 * * * * nice -n 20 ~/git_src/dev_utils/bin/frd
+0 */6 * * * nice -n 20 ~/git_src/dev_utils/bin/frd
 
 # Check battery level
 * * * * * nice -n 20 ~/git_src/dev_utils/bin/battery_alert
 
 # Check if bork needs running
-0 * * * * nice -n 20 ~/git_src/dev_utils/bin/check-borkify > ~/git_src/dev_utils/logs/check-borkify.log 2> ~/git_src/dev_utils/logs/check-borkify.err.log
+0 */6 * * * nice -n 20 ~/git_src/dev_utils/bin/check-borkify > ~/git_src/dev_utils/logs/check-borkify.log 2> ~/git_src/dev_utils/logs/check-borkify.err.log
