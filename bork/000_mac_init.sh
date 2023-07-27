@@ -27,6 +27,14 @@ fi
 	ok github $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core Homebrew/homebrew-core --branch=master --untracked-files=normal
 
 
+# And do an upgrade of everything
+if satisfying; then
+	echo "========================================"
+	echo "Brew Upgrade All The Things"
+	echo "========================================"
+    brew upgrade
+   
+fi
 
 #
 # File Vault
