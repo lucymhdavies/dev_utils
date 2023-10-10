@@ -799,6 +799,11 @@ source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 # export GPG_TTY=$(tty)
 
 
+# Simple webserver
+alias webserver="python3 -m http.server"
+
+
+
 
 # NVM
   export NVM_DIR="$HOME/.nvm"
