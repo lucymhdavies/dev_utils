@@ -1,0 +1,9 @@
+#!/bin/bash
+# Check if the FRD file exists and, if not, run it as a background task
+
+tmpdir=/tmp/lmhd/dev-utils/
+
+if [ ! -f ${tmpdir}/frcd ]; then
+	echo No frcd file exists. Running frd in background...
+	frd &
+fi

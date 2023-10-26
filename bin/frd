@@ -1,10 +1,13 @@
 #!/bin/bash
+# 
+
+tmpdir=/tmp/lmhd/dev-utils/
 
 # Check for existing frd
-FILE=/tmp/frd.lock
+FILE=${tmpdir}/frd.lock
 if [ -f $FILE ]; then
   # check for running process, and exit if there is one
-  ps -ef | grep -v grep | grep -v $$ | grep frd -q && exit 0
+  ps -ef | grep -v grep | grep -v $$ | grep -v frd-background | grep frd -q && exit 0
 else
   touch $FILE
 fi
@@ -12,21 +15,21 @@ fi
 # frcd
 for d in $(find -L ~/repos ~/git_src ~/go/src -type d -path "*/.git" 2>/dev/null) ; do
 	echo $(dirname $d)
-done > /tmp/frcd.new
+done > ${tmpdir}/frcd.new
 
-if [ -f /tmp/frcd.new ]; then
+if [ -f ${tmpdir}/frcd.new ]; then
 	# TODO: figure out a more flexible way of handling frcd exclusions
 	# For now, this will do for the two repos I want to exclude
-	cat /tmp/frcd.new | grep -v fssh > /tmp/frcd 2>/dev/null
-	rm /tmp/frcd.new
+	cat ${tmpdir}/frcd.new | grep -v fssh > ${tmpdir}/frcd 2>/dev/null
+	rm ${tmpdir}/frcd.new
 fi
 
 # gocd
-find ~/go/src/ -type d -or -type l 2>/dev/null | grep -v "\.git" > /tmp/gocd.new
+find ~/go/src/ -type d -or -type l 2>/dev/null | grep -v "\.git" > ${tmpdir}/gocd.new
 
-if [ -f /tmp/gocd.new ]; then
-	mv /tmp/gocd.new /tmp/gocd 2>/dev/null
+if [ -f ${tmpdir}/gocd.new ]; then
+	mv ${tmpdir}/gocd.new ${tmpdir}/gocd 2>/dev/null
 fi
 
 # Clear lock
-rm -f /tmp/frd.lock
+rm -f ${tmpdir}/frd.lock

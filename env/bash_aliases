@@ -564,31 +564,6 @@ function hgrep() {
 	cat ~/.bash_eternal_history | grep -v '^#' | sort -u | fzf --reverse -i -q "$*"
 }
 
-function frcd() {
-	# Old version(s)
-	# f=$(find ~/repos/ ~/git_src/ -type d  -or -type l -maxdepth 2 -not -path "*/.git" -not -path "*/.git/*" 2>/dev/null | fzf -i -q "$@")
-	# f=$(find ~/repos/ ~/git_src/ -type d  -or -type l -maxdepth 2 2>/dev/null | grep -v "\.git" | fzf --reverse -i -q "$@")
-
-	# Find all directories which contain a ".git" directory
-	if [[ ! -f "/tmp/frcd" ]]; then
-		echo "loading..."
-		frd
-	fi
-
-	f=$(cat /tmp/frcd | fzf --reverse -i -q "$@")
-	# TODO: allow user to specify no parameter
-
-	if [ -d "$f" ]; then
-		cd $f
-		return
-	fi
-	if [ -f "$f" ]; then
-		cd $(dirname $f)
-		return
-	fi
-}
-
-
 export GOPATH=~/go/
 export PATH=$GOPATH/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
