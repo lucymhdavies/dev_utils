@@ -1,0 +1,8 @@
+#!/bin/bash
+# Show me the top 10 processes, ordered by CPU %, refreshing every 30 seconds
+# And output that to a log file
+#
+# Then, whenever I have high CPU usage... I can look back on these and find out why
+
+mkdir -p ~/tmp/cpu_log
+top -s 30 -n 10 -u | tee -a ~/tmp/cpu_log/$(date '+%Y-%m-%d').txt
