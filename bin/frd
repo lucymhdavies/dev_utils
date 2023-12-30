@@ -2,6 +2,7 @@
 # 
 
 tmpdir=/tmp/lmhd/dev-utils/
+mkdir -p ${tmpdir}
 
 # Check for existing frd
 FILE=${tmpdir}/frd.lock
