@@ -594,8 +594,6 @@
 	<true/>
 	<key>DisableFullscreenTransparency</key>
 	<true/>
-	<key>EnableAPIServer</key>
-	<false/>
 	<key>EnableDivisionView</key>
 	<true/>
 	<key>EnableProxyIcon</key>
@@ -1345,8 +1343,6 @@
 			<key>Normal Font</key>
 			<string>Monaco 11</string>
 			<key>Only The Default BG Color Uses Transparency</key>
-			<false/>
-			<key>Open Password Manager Automatically</key>
 			<false/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
