@@ -44,6 +44,7 @@ ok cask airserver
 ok cask keybase
 ok cask yubico-yubikey-manager
 ok cask mos
+ok cask raycast
 
 
 ok brew-tap heroku/brew
