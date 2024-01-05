@@ -10,7 +10,7 @@
 
 ok brew-tap hashicorp/tap
 ok brew terraform-ls
-ok brew terraform
+ok brew terraform --from=hashicorp/tap
 # TODO: tab completion
 
 # https://28mm.github.io/blast-radius-docs/
@@ -50,22 +50,22 @@ ok cask google-cloud-sdk
 # Others
 #
 
-ok brew vault
+ok brew vault --from=hashicorp/tap
 # TODO: tab completion
 
-ok brew consul
+ok brew consul --from=hashicorp/tap
 
-ok brew nomad
+ok brew nomad --from=hashicorp/tap
 # TODO: tab completion
 #complete -C /usr/local/bin/nomad nomad
 
-ok brew boundary
+ok brew boundary --from=hashicorp/tap
 ok cask hashicorp-boundary-desktop
 
-ok brew waypoint
+ok brew waypoint --from=hashicorp/tap
 
-ok cask vagrant
+ok cask vagrant --from=hashicorp/tap
 
-ok brew packer
+ok brew packer --from=hashicorp/tap
 
-ok brew sentinel
+ok brew sentinel --from=hashicorp/tap
