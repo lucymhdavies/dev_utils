@@ -748,6 +748,9 @@ export SDKROOT=$(xcrun --show-sdk-path)
 # Development version of bork
 alias devbork=~/git_src/github.com/skylarmacdonald/bork/bin/bork
 
+# Borkify
+alias bs="borkify satisfy"
+
 
 # AWS stuff
 # Replacement for AWS Shell
