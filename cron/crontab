@@ -17,3 +17,8 @@
 
 # Check if bork needs running
 0 */6 * * * nice -n 20 ~/git_src/dev_utils/bin/check-borkify > ~/git_src/dev_utils/logs/check-borkify.log 2> ~/git_src/dev_utils/logs/check-borkify.err.log
+
+
+# TODO: Let's get some box-specific crontabs if we can
+# CPU Logging
+@reboot ~/git_src/dev_utils/bin/cpu_log
