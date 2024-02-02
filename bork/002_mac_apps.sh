@@ -191,14 +191,13 @@ fi
 # Crons
 #
 
+# TODO: box-specific cron
+# $DEV_UTILS_PRIVATE_DIR/$(hostname)/
+
 ok check "diff -q <(crontab -l) $DEV_UTILS_DIR/cron/crontab"
 if check_failed && satisfying; then
 	ok check "crontab $DEV_UTILS_DIR/cron/crontab"
 fi
-
-
-# TODO: Cronjob to do a bork check
-# https://github.com/skylarmacdonald/bork/issues/20
 
 
 
