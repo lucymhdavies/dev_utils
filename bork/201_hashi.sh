@@ -53,6 +53,8 @@ ok cask google-cloud-sdk
 ok brew vault --from=hashicorp/tap
 # TODO: tab completion
 
+ok brew vlt --from=hashicorp/tap
+
 ok brew consul --from=hashicorp/tap
 
 ok brew nomad --from=hashicorp/tap
