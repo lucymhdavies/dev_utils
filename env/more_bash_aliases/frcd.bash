@@ -11,6 +11,8 @@ function frcd() {
 
 	# Find all directories which contain a ".git" directory
 	if [[ ! -f "${tmpdir}/frcd" ]]; then
+		# TODO: check if frd is already running, and wait
+
 		echo "loading..."
 		frd
 	fi
