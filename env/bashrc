@@ -82,16 +82,16 @@ if $PRESENTATION_MODE; then
 	# Gay Mode
 	#PS1="\n🏳️‍🌈  \W lucy $ "
 	# PS1="\n🌈  \W lucy $ "
-	#PS1="\n🌈  \W strawb $ "
+	PS1="\n🌈  \W strawb $ "
 
 	# Boring mode
-	export PS1="\n $ "
+	#export PS1="\n $ "
 
 
 	#imgcat ~/git_src/dev_utils/img/strawberry.png
 
 	# UGUU ANIME MODE
-	export PS1="\n(づ｡◕‿‿◕｡)づ 🌈  \W lucy $ "
+	#export PS1="\n(づ｡◕‿‿◕｡)づ 🌈  \W lucy $ "
 else
 	if [ -z "${LMHD_GIT_PROMPT_SKIP}" ]; then
 		if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
