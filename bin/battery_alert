@@ -14,6 +14,11 @@ get_darwin_percent() {
 }
 get_darwin_percent >/dev/null # do once now, as we may qant to quit early
 
+is_plugged_in() {
+	pmset -g batt | grep -q "Now drawing from 'AC Power'"
+	return $?
+}
+
 # Threshold below which we consider the battery sufficiently discharged
 battery_threshold=5
 
@@ -32,6 +37,11 @@ current_percent=$(get_darwin_percent)
 if [ ${current_percent} -lt ${battery_threshold} ]; then
 	echo "Battery less than ${battery_threshold}% (${current_percent}%)" > ${battery_log_file}
 	echo "Battery is below charge threshold: ${current_percent}% < ${battery_threshold}%" > ${lmhd_notices_file}
+
+	# If plugged in, no need to notify
+	if is_plugged_in ; then
+		exit 0
+	fi
 
 	# Remind me to plug in!
 	osascript -e "display notification with title \"$0\" subtitle \"The battery is currentlty at ${current_percent}%\" sound name \"Submarine\""
