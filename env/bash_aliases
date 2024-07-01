@@ -86,7 +86,11 @@ alias ssh_init="eval \`ssh-agent -s\` ; ssh-add ~/.ssh/lucy.lucymhdavies.com"
 # bash stuff
 alias realias="source ~/.bash_aliases"
 function analyse_bashrc {
-	grep --color=yes -n $1 ~/.bash* | grep -v ".bash*history" | grep -v ".bash_history" | grep -v ".bash_eternal_history"
+	# ignore errors, like...
+	#   $ analyse_bashrc analyse
+	#   grep: /Users/strawb/.bash_sessions: Is a directory
+
+	grep --color=yes -n $1 ~/.bash* 2>/dev/null | grep -v ".bash*history" | grep -v ".bash_history" | grep -v ".bash_eternal_history"
 }
 alias rebash="source ~/.bashrc"
 
