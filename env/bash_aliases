@@ -449,6 +449,11 @@ function docker_cleanup {
 	docker rmi -f $(docker images -q)
 
 	echo "=============================="
+	echo "Removing all volumes"
+	echo "=============================="
+	docker volume prune --all -f
+
+	echo "=============================="
 	echo "Space After"
 	echo "=============================="
 	df -h
