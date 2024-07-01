@@ -20,8 +20,8 @@ done > ${tmpdir}/frcd.new
 
 if [ -f ${tmpdir}/frcd.new ]; then
 	# TODO: figure out a more flexible way of handling frcd exclusions
-	# For now, this will do for the two repos I want to exclude
-	cat ${tmpdir}/frcd.new | grep -v fssh > ${tmpdir}/frcd 2>/dev/null
+	# For now, this will do for the repos I want to exclude
+	cat ${tmpdir}/frcd.new | grep -v fssh | grep -v '.terraform/modules' > ${tmpdir}/frcd 2>/dev/null
 	rm ${tmpdir}/frcd.new
 fi
 
