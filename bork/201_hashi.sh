@@ -71,3 +71,5 @@ ok cask vagrant --from=hashicorp/tap
 ok brew packer --from=hashicorp/tap
 
 ok brew sentinel --from=hashicorp/tap
+
+ok brew hcp -from=hashicorp/tap
