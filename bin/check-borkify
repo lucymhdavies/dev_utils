@@ -3,11 +3,19 @@
 #export BORKIFY_NO_COLOR=true
 
 export PATH=/opt/homebrew/bin/:/usr/local/bin/:~/git_src/dev_utils/bin:$PATH
+mkdir -p /tmp/lmhd/dev-utils/updates
+
+# TODO: create a "we ran check-borkify already" file
+# next time we run this, check if the file exists, and if so, exit early
+#
+# We could also just use /tmp/lmhd/dev-utils/updates/bork for this.
+# Essentially... if there are already things bork wants to update...
+# no need to see the full list, if it changes later that day.
+#
+# And this would allow us to run the check-borkify crontab more frequently. Hourly perhaps.
 
 # Run borkify, outputting 
 borkify | tee ~/tmp/borkify.log
-
-mkdir -p /tmp/lmhd/dev-utils/updates
 
 cat ~/tmp/borkify.log \
 	| grep -v 'ok' \
