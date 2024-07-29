@@ -73,3 +73,5 @@ ok brew packer --from=hashicorp/tap
 ok brew sentinel --from=hashicorp/tap
 
 ok brew hcp -from=hashicorp/tap
+
+ok brew tfstacks -from=hashicorp/tap
