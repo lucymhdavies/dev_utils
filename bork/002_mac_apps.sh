@@ -188,6 +188,13 @@ fi
 # TODO: Make iTerm default terminal
 
 
+#
+# Ghostty
+#
+
+# TODO: Can we check if it's installed, and prompt if not?
+ok symlink $HOME/.config/ghostty/config $DEV_UTILS_DIR/ghostty/config
+
 
 
 #

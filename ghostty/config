@@ -1,0 +1,11 @@
+# Slightly transparent
+background-opacity = 0.9
+
+# Cool theme
+theme = SynthwaveAlpha
+
+# Allow the terminal to show up as an overlay above everything else
+macos-non-native-fullscreen = visible-menu
+
+# Default new windows to fullscreen
+#fullscreen = true
