@@ -641,7 +641,12 @@ function ezclone() {
 	else
 		mkdir -p $repodir
 		cd $repodir
+
 		git clone $repo
+
+		echo "updating frd..."
+		echo $repodir/$reponame >> /tmp/lmhd/dev-utils/frcd
+		echo done
 	fi
 
 	cd $repodir/$reponame
