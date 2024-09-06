@@ -194,6 +194,7 @@ fi
 
 # TODO: Can we check if it's installed, and prompt if not?
 ok symlink $HOME/.config/ghostty/config $DEV_UTILS_DIR/ghostty/config
+ok symlink $HOME/.config/ghostty/themes $DEV_UTILS_DIR/ghostty/themes
 
 
 

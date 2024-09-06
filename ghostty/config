@@ -2,7 +2,8 @@
 background-opacity = 0.9
 
 # Cool theme
-theme = SynthwaveAlpha
+#theme = SynthwaveAlpha
+theme = synthwave84
 
 # Allow the terminal to show up as an overlay above everything else
 macos-non-native-fullscreen = visible-menu
