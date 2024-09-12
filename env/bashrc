@@ -58,7 +58,7 @@ vault_ps1() {
 		if [[ "${VAULT_NAMESPACE}" == "" ]]; then
 			echo -e " \e[93m(V|${display_name}${VAULT_ADDR_DISPLAY})\e[m"
 		else
-			echo -e " \e[93m(V|${display_name}${VAULT_NAMESPACE}:${VAULT_ADDR_DISPLAY})\e[m"
+			echo -e " \e[93m(V|${display_name}${VAULT_ADDR_DISPLAY} / ${VAULT_NAMESPACE})\e[m"
 		fi
 	fi
 
