@@ -4,6 +4,13 @@
 tmpdir=/tmp/lmhd/dev-utils/
 mkdir -p ${tmpdir}
 
+# If we do not have an existing frcd file, notify upon completion
+notify_at_end=false
+if [ ! -f ${tmpdir}/frcd ]; then
+	notify_at_end=true
+fi
+
+
 # Check for existing frd
 FILE=${tmpdir}/frd.lock
 if [ -f $FILE ]; then
@@ -13,7 +20,6 @@ else
   touch $FILE
 fi
 
-#shortcuts run 'Trek - Computer Work'
 
 # frcd
 for d in $(find -L ~/repos ~/git_src ~/go/src -type d -path "*/.git" 2>/dev/null) ; do
@@ -38,5 +44,6 @@ fi
 rm -f ${tmpdir}/frd.lock
 
 # Notify of completion
-osascript -e "display notification with title \"$0\" subtitle \"frd has completed its Git repo scan\""
-#shortcuts run 'Trek - Computer OK'
+if ${notify_at_end}; then
+	osascript -e "display notification with title \"$0\" subtitle \"frd has completed its Git repo scan\""
+fi
