@@ -16,7 +16,7 @@ macos-non-native-fullscreen = visible-menu
 # Quick Terminal Settings
 keybind = global:super+grave_accent=toggle_quick_terminal
 quick-terminal-screen = mouse
-quick-terminal-position = left
+quick-terminal-position = top
 
 
 
