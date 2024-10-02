@@ -48,12 +48,20 @@ vault_ps1() {
 	VAULT_ADDR_DISPLAY=${VAULT_ADDR}
 
 	if test -f ~/.config/lmhd/vault-ps1; then
-		# If we're logged in to Vault, include this prefix
-		display_name=$(vault read --field=display_name auth/token/lookup-self 2>/dev/null)
-		if [[ "${display_name}" != "" ]]; then
-			display_name="${display_name} @ "
-		fi
+		token_lookup=$(vault read --format=json auth/token/lookup-self 2>/dev/null)
 
+		# If we're logged in to Vault, include this prefix
+		display_name=$(echo ${token_lookup} | jq -r .data.display_name 2>/dev/null)
+		meta_role=$(echo ${token_lookup} | jq -r .data.meta.role 2>/dev/null)
+
+
+		if [[ "${display_name}" != "" ]]; then
+			if [[ "${meta_role}" != "" ]]; then
+				display_name="${display_name}/${meta_role} @ "
+			else
+				display_name="${display_name} @ "
+			fi
+		fi
 
 		if [[ "${VAULT_NAMESPACE}" == "" ]]; then
 			echo -e " \e[93m(V|${display_name}${VAULT_ADDR_DISPLAY})\e[m"
