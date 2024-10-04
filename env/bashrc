@@ -158,6 +158,9 @@ else
 
 			GIT_PROMPT_END="\n$ "
 			GIT_PROMPT_FETCH_REMOTE_STATUS=1
+
+			GIT_PROMPT_SHOW_UPSTREAM=1
+
 			source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 		fi
 	fi
