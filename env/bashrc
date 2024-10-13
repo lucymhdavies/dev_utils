@@ -48,10 +48,25 @@ vault_ps1() {
 	VAULT_ADDR_DISPLAY=${VAULT_ADDR}
 
 	if test -f ~/.config/lmhd/vault-ps1; then
+		token_lookup=$(vault read --format=json auth/token/lookup-self 2>/dev/null)
+
+		# If we're logged in to Vault, include this prefix
+		display_name=$(echo ${token_lookup} | jq -r .data.display_name 2>/dev/null)
+		meta_role=$(echo ${token_lookup} | jq -r .data.meta.role 2>/dev/null)
+
+
+		if [[ "${display_name}" != "" ]]; then
+			if [[ "${meta_role}" != "" ]]; then
+				display_name="${display_name}/${meta_role} @ "
+			else
+				display_name="${display_name} @ "
+			fi
+		fi
+
 		if [[ "${VAULT_NAMESPACE}" == "" ]]; then
-			echo -e " \e[93m(V|${VAULT_ADDR_DISPLAY})\e[m"
+			echo -e " \e[93m(V|${display_name}${VAULT_ADDR_DISPLAY})\e[m"
 		else
-			echo -e " \e[93m(V|${VAULT_NAMESPACE}:${VAULT_ADDR_DISPLAY})\e[m"
+			echo -e " \e[93m(V|${display_name}${VAULT_ADDR_DISPLAY} / ${VAULT_NAMESPACE})\e[m"
 		fi
 	fi
 
@@ -74,6 +89,32 @@ tf_ps1() {
 }
 alias tfon="touch ~/.config/lmhd/tf-ps1"
 alias tfoff="rm -f ~/.config/lmhd/tf-ps1"
+
+aws_ps1() {
+	if test -f ~/.config/lmhd/aws-ps1; then
+		echo -e " \e[33m(AWS|$(aws sts get-caller-identity | jq -r .Arn))\e[m"
+	fi
+}
+alias awson="touch ~/.config/lmhd/aws-ps1"
+alias awsoff="rm -f ~/.config/lmhd/aws-ps1"
+
+
+frd_ps1() {
+	tmpdir=/tmp/lmhd/dev-utils/
+	lockfile=${tmpdir}/frd.lock
+	if [ -f $lockfile ]; then
+		echo -e " \e[34m(frd:running)\e[m"
+		return
+	fi
+
+	frcdfile=${tmpdir}/frcd
+	if [ -f $frcdfile ]; then
+		# We have an frcd file, so don't output anything
+		return
+	fi
+
+	echo -e " \e[31m(frd:none)\e[m"
+}
 
 if $PRESENTATION_MODE; then
 	# Docker mode
@@ -111,12 +152,15 @@ else
 				GIT_PROMPT_START="${GIT_PROMPT_START}\[\033[01;32m\]\u@${DISPLAY_HOSTNAME}\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]"
 
 			# Vault
-			GIT_PROMPT_START="${GIT_PROMPT_START}\$(vault_ps1)\$(tf_ps1)"
+			GIT_PROMPT_START="${GIT_PROMPT_START}\$(vault_ps1)\$(tf_ps1)\$(aws_ps1)\$(frd_ps1)"
 
 			# TODO: Vault/Kube/Nomad/Consul/etc.
 
 			GIT_PROMPT_END="\n$ "
 			GIT_PROMPT_FETCH_REMOTE_STATUS=1
+
+			GIT_PROMPT_SHOW_UPSTREAM=1
+
 			source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 		fi
 	fi

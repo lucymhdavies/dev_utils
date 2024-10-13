@@ -86,7 +86,11 @@ alias ssh_init="eval \`ssh-agent -s\` ; ssh-add ~/.ssh/lucy.lucymhdavies.com"
 # bash stuff
 alias realias="source ~/.bash_aliases"
 function analyse_bashrc {
-	grep --color=yes -n $1 ~/.bash* | grep -v ".bash*history" | grep -v ".bash_history" | grep -v ".bash_eternal_history"
+	# ignore errors, like...
+	#   $ analyse_bashrc analyse
+	#   grep: /Users/strawb/.bash_sessions: Is a directory
+
+	grep --color=yes -n $1 ~/.bash* 2>/dev/null | grep -v ".bash*history" | grep -v ".bash_history" | grep -v ".bash_eternal_history"
 }
 alias rebash="source ~/.bashrc"
 
@@ -449,6 +453,11 @@ function docker_cleanup {
 	docker rmi -f $(docker images -q)
 
 	echo "=============================="
+	echo "Removing all volumes"
+	echo "=============================="
+	docker volume prune --all -f
+
+	echo "=============================="
 	echo "Space After"
 	echo "=============================="
 	df -h
@@ -632,7 +641,12 @@ function ezclone() {
 	else
 		mkdir -p $repodir
 		cd $repodir
+
 		git clone $repo
+
+		echo "updating frd..."
+		echo $repodir/$reponame >> /tmp/lmhd/dev-utils/frcd
+		echo done
 	fi
 
 	cd $repodir/$reponame
@@ -764,6 +778,7 @@ complete -C /usr/local/bin/terraform terraform
 complete -C /usr/local/bin/vault vault
 # Vault login
 alias lmhd_vault_login="VAULT_ADDR=https://vault.lmhd.me vault login -method=oidc -path=okta_oidc"
+alias lmhd_vault_login_admin="VAULT_ADDR=https://vault.lmhd.me vault login -method=oidc -path=okta_oidc role=admin"
 
 
 # Google Stuff
@@ -787,6 +802,20 @@ alias webserver="python3 -m http.server"
   export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+
+# Makefile
+# https://stackoverflow.com/a/38415982
+complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' ?akefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
+
+
+
+
+# FZF Dracula theme
+export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+
+
 
 
 

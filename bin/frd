@@ -4,6 +4,13 @@
 tmpdir=/tmp/lmhd/dev-utils/
 mkdir -p ${tmpdir}
 
+# If we do not have an existing frcd file, notify upon completion
+notify_at_end=false
+if [ ! -f ${tmpdir}/frcd ]; then
+	notify_at_end=true
+fi
+
+
 # Check for existing frd
 FILE=${tmpdir}/frd.lock
 if [ -f $FILE ]; then
@@ -13,6 +20,7 @@ else
   touch $FILE
 fi
 
+
 # frcd
 for d in $(find -L ~/repos ~/git_src ~/go/src -type d -path "*/.git" 2>/dev/null) ; do
 	echo $(dirname $d)
@@ -20,8 +28,8 @@ done > ${tmpdir}/frcd.new
 
 if [ -f ${tmpdir}/frcd.new ]; then
 	# TODO: figure out a more flexible way of handling frcd exclusions
-	# For now, this will do for the two repos I want to exclude
-	cat ${tmpdir}/frcd.new | grep -v fssh > ${tmpdir}/frcd 2>/dev/null
+	# For now, this will do for the repos I want to exclude
+	cat ${tmpdir}/frcd.new | grep -v fssh | grep -v '.terraform/modules' > ${tmpdir}/frcd 2>/dev/null
 	rm ${tmpdir}/frcd.new
 fi
 
@@ -34,3 +42,8 @@ fi
 
 # Clear lock
 rm -f ${tmpdir}/frd.lock
+
+# Notify of completion
+if ${notify_at_end}; then
+	osascript -e "display notification with title \"$0\" subtitle \"frd has completed its Git repo scan\""
+fi

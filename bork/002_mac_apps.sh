@@ -117,7 +117,10 @@ ok symlink $HOME/.config/lmhd/git_users.json $DEV_UTILS_DIR/git/git_users.json
 # Default branch for new git repos
 ok check "git config --global init.defaultBranch main"
 ok check "git config --global core.excludesfile ~/.gitignore_global"
-ok check "git config --global --add --bool push.autoSetupRemote true"
+
+
+# TODO: check if this is already there before running it
+#ok check "git config --global --add --bool push.autoSetupRemote true"
 
 # TODO: Other Git Config?
 
@@ -184,6 +187,14 @@ fi
 # TODO: Keep In Dock
 # TODO: Make iTerm default terminal
 
+
+#
+# Ghostty
+#
+
+# TODO: Can we check if it's installed, and prompt if not?
+ok symlink $HOME/.config/ghostty/config $DEV_UTILS_DIR/ghostty/config
+ok symlink $HOME/.config/ghostty/themes $DEV_UTILS_DIR/ghostty/themes
 
 
 

@@ -1,0 +1,25 @@
+# Slightly transparent
+background-opacity = 0.9
+
+# Cool theme
+#theme = SynthwaveAlpha
+#theme = synthwave84
+theme = Dracula
+
+# Allow the terminal to show up as an overlay above everything else
+macos-non-native-fullscreen = visible-menu
+
+# Default new windows to fullscreen
+#fullscreen = true
+
+
+# Quick Terminal Settings
+keybind = global:super+grave_accent=toggle_quick_terminal
+quick-terminal-screen = mouse
+quick-terminal-position = top
+
+
+
+# Do not show an initial winwo when launching Ghostty
+# (because primary interaction will be Quick Terminal)
+initial-window = false
