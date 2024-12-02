@@ -11,7 +11,9 @@
 ok brew-tap hashicorp/tap
 ok brew terraform-ls
 ok brew terraform --from=hashicorp/tap
-# TODO: tab completion
+if satisfying ; then
+	terraform -install-autocomplete
+fi
 
 # https://28mm.github.io/blast-radius-docs/
 ok brew graphviz
