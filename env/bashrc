@@ -55,8 +55,8 @@ vault_ps1() {
 		meta_role=$(echo ${token_lookup} | jq -r .data.meta.role 2>/dev/null)
 
 
-		if [[ "${display_name}" != "" ]]; then
-			if [[ "${meta_role}" != "" ]]; then
+		if [[ "${display_name}" != "" && "${display_name}" != "null" ]]; then
+			if [[ "${meta_role}" != "" && "${meta_role}" != "null" ]]; then
 				display_name="${display_name}/${meta_role} @ "
 			else
 				display_name="${display_name} @ "
