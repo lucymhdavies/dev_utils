@@ -31,7 +31,13 @@ ok cask dropbox
 # Mac App Store
 #
 
-# Important MAS Stuff
+# Magnet, and override macOS Sequoia settings
 ok mas 441258766 Magnet
+ok defaults com.apple.WindowManager EnableTiledWindowMargins bool false
+ok defaults com.apple.WindowManager EnableTilingByEdgeDrag bool false
+ok defaults com.apple.WindowManager EnableTilingOptionAccelerator bool false
+ok defaults com.apple.WindowManager EnableTopTilingByEdgeDrag bool false
+
+
 # TODO: System Preferences > Accessibility > Magnet.app
 # TODO: Config: ~/Library/Preferences/com.crowdcafe.windowmagnet.plist
