@@ -1,3 +1,7 @@
+#
+# Aesthetic
+#
+
 # Slightly transparent
 background-opacity = 0.9
 
@@ -9,21 +13,21 @@ theme = Dracula
 # Allow the terminal to show up as an overlay above everything else
 macos-non-native-fullscreen = visible-menu
 
-# Default new windows to fullscreen
-#fullscreen = true
-
-
-# Quick Terminal Settings
-#keybind = global:super+grave_accent=toggle_quick_terminal
-keybind = global:option+space=toggle_quick_terminal
-quick-terminal-screen = mouse
-quick-terminal-position = top
-
+#
+# Functional
+#
 
 # because ghostty doesn't appear to be detecting this
 shell-integration = bash
 
+#
+# Quick Terminal Settings
+#
 
+#keybind = global:super+grave_accent=toggle_quick_terminal
+keybind = global:option+space=toggle_quick_terminal
+quick-terminal-screen = mouse
+quick-terminal-position = top
 
 # Do not show an initial winwo when launching Ghostty
 # (because primary interaction will be Quick Terminal)
@@ -31,3 +35,6 @@ initial-window = false
 
 # Once we've implemented https://github.com/ghostty-org/ghostty/issues/2384#issuecomment-2401129283
 #quick-terminal-size = 100%
+
+# Don't auto-hide the terminal when we click another window
+quick-terminal-autohide = false
