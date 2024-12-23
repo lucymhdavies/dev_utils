@@ -169,3 +169,5 @@ fi
 complete -C /usr/local/bin/nomad nomad
 
 complete -C /opt/homebrew/bin/terraform terraform
+
+complete -C /usr/local/bin/terraform terraform
