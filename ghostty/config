@@ -14,13 +14,6 @@ theme = Dracula
 macos-non-native-fullscreen = visible-menu
 
 #
-# Functional
-#
-
-# because ghostty doesn't appear to be detecting this
-shell-integration = bash
-
-#
 # Quick Terminal Settings
 #
 
