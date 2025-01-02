@@ -14,6 +14,14 @@ theme = Dracula
 macos-non-native-fullscreen = visible-menu
 
 #
+# Functional
+#
+
+# Make sure we're always using the latest prerelease, regardless of install method
+auto-update-channel = tip
+
+
+#
 # Quick Terminal Settings
 #
 
