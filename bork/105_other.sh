@@ -25,7 +25,6 @@ ok cask backblaze
 # TODO: Set up license and config manually
 
 
-ok mas 1482454543 Twitter
 ok mas 682658836 GarageBand
 ok mas 1278508951 Trello
 ok mas 411643860 DaisyDisk
