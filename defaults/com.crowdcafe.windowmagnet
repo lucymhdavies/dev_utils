@@ -14,7 +14,7 @@
 		<string>0.000000, 316.000000, 228.000000, 48.000000, NO, NO</string>
 	</array>
 	<key>NSStatusItem Preferred Position Item-0</key>
-	<real>5800</real>
+	<real>766</real>
 	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
 	<dict>
 		<key>TB Is Shown</key>
@@ -329,6 +329,10 @@
 	<data>
 	IjMuMC4wIg==
 	</data>
+	<key>lastPreferenceSync</key>
+	<data>
+	NzYxMzQ3Nzg4LjY3NTYxMw==
+	</data>
 	<key>lastRatedVersion</key>
 	<string>2.14.0</string>
 	<key>launchAtLogin</key>
@@ -337,7 +341,7 @@
 	</data>
 	<key>launchCounter</key>
 	<data>
-	ODk=
+	OTA=
 	</data>
 	<key>paddingAroundWindows</key>
 	<data>
