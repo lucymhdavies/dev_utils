@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4
+
+echo DNS set to...
+networksetup -getdnsservers Wi-Fi

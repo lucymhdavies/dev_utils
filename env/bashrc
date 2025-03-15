@@ -98,6 +98,14 @@ aws_ps1() {
 alias awson="touch ~/.config/lmhd/aws-ps1"
 alias awsoff="rm -f ~/.config/lmhd/aws-ps1"
 
+dns_ps1() {
+	if test -f ~/.config/lmhd/dns-ps1; then
+		echo -e " \e[33m(DNS|$(echo $(networksetup -getdnsservers Wi-Fi)))\e[m"
+	fi
+}
+alias dnson="touch ~/.config/lmhd/dns-ps1"
+alias dnsoff="rm -f ~/.config/lmhd/dns-ps1"
+
 
 frd_ps1() {
 	tmpdir=/tmp/lmhd/dev-utils/
@@ -152,7 +160,7 @@ else
 				GIT_PROMPT_START="${GIT_PROMPT_START}\[\033[01;32m\]\u@${DISPLAY_HOSTNAME}\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]"
 
 			# Vault
-			GIT_PROMPT_START="${GIT_PROMPT_START}\$(vault_ps1)\$(tf_ps1)\$(aws_ps1)\$(frd_ps1)"
+			GIT_PROMPT_START="${GIT_PROMPT_START}\$(vault_ps1)\$(tf_ps1)\$(aws_ps1)\$(frd_ps1)\$(dns_ps1)"
 
 			# TODO: Vault/Kube/Nomad/Consul/etc.
 
