@@ -199,6 +199,7 @@ ok directory $HOME/.config/ghostty
 ok symlink  $HOME/.config/ghostty/config $DEV_UTILS_DIR/ghostty/config
 ok symlink  $HOME/.config/ghostty/themes $DEV_UTILS_DIR/ghostty/themes
 
+# TODO: remove, if it exists "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
 
 
 #
