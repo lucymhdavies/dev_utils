@@ -52,13 +52,13 @@ ok check "diff -q ${DEV_UTILS_DIR}/defaults/com.crowdcafe.windowmagnet <(default
 # (but even then... iCloud syncing is disabled, because it doesn't work on the MacBook)
 
 if check_failed; then
-	echo "Magnet defaults do not match dev_utils"
-	diff ${DEV_UTILS_DIR}/defaults/com.crowdcafe.windowmagnet <(defaults export com.crowdcafe.windowmagnet -)
+	echo "Magnet defaults do not match dev_utils. we're not attempting to remediate this ourselves right now, so... do it yourself?"
+	#diff ${DEV_UTILS_DIR}/defaults/com.crowdcafe.windowmagnet <(defaults export com.crowdcafe.windowmagnet -)
 
-	if satisfying; then
-		echo "Setting Magnet defaults"
-		defaults import com.crowdcafe.windowmagnet ${DEV_UTILS_DIR}/defaults/com.crowdcafe.windowmagnet
-	fi
+	#if satisfying; then
+		#echo "Setting Magnet defaults"
+		#defaults import com.crowdcafe.windowmagnet ${DEV_UTILS_DIR}/defaults/com.crowdcafe.windowmagnet
+	#fi
 fi
 
 
