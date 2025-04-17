@@ -4,7 +4,8 @@
 [ -z "$PS1" ] && return
 
 export PATH=/opt/homebrew/bin/:$PATH
-eval "$(brew shellenv)"
+eval "$(/usr/local/bin/brew shellenv)"
+
 
 
 #
@@ -179,3 +180,4 @@ complete -C /usr/local/bin/nomad nomad
 complete -C /opt/homebrew/bin/terraform terraform
 
 complete -C /usr/local/bin/terraform terraform
+
