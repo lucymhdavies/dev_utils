@@ -46,7 +46,13 @@ ok cask yubico-yubikey-manager
 ok cask mos
 ok cask raycast
 
-
+#
+# Mouse
+#
+ok cask logi-options+
+# TODO: Logi settings
+# pointer speed
+# gestures
 
 
 ok brew-tap heroku/brew
