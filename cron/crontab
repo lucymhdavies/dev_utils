@@ -12,13 +12,22 @@
 # Update directories for frcd and gocd
 0 */6 * * * nice -n 20 ~/git_src/dev_utils/bin/frd
 
-# Check battery level
-* * * * * nice -n 20 ~/git_src/dev_utils/bin/battery_alert > ~/git_src/dev_utils/logs/battery_alert.log 2> ~/git_src/dev_utils/logs/battery_alert.err.log
-
 # Check if bork needs running
 0 */6 * * * nice -n 20 ~/git_src/dev_utils/bin/check-borkify > ~/git_src/dev_utils/logs/check-borkify.log 2> ~/git_src/dev_utils/logs/check-borkify.err.log
 
+# Stand reminders
+55 * * * * ~/git_src/dev_utils/bin/stand_notify >/dev/null 2>&1
 
+#
+# HashiBook Only
 # TODO: Let's get some box-specific crontabs if we can
+#
+
+# Check battery level
+* * * * * nice -n 20 ~/git_src/dev_utils/bin/battery_alert > ~/git_src/dev_utils/logs/battery_alert.log 2> ~/git_src/dev_utils/logs/battery_alert.err.log
+
 # CPU Logging
 @reboot ~/git_src/dev_utils/bin/cpu_log  > ~/git_src/dev_utils/logs/cpu_log.log 2> ~/git_src/dev_utils/logs/cpu_log.err.log
+
+# Time to end the workday
+*/10 18-19 * * 1-5 ~/git_src/dev_utils/bin/end_of_day

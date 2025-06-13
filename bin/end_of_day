@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# TODO: add some options here, which we can include in the crontab
+# e.g. end_of_day --coming-soon
+#
+# I also need the ability to silence it for a particular date
+# e.g. end_of_day --silence
+
+osascript -e "display notification with title \"$0\" subtitle \"The time is $(date +"%H%M"), consider wrapping up work\" sound name \"Submarine\""
