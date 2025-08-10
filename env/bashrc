@@ -3,8 +3,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+export PATH=/usr/local/bin/:$PATH
 export PATH=/opt/homebrew/bin/:$PATH
-eval "$(/usr/local/bin/brew shellenv)"
+eval "$(brew shellenv)"
 
 
 
