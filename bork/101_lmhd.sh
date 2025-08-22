@@ -1,5 +1,5 @@
 #!/usr/bin/env bork satisfy
-# BORK_CONTEXT: HOME
+# BORK_CONTEXT: EVERYWHERE
 
 
 #
