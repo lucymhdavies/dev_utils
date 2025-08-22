@@ -43,14 +43,6 @@ fi
 
 
 #
-# Mouse
-#
-
-ok brew-tap homebrew/cask-drivers
-
-
-
-#
 # Finder
 #
 
