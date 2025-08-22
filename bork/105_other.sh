@@ -12,20 +12,12 @@ ok cask authy
 ok cask cool-retro-term
 
 
-# Webcam Stuff
-ok cask logitech-camera-settings
-ok defaults com.logitech.vc.CameraSettings.Persistent "Anti-Flicker" integer 50
-ok defaults com.logitech.vc.CameraSettings.Persistent AutoFocus integer 1
-ok defaults com.logitech.vc.CameraSettings.Persistent AutoWhiteBalance integer 1
-
-
 
 ok cask backblaze
 # TODO: Launch /opt/homebrew/Caskroom/backblaze/7.0.2.490/bzd
 # TODO: Set up license and config manually
 
 
-ok mas 682658836 GarageBand
 ok mas 1278508951 Trello
 ok mas 411643860 DaisyDisk
 ok mas 1480068668 Messenger
