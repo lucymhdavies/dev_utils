@@ -88,31 +88,6 @@ fi
 
 ok directory "$HOME/bin"
 
-ok check "[ -e $HOME/bin/lucli ] && $HOME/bin/lucli version 2>/dev/null"
-if check_failed && satisfying; then
-	lucli_version=$(curl -s https://api.github.com/repos/LMHD/lucli/releases | jq -r .[0].name)
-
-	if [[ $(uname -s) == 'Darwin' ]]; then
-		echo "Installing latest version of lucli (${lucli_version})"
-
-		if [[ $(uname -p) == 'arm' ]] && [[ $(uname -s) == 'Darwin' ]]; then
-			lucli_url=https://github.com/LMHD/lucli/releases/download/${lucli_version}/lucli.darwin.arm64
-			ok download $HOME/bin/lucli ${lucli_url}
-			ok check "chmod +x $HOME/bin/lucli"
-		else
-			lucli_url=https://github.com/LMHD/lucli/releases/download/${lucli_version}/lucli.darwin.amd64
-			ok download $HOME/bin/lucli ${lucli_url}
-			ok check "chmod +x $HOME/bin/lucli"
-		fi
-	else
-		echo "Not macOS. Not sure what do"
-	fi
-fi
-ok check "$HOME/bin/lucli update 2>/dev/null"
-
-# TODO: lucli.yml
-
-
 #
 # Initial Git Config
 #
@@ -146,55 +121,6 @@ ok directory "$HOME/tmp"
 
 
 
-
-#
-# iTerm
-#
-
-ok cask iterm2
-if did_install; then
-	echo
-	echo "========================================"
-	echo "Configure iTerm"
-	echo "========================================"
-	echo "Openning iTerm"
-	open -a iterm
-
-	echo
-	echo "Menu > iTerm > Preferences"
-	echo "Load preferences from a custom folder or URL:"
-	echo "https://raw.githubusercontent.com/lucymhdavies/dev_utils/master/iterm/com.googlecode.iterm2.plist"
-	echo -n "https://raw.githubusercontent.com/lucymhdavies/dev_utils/master/iterm/com.googlecode.iterm2.plist" | pbcopy
-	echo "(it's in your paste buffer)"
-	read -p "Press Return to continue" etc
-
-
-	read -p "Press Return to kill iterm" etc
-	killall iTerm2
-	echo "Openning iTerm"
-	open -a iterm
-
-
-	echo
-	echo "Menu > iTerm > Preferences"
-	echo "Load preferences from a custom folder or URL:"
-	echo "~/git_src/dev_utils/iterm"
-	echo
-	echo "Save changes to folder: Automatically"
-	echo "Save Current Settings to Folder"
-	read -p "Press Return to continue" etc
-
-
-	read -p "Press Return to kill iterm" etc
-	killall iTerm2
-	echo "Openning iTerm"
-	open -a iterm
-
-	echo "Should be done!"
-fi
-
-# TODO: Keep In Dock
-# TODO: Make iTerm default terminal
 
 
 #
@@ -260,10 +186,6 @@ ok github $HOME/.vim/bundle/vim-nomadproject hashivim/vim-nomadproject --branch=
 
 
 
-
-
-# TODO: DNS
-# https://1.1.1.1/dns/
 
 
 #
