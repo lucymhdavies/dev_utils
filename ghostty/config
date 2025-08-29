@@ -34,10 +34,7 @@ quick-terminal-position = top
 # (because primary interaction will be Quick Terminal)
 initial-window = false
 
-# Once we've implemented https://github.com/ghostty-org/ghostty/issues/2384#issuecomment-2401129283
-#quick-terminal-size = 100%
-# workaround for now
-window-save-state = always
+quick-terminal-size = 80%
 
 # Don't auto-hide the terminal when we click another window
 quick-terminal-autohide = false
