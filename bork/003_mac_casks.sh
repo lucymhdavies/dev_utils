@@ -28,6 +28,10 @@ ok cask visual-studio-code
 ok cask google-drive
 ok cask dropbox
 
+# DisplayLink Drivers
+# https://www.synaptics.com/products/displaylink-graphics/downloads/macos
+ok cask displaylink
+
 #
 # Mac App Store
 #
