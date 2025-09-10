@@ -200,7 +200,6 @@ ok brew git-secrets
 
 
 # Important Cask Stuff
-ok cask chrome-remote-desktop-host
 ok cask discord
 
 

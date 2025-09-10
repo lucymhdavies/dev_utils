@@ -23,6 +23,7 @@ ok mas 411643860 DaisyDisk
 ok mas 1480068668 Messenger
 ok mas 1387764101 Minimalist
 ok cask whatsapp
+ok cask chrome-remote-desktop-host
 
 
 
