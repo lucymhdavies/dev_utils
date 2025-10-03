@@ -1,6 +1,13 @@
 #!/usr/bin/env bork satisfy
 # BORK_CONTEXT: HOME
 
+#
+# Personal password manager
+#
+
+ok cask lastpass
+# TODO: lastpass keyboard shortcuts
+
 
 # TODO: Setup / folders / etc
 # sudo kmutil load -p /Library/Filesystems/kbfuse.fs/Contents/Extensions/11/kbfuse.kext
@@ -11,6 +18,7 @@ ok cask authy
 
 ok cask cool-retro-term
 
+ok cask dropbox
 
 
 ok cask backblaze

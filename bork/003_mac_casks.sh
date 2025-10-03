@@ -10,7 +10,8 @@ ok cask google-chrome
 
 ok cask slack
 
-ok cask maccy
+# Currently disabling, given macOS has its own clipboard history now
+#ok cask maccy
 # TODO: Maccy Config
 
 ok cask zoom
@@ -26,7 +27,6 @@ ok cask visual-studio-code
 # TODO: All the config and stuff!
 
 ok cask google-drive
-ok cask dropbox
 
 # DisplayLink Drivers
 # https://www.synaptics.com/products/displaylink-graphics/downloads/macos

@@ -68,9 +68,7 @@ fi
 # Password Managers
 #
 
-ok cask lastpass
 ok cask 1password
-# TODO: lastpass keyboard shortcuts
 
 
 

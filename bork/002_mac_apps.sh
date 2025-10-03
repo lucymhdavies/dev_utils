@@ -33,9 +33,9 @@ ok brew speedtest
 #
 
 ok mas 1153157709 Speedtest
-ok mas 937984704 Amphetamine
-ok mas 467040476 HiddenMe
-ok mas 425424353 TheUnarchiver
+#ok mas 937984704 Amphetamine
+#ok mas 467040476 HiddenMe
+#ok mas 425424353 TheUnarchiver
 
 #
 # Other useful apps
@@ -43,7 +43,7 @@ ok mas 425424353 TheUnarchiver
 ok cask airserver
 ok cask keybase
 ok cask yubico-yubikey-manager
-ok cask mos
+#ok cask mos
 ok cask raycast
 ok brew displayplacer
 
