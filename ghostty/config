@@ -25,16 +25,17 @@ auto-update-channel = tip
 # Quick Terminal Settings
 #
 
-#keybind = global:super+grave_accent=toggle_quick_terminal
 keybind = global:option+space=toggle_quick_terminal
 quick-terminal-screen = mouse
+quick-terminal-size = 80%,100%
+quick-terminal-animation-duration = 0
 quick-terminal-position = top
 
 # Do not show an initial winwo when launching Ghostty
 # (because primary interaction will be Quick Terminal)
 initial-window = false
 
-quick-terminal-size = 80%
+
 
 # Don't auto-hide the terminal when we click another window
 quick-terminal-autohide = false
