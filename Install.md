@@ -20,7 +20,7 @@ brew install bork
 Get initial stuff in place:
 
 ```
-bork satisfy git_src/dev_utils/bork/000_init_mac.sh
+COMPUTER_NAME=<pick_name_here> bork satisfy git_src/dev_utils/bork/000_init_mac.sh
 ```
 
 The rest, can be done later:
