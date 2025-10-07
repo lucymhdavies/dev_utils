@@ -9,8 +9,8 @@
 # Three finger drag
 ok defaults com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag bool true
 
-# TODO: function keys as F keys
-
+# Function keys as F keys
+ok defaults NSGlobalDomain com.apple.keyboard.fnState bool true
 
 
 
