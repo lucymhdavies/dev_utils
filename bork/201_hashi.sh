@@ -17,7 +17,7 @@ fi
 
 ok brew awscli
 ok brew azure-cli
-ok cask google-cloud-sdk
+ok cask gcloud-cli
 
 
 #

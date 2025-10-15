@@ -782,8 +782,8 @@ alias lmhd_vault_login_admin="VAULT_ADDR=https://vault.lmhd.me vault login -meth
 
 
 # Google Stuff
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
+source "$(brew --prefix)/Caskroom/gcloud-cli/latest/google-cloud-sdk/path.bash.inc"
+source "$(brew --prefix)/Caskroom/gcloud-cli/latest/google-cloud-sdk/completion.bash.inc"
 
 
 
