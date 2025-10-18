@@ -145,3 +145,4 @@ ok symlink $HOME/.bash_profile $HOME/.bashrc
 ok brew coreutils
 ok brew bash-git-prompt
 ok brew thefuck
+ok brew eza
