@@ -213,7 +213,7 @@ fi
 alias ll="ls -lh"
 
 # https://eza.rocks/
-if command -v eza; then
+if command -v eza >/dev/null; then
 	alias ls='eza --icons=auto --group-directories-first'
 fi
 
